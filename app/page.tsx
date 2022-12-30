@@ -1,91 +1,54 @@
-import Image from 'next/image'
-import { Inter } from '@next/font/google'
-import styles from './page.module.css'
-
-const inter = Inter({ subsets: ['latin'] })
+import { Container } from "@components/Container";
+import {
+  GitHubIcon,
+  InstagramIcon,
+  LinkedInIcon,
+  TwitterIcon,
+} from "@components/SocialIcons";
+import { SocialLink } from "@components/SocialLink";
+import me from "@images/me-500x500.png";
+import Image from "next/image";
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.tsx</code>
+    <Container className="mt-24">
+      <div className="max-w-2xl">
+        <Image src={me} alt="" sizes="124px" width={124} height={124} />
+        <h1 className="mt-6 text-4xl font-bold tracking-tight text-zinc-100 sm:text-5xl">
+          Web Developer, Mobile Developer, and Computer Science student.
+        </h1>
+        <p className="mt-6 text-base text-zinc-400">
+          Hello! I'm MJ, a Web Developer / Mobile Developer currently pursuing a
+          Bachelor's degree in Computer Science. I was born on June 1, 2003, and
+          have always had a strong interest in technology and problem-solving.
         </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
+        <div className="mt-6 flex gap-6">
+          <SocialLink
+            href="https://twitter.com/carnajeeed"
+            aria-label="Follow on Twitter"
+            icon={TwitterIcon}
             target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+          />
+          <SocialLink
+            href="https://instagram.com/mjcarnaje"
+            aria-label="Follow on Instagram"
+            icon={InstagramIcon}
+            target="_blank"
+          />
+          <SocialLink
+            href="https://github.com/mjcarnaje"
+            aria-label="Follow on GitHub"
+            icon={GitHubIcon}
+            target="_blank"
+          />
+          <SocialLink
+            href="https://www.linkedin.com/in/mjcarnaje"
+            aria-label="Follow on LinkedIn"
+            icon={LinkedInIcon}
+            target="_blank"
+          />
         </div>
       </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-        <div className={styles.thirteen}>
-          <Image src="/thirteen.svg" alt="13" width={40} height={31} priority />
-        </div>
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://beta.nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+    </Container>
+  );
 }
