@@ -22,9 +22,19 @@
     "baseUrl": ".",
     "paths": {
       "@components/*": ["app/components/*"],
-      "@images/*": ["app/images/*"]
+      "@components": ["app/components/"],
+      "@assets/*": ["app/assets/*"],
+      "@assets": ["app/assets/"],
+      "@hooks/*": ["app/hooks/*"],
+      "@hooks": ["app/hooks/"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "app/assets/icons/index.tsz"
+  ],
   "exclude": ["node_modules"]
 }

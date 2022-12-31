@@ -2,8 +2,6 @@
 const nextConfig = {
   experimental: {
     appDir: true,
-    reactRoot: true,
-    runtime: "nodejs",
   },
 };
 

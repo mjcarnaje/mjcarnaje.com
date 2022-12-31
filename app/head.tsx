@@ -1,4 +1,4 @@
-import DefaultTags from "@components/DefaultTags";
+import { DefaultTags } from "@components";
 
 export default async function Head() {
   return (
