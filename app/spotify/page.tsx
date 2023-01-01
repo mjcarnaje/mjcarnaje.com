@@ -4,32 +4,32 @@ import { Profile } from "@components/spotify/Profile";
 import { BASE_URL } from "@constants";
 
 async function getTopArtists(): Promise<ArtistReponse[]> {
-  return fetch(`${BASE_URL}/api/spotify/top-artists`)
-    .then((res) => res.json())
-    .catch(() => {
-      throw new Error("Failed to fetch data");
-    });
+  const res = await fetch(`${BASE_URL}/api/spotify/top-artists`);
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
+  return res.json();
 }
 async function getTopTracks(): Promise<TrackReponse[]> {
-  return fetch(`${BASE_URL}/api/spotify/top-tracks`)
-    .then((res) => res.json())
-    .catch(() => {
-      throw new Error("Failed to fetch data");
-    });
+  const res = await fetch(`${BASE_URL}/api/spotify/top-tracks`);
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
+  return res.json();
 }
 async function getMe(): Promise<SpotifyApi.UserProfileResponse> {
-  return fetch(`${BASE_URL}/api/spotify/me`)
-    .then((res) => res.json())
-    .catch(() => {
-      throw new Error("Failed to fetch data");
-    });
+  const res = await fetch(`${BASE_URL}/api/spotify/me`);
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
+  return res.json();
 }
 async function getCurrentlyPlaying(): Promise<SpotifyApi.CurrentlyPlayingResponse> {
-  return fetch(`${BASE_URL}/api/spotify/currently-playing`)
-    .then((res) => res.json())
-    .catch(() => {
-      throw new Error("Failed to fetch data");
-    });
+  const res = await fetch(`${BASE_URL}/api/spotify/currently-playing`);
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
+  return res.json();
 }
 
 export default async function Spotify() {
