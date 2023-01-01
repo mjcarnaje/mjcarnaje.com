@@ -5,7 +5,12 @@ export default async function handler(
   _req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const scopes = ["user-read-currently-playing", "user-top-read"];
+  const scopes = [
+    "user-read-currently-playing",
+    "user-top-read",
+    "user-read-private",
+    "user-read-email",
+  ];
 
   res.redirect(
     "https://accounts.spotify.com/authorize?" +
@@ -13,7 +18,7 @@ export default async function handler(
         response_type: "code",
         client_id: process.env.SPOTIFY_CLIENT_ID as string,
         scope: scopes.join(" "),
-        redirect_uri: "http://localhost:3000/api/spotify/callback",
+        redirect_uri: `${process.env.BASE_URL}/api/spotify/refresh-token`,
         state: generateRandomString(16),
       })
   );
