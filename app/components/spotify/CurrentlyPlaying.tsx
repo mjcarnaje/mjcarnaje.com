@@ -5,11 +5,11 @@ import React from "react";
 import { isTrackObjectFull } from "types/util";
 
 interface CurrentlyPlayingProps {
-  data: SpotifyApi.CurrentlyPlayingResponse | { is_playing: false };
+  data: SpotifyApi.CurrentlyPlayingResponse | null;
 }
 
 export const CurrentlyPlaying: React.FC<CurrentlyPlayingProps> = ({ data }) => {
-  if (!data.is_playing) {
+  if (!data) {
     return null;
   }
 

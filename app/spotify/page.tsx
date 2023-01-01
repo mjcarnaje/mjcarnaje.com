@@ -63,9 +63,7 @@ async function getMe(): Promise<SpotifyApi.UserProfileResponse> {
   }
   return response.json();
 }
-async function getCurrentlyPlaying(): Promise<
-  SpotifyApi.CurrentlyPlayingResponse | { is_playing: false }
-> {
+async function getCurrentlyPlaying(): Promise<SpotifyApi.CurrentlyPlayingResponse | null> {
   const access_token = await getAccessToken();
   const response = await fetch(
     "https://api.spotify.com/v1/me/player/currently-playing",
@@ -74,11 +72,10 @@ async function getCurrentlyPlaying(): Promise<
       headers: {
         Authorization: `Bearer ${access_token}`,
       },
-      cache: "no-store",
     }
   );
   if (!response.ok) {
-    throw new Error("Failed to fetch data");
+    return null;
   }
   return response.json();
 }
