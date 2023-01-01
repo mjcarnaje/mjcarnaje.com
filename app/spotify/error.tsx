@@ -1,16 +1,26 @@
-import { Container } from "@components";
+"use client";
 
-export default function Error() {
+// 'use client' marks this page as a Client Component
+// https://beta.nextjs.org/docs/rendering/server-and-client-components
+
+import { useEffect } from "react";
+
+export default function Error({
+  error,
+  reset,
+}: {
+  error: Error;
+  reset: () => void;
+}) {
+  useEffect(() => {
+    // Log the error to an error reporting service
+    console.error(error);
+  }, [error]);
+
   return (
-    <Container className="my-24 min-h-screen">
-      <div className="w-full flex items-center justify-center">
-        <div className="pb-12 flex flex-col items-center gap-8">
-          <div className="w-[180px] h-[180px] bg-zinc-400 rounded-full" />
-          <h1 className="text-gray-50 font-bold text-5xl hover:text-green-500">
-            Something went wrong
-          </h1>
-        </div>
-      </div>
-    </Container>
+    <div>
+      <p>Something went wrong!</p>
+      <button onClick={() => reset()}>Reset error boundary</button>
+    </div>
   );
 }
