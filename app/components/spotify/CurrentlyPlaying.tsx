@@ -1,14 +1,31 @@
 import { SpotifyIcon } from "@assets/icons";
 import clsx from "clsx";
+import { getAccessToken } from "lib/spotify";
 import Image from "next/image";
 import React from "react";
 import { isTrackObjectFull } from "types/util";
 
-interface CurrentlyPlayingProps {
-  data: SpotifyApi.CurrentlyPlayingResponse | null;
+async function getCurrentlyPlaying(): Promise<SpotifyApi.CurrentlyPlayingResponse | null> {
+  const access_token = await getAccessToken();
+  const response = await fetch(
+    "https://api.spotify.com/v1/me/player/currently-playing",
+    {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${access_token}`,
+      },
+      cache: "no-store",
+    }
+  );
+  if (!response.ok) {
+    return null;
+  }
+  return response.json();
 }
 
-export const CurrentlyPlaying: React.FC<CurrentlyPlayingProps> = ({ data }) => {
+export default async function CurrentlyPlaying() {
+  const data = await getCurrentlyPlaying();
+
   if (!data) {
     return null;
   }
@@ -55,4 +72,4 @@ export const CurrentlyPlaying: React.FC<CurrentlyPlayingProps> = ({ data }) => {
       </div>
     </div>
   );
-};
+}

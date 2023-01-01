@@ -1,7 +1,8 @@
 import { Container, TopArtists, TopTracks } from "@components";
-import { CurrentlyPlaying } from "@components/spotify/CurrentlyPlaying";
+import CurrentlyPlaying from "@components/spotify/CurrentlyPlaying";
 import { Profile } from "@components/spotify/Profile";
 import { getAccessToken } from "lib/spotify";
+import { Suspense } from "react";
 
 async function getTopArtists(): Promise<ArtistReponse[]> {
   const access_token = await getAccessToken();
@@ -63,36 +64,22 @@ async function getMe(): Promise<SpotifyApi.UserProfileResponse> {
   }
   return response.json();
 }
-async function getCurrentlyPlaying(): Promise<SpotifyApi.CurrentlyPlayingResponse | null> {
-  const access_token = await getAccessToken();
-  const response = await fetch(
-    "https://api.spotify.com/v1/me/player/currently-playing",
-    {
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${access_token}`,
-      },
-    }
-  );
-  if (!response.ok) {
-    return null;
-  }
-  return response.json();
-}
 
 export default async function Spotify() {
-  const [topArtists, topTracks, me, currentlyPlaying] = await Promise.all([
+  const [topArtists, topTracks, me] = await Promise.all([
     getTopArtists(),
     getTopTracks(),
     getMe(),
-    getCurrentlyPlaying(),
   ]);
 
   return (
     <Container className="my-24">
       <div className="pb-12 flex flex-col gap-8">
         <Profile data={me} />
-        <CurrentlyPlaying data={currentlyPlaying} />
+        <Suspense fallback={<p>loading..</p>}>
+          {/* @ts-expect-error Async Server Component */}
+          <CurrentlyPlaying />
+        </Suspense>
       </div>
       <div className="flex gap-4 w-full">
         <TopArtists data={topArtists} />
