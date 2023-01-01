@@ -26,7 +26,9 @@
       "@assets/*": ["app/assets/*"],
       "@assets": ["app/assets/"],
       "@hooks/*": ["app/hooks/*"],
-      "@hooks": ["app/hooks/"]
+      "@hooks": ["app/hooks/"],
+      "@constants/*": ["constants/*"],
+      "@constants": ["constants/"]
     }
   },
   "include": [
