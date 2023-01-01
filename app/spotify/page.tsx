@@ -1,7 +1,6 @@
 import { Container, TopArtists, TopTracks } from "@components";
 import { CurrentlyPlaying } from "@components/spotify/CurrentlyPlaying";
 import { Profile } from "@components/spotify/Profile";
-import { BASE_URL } from "@constants";
 import { getAccessToken } from "lib/spotify";
 
 async function getTopArtists(): Promise<ArtistReponse[]> {
@@ -13,7 +12,7 @@ async function getTopArtists(): Promise<ArtistReponse[]> {
     },
   });
   if (!response.ok) {
-    throw new Error(`Failed to fetch data ${BASE_URL}/api/spotify/top-artists`);
+    throw new Error("Failed to fetch data");
   }
   const data: SpotifyApi.UsersTopArtistsResponse = await response.json();
 
@@ -36,7 +35,7 @@ async function getTopTracks(): Promise<TrackReponse[]> {
     },
   });
   if (!response.ok) {
-    throw new Error(`Failed to fetch data ${BASE_URL}/api/spotify/top-tracks`);
+    throw new Error("Failed to fetch data");
   }
   const data: SpotifyApi.UsersTopTracksResponse = await response.json();
   const tracks: TrackReponse[] = data.items.map((track) => ({
@@ -60,7 +59,7 @@ async function getMe(): Promise<SpotifyApi.UserProfileResponse> {
     },
   });
   if (!response.ok) {
-    throw new Error(`Failed to fetch data ${BASE_URL}/api/spotify/me`);
+    throw new Error("Failed to fetch data");
   }
   return response.json();
 }
@@ -75,12 +74,11 @@ async function getCurrentlyPlaying(): Promise<
       headers: {
         Authorization: `Bearer ${access_token}`,
       },
+      cache: "no-cache",
     }
   );
   if (!response.ok) {
-    throw new Error(
-      `Failed to fetch data ${BASE_URL}/api/spotify/currently-playing`
-    );
+    throw new Error("Failed to fetch data");
   }
   return response.json();
 }
