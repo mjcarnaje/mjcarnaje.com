@@ -5,10 +5,14 @@ import React from "react";
 import { isTrackObjectFull } from "types/util";
 
 interface CurrentlyPlayingProps {
-  data: SpotifyApi.CurrentlyPlayingResponse;
+  data: SpotifyApi.CurrentlyPlayingResponse | { is_playing: false };
 }
 
 export const CurrentlyPlaying: React.FC<CurrentlyPlayingProps> = ({ data }) => {
+  if (!data.is_playing) {
+    return null;
+  }
+
   if (!isTrackObjectFull(data.item)) {
     return null;
   }

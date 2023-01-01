@@ -17,11 +17,15 @@ export default async function handler(
     }
   );
 
-  if (!response.ok) {
-    res.status(500).json({ error: response.statusText });
+  if (response.status === 204 || response.status > 400) {
+    return res.status(200).json({ is_playing: false });
   }
 
   const data = await response.json();
+
+  if (!data) {
+    return res.status(200).json({ is_playing: false });
+  }
 
   res.status(200).json(data);
 }
