@@ -19,7 +19,6 @@ export default async function handler(
 
   if (!response.ok) {
     res.status(500).json({ error: response.statusText });
-    return;
   }
 
   const data = await response.json();
