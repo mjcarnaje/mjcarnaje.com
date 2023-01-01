@@ -74,7 +74,7 @@ async function getCurrentlyPlaying(): Promise<
       headers: {
         Authorization: `Bearer ${access_token}`,
       },
-      cache: "no-cache",
+      cache: "no-store",
     }
   );
   if (!response.ok) {
