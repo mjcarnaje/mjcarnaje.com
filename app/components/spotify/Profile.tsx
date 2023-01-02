@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { formatNumber } from "lib/misc";
 import Image from "next/image";
 import Link from "next/link";
@@ -16,6 +17,11 @@ export const Profile: React.FC<ProfileProps> = ({ data }) => {
         width={180}
         height={180}
         className="rounded-full mb-6"
+      />
+      <img
+        src={data.images?.[0]?.url || ""}
+        alt="Picture of the author"
+        className="rounded-full mb-6 w-48 h-48"
       />
       <div>
         <Link href={data.uri}>
