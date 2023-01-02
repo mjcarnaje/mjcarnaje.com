@@ -81,7 +81,7 @@ export default async function Spotify() {
           <CurrentlyPlaying />
         </Suspense>
       </div>
-      <div className="flex gap-4 w-full">
+      <div className="flex flex-col lg:flex-row gap-24 lg:gap-4 w-full">
         <TopArtists data={topArtists} />
         <TopTracks data={topTracks} />
       </div>
