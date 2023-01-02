@@ -1,5 +1,6 @@
 "use client";
 
+import { Analytics } from "@components/analytics/Analytics";
 import { Inter } from "@next/font/google";
 import clsx from "clsx";
 import Link from "next/link";
@@ -51,6 +52,7 @@ export default function RootLayout({
     <>
       <html lang="en" className={inter.variable}>
         <body className="min-h-screen bg-zinc-900 text-zinc-100">
+          <Analytics />
           <Container className="h-16 z-10">
             <div className="h-16 pt-6 flex justify-between">
               <div className="w-full" />
