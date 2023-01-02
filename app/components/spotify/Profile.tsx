@@ -11,16 +11,9 @@ interface ProfileProps {
 export const Profile: React.FC<ProfileProps> = ({ data }) => {
   return (
     <div className="w-full flex flex-col justify-center items-center">
-      <Image
-        src={data.images?.[0]?.url || ""}
-        alt="Picture of the author"
-        width={180}
-        height={180}
-        className="rounded-full mb-6"
-      />
       <img
         src={data.images?.[0]?.url || ""}
-        alt="Picture of the author"
+        alt={`${data.display_name}'s profile picture`}
         className="rounded-full mb-6 w-48 h-48"
       />
       <div>
