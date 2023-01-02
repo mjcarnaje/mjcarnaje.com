@@ -12,7 +12,7 @@ const analyticsDataClient = new BetaAnalyticsDataClient({
 
 async function getReport(): Promise<google.analytics.data.v1beta.IRunReportResponse> {
   const [response] = await analyticsDataClient.runReport({
-    property: "properties/G-GZE0NBNP1K",
+    property: "properties/347859177",
     dateRanges: [{ startDate: "30daysAgo", endDate: "today" }],
     dimensions: [{ name: "year" }],
     metrics: [{ name: "activeUsers" }],
