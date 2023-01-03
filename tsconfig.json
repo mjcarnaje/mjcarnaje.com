@@ -27,8 +27,14 @@
       "@assets": ["app/assets/"],
       "@hooks/*": ["app/hooks/*"],
       "@hooks": ["app/hooks/"],
+      "@styles/*": ["app/styles/*"],
+      "@styles": ["app/styles/"],
       "@constants/*": ["constants/*"],
-      "@constants": ["constants/"]
+      "@constants": ["constants/"],
+      "@lib/*": ["lib/*"],
+      "@lib": ["lib/"],
+      "@typings/*": ["types/*"],
+      "@typings": ["types/"]
     }
   },
   "include": [

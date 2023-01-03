@@ -2,52 +2,53 @@
 
 import { Analytics } from "@components/analytics/Analytics";
 import { Inter } from "@next/font/google";
-import clsx from "clsx";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { Container } from "./components";
-import "./globals.css";
+import "@styles/globals.css";
+import "@styles/nprogress.css";
+import { Router } from "next/router";
+import NProgress from "nprogress";
+import { useEffect } from "react";
+import { Container, NavItem } from "./components";
 
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
 });
 
-function NavItem({
-  href,
-  children,
-}: {
-  href: string;
+interface RootLayoutProps {
   children: React.ReactNode;
-}) {
-  const pathname = usePathname();
-  const isActive = pathname === href;
-
-  return (
-    <li className="w-full flex justify-center items-center">
-      <Link
-        href={href}
-        className={clsx(
-          "relative block px-3 py-2 transition",
-          isActive
-            ? "text-indigo-500 dark:text-indigo-400 font-medium"
-            : "hover:text-indigo-500 dark:hover:text-indigo-400 font-normal"
-        )}
-      >
-        {children}
-        {isActive && (
-          <span className="absolute inset-x-1 -bottom-px h-px bg-gradient-to-r from-indigo-500/0 via-indigo-500/40 to-indigo-500/0 dark:from-indigo-400/0 dark:via-indigo-400/40 dark:to-indigo-400/0" />
-        )}
-      </Link>
-    </li>
-  );
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: RootLayoutProps) {
+  useEffect(() => {
+    NProgress.configure({
+      easing: "ease",
+      speed: 800,
+      showSpinner: false,
+    });
+
+    let timeout: NodeJS.Timeout;
+    const start = () =>
+      (timeout = setTimeout(() => {
+        NProgress.start();
+        alert("Loading...");
+      }, 100));
+    const done = () => {
+      clearTimeout(timeout);
+      NProgress.done();
+    };
+
+    Router.events.on("routeChangeStart", start);
+    Router.events.on("routeChangeComplete", done);
+    Router.events.on("routeChangeError", done);
+
+    return () => {
+      Router.events.off("routeChangeStart", start);
+      Router.events.off("routeChangeComplete", done);
+      Router.events.off("routeChangeError", done);
+      clearTimeout(timeout);
+    };
+  }, []);
+
   return (
     <>
       <html lang="en" className={inter.variable}>
