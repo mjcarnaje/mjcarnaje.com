@@ -10,7 +10,9 @@ const analyticsDataClient = new BetaAnalyticsDataClient({
   },
 });
 
-async function getReport(): Promise<google.analytics.data.v1beta.IRunReportResponse> {
+async function getReport(): Promise<
+  google.analytics.data.v1beta.IRunReportResponse & { total_visits: number }
+> {
   const [response] = await analyticsDataClient.runReport({
     property: "properties/347859177",
     dateRanges: [{ startDate: "30daysAgo", endDate: "today" }],
@@ -18,7 +20,15 @@ async function getReport(): Promise<google.analytics.data.v1beta.IRunReportRespo
     metrics: [{ name: "activeUsers" }],
   });
 
-  return response;
+  const total_visits = (response.rows || []).reduce((acc, row) => {
+    const num = parseInt(row.metricValues?.[0]?.value || "");
+    return acc + num;
+  }, 0);
+
+  return {
+    ...response,
+    total_visits,
+  };
 }
 
 export default async function GoogleAnalyticsStats() {
@@ -26,7 +36,7 @@ export default async function GoogleAnalyticsStats() {
   return (
     <div>
       <h1>Google Analytics</h1>
-      <pre>{JSON.stringify(data, null, 2)}</pre>
+      <pre>{JSON.stringify({ total_visits: data.total_visits }, null, 2)}</pre>
     </div>
   );
 }
