@@ -18,7 +18,7 @@ export function NavItem({ href, children }: NavItemProps) {
       <Link
         href={href}
         className={clsx(
-          "relative block px-3 py-2 transition",
+          "relative block px-3 py-2 transition text-zinc-50",
           isActive
             ? "text-indigo-500 dark:text-indigo-400 font-medium"
             : "hover:text-indigo-500 dark:hover:text-indigo-400 font-normal"
