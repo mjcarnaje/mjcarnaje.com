@@ -11,10 +11,10 @@ interface NavItemProps {
 
 export function NavItem({ href, children }: NavItemProps) {
   const pathname = usePathname();
-  const isActive = pathname === href;
+  const isActive = pathname.substring(1).startsWith(href.substring(1));
 
   return (
-    <li className="w-full flex justify-center items-center">
+    <li className="flex items-center justify-center w-full">
       <Link
         href={href}
         className={clsx(
@@ -26,7 +26,7 @@ export function NavItem({ href, children }: NavItemProps) {
       >
         {children}
         {isActive && (
-          <span className="absolute inset-x-1 -bottom-px h-px bg-gradient-to-r from-indigo-500/0 via-indigo-500/40 to-indigo-500/0 dark:from-indigo-400/0 dark:via-indigo-400/40 dark:to-indigo-400/0" />
+          <span className="absolute h-px inset-x-1 -bottom-px bg-gradient-to-r from-indigo-500/0 via-indigo-500/40 to-indigo-500/0 dark:from-indigo-400/0 dark:via-indigo-400/40 dark:to-indigo-400/0" />
         )}
       </Link>
     </li>
