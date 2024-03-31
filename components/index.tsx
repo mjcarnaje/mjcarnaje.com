@@ -1,4 +1,4 @@
-export { Container } from "./Container";
+export { Container } from "./DefaultContainer";
 export { DefaultTags } from "./DefaultTags";
 export { SocialLink } from "./SocialLink";
 export { TopTracks } from "./spotify/TopTracks";

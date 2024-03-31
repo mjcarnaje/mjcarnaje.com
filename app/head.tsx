@@ -1,5 +1,5 @@
-import { DefaultTags } from "@components";
 import Script from "next/script";
+import { DefaultTags } from "../components";
 
 export default async function Head() {
   return (

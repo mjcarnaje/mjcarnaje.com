@@ -1,5 +1,5 @@
-import { Container } from "@components";
-import { ArtistReponse, TimeRange } from "@typings/spotify-profile";
+import { Container } from "@/components";
+import { ArtistReponse, TimeRange } from "@/types/spotify-profile";
 import { getAccessToken } from "lib/spotify";
 import { Artists } from "./Artists";
 
@@ -37,7 +37,7 @@ export default async function SpotifyTopArtists() {
 
   return (
     <Container className="my-24">
-      <div className="flex flex-col lg:flex-row gap-24 lg:gap-16 w-full">
+      <div className="flex flex-col w-full gap-24 lg:flex-row lg:gap-16">
         <Artists data={{ long_term, medium_term, short_term }} />
       </div>
     </Container>

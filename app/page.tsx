@@ -1,5 +1,5 @@
-import { Container } from "@components";
-import Twemoji from "@components/Twemoji";
+import { Container } from "../components";
+import Twemoji from "../components/Twemoji";
 
 export default function Home() {
   return (

@@ -1,4 +1,4 @@
-import { Container, NavItem } from "@components";
+import { Container, NavItem } from "@/components";
 
 export function Navbar() {
   return (

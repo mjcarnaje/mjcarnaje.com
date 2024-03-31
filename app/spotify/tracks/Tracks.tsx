@@ -1,7 +1,7 @@
 "use client";
 
-import { formatMs, randomNum } from "@lib/misc";
-import { TimeRange, TrackReponse } from "@typings/spotify-profile";
+import { formatMs, randomNum } from "@/lib/misc";
+import { TimeRange, TrackReponse } from "@/types/spotify-profile";
 import clsx from "clsx";
 import Image from "next/image";
 import Link from "next/link";
@@ -24,7 +24,7 @@ export function Tracks({ data }: TracksProps) {
 
   return (
     <div className="flex flex-col items-center w-full gap-8">
-      <div className="flex gap-4 justify-end w-full">
+      <div className="flex justify-end w-full gap-4">
         {Object.entries(labels).map(([key, label]) => (
           <button
             key={key}
@@ -40,24 +40,24 @@ export function Tracks({ data }: TracksProps) {
           </button>
         ))}
       </div>
-      <div className="flex flex-col gap-4 w-full">
+      <div className="flex flex-col w-full gap-4">
         {tracks.map((track) => (
           <Link key={track.id} href={track.uri}>
-            <div className="flex items-center p-3 rounded-md cursor-pointer hover:bg-zinc-800 transition duration-200 ease-in-out justify-between">
+            <div className="flex items-center justify-between p-3 transition duration-200 ease-in-out rounded-md cursor-pointer hover:bg-zinc-800">
               <Image
                 src={track.image_url}
                 alt="Picture of the author"
                 width={64}
                 height={64}
-                className="rounded-sm mr-6"
+                className="mr-6 rounded-sm"
               />
               <div className="flex-1">
-                <h3 className="text-white font-medium">{track.title}</h3>
-                <p className="text-zinc-400 text-sm">{`${track.artist} · ${track.album}`}</p>
+                <h3 className="font-medium text-white">{track.title}</h3>
+                <p className="text-sm text-zinc-400">{`${track.artist} · ${track.album}`}</p>
               </div>
 
               <div>
-                <p className="text-zinc-400 text-sm">
+                <p className="text-sm text-zinc-400">
                   {formatMs(track.duration)}
                 </p>
               </div>
@@ -71,20 +71,20 @@ export function Tracks({ data }: TracksProps) {
 
 export function TrackSkeleton() {
   return (
-    <div className="flex items-center p-3 rounded-md cursor-pointer hover:bg-zinc-800 transition duration-200 ease-in-out justify-between">
-      <div className="w-16 h-16 bg-zinc-800 rounded-sm mr-6" />
+    <div className="flex items-center justify-between p-3 transition duration-200 ease-in-out rounded-md cursor-pointer hover:bg-zinc-800">
+      <div className="w-16 h-16 mr-6 rounded-sm bg-zinc-800" />
       <div className="flex-1">
         <div
-          className="w-full h-4 bg-zinc-800 rounded-sm"
+          className="w-full h-4 rounded-sm bg-zinc-800"
           style={{ width: `${randomNum(30, 50)}%` }}
         />
         <div
-          className="w-full h-3 bg-zinc-800 rounded-sm mt-2"
+          className="w-full h-3 mt-2 rounded-sm bg-zinc-800"
           style={{ width: `${randomNum(20, 30)}%` }}
         />
       </div>
       <div>
-        <div className="w-10 h-4 bg-zinc-800 rounded-sm" />
+        <div className="w-10 h-4 rounded-sm bg-zinc-800" />
       </div>
     </div>
   );

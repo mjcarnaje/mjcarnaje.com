@@ -1,5 +1,5 @@
 import React, { memo } from "react";
-import twemoji from "twemoji";
+import twemoji from "@twemoji/api";
 
 const Twemoji: React.FC<{ emoji: string; className?: string }> = ({
   emoji,

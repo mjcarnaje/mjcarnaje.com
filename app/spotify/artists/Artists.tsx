@@ -1,6 +1,6 @@
 "use client";
 
-import { ArtistReponse, TimeRange } from "@typings/spotify-profile";
+import { ArtistReponse, TimeRange } from "@/types/spotify-profile";
 import clsx from "clsx";
 import Image from "next/image";
 import Link from "next/link";
@@ -23,7 +23,7 @@ export function Artists({ data }: ArtistsProps) {
 
   return (
     <div className="flex flex-col items-center w-full gap-8">
-      <div className="flex gap-4 justify-end w-full">
+      <div className="flex justify-end w-full gap-4">
         {Object.entries(labels).map(([key, label]) => (
           <button
             key={key}
@@ -39,7 +39,7 @@ export function Artists({ data }: ArtistsProps) {
           </button>
         ))}
       </div>
-      <div className="grid grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 mt-8">
+      <div className="grid grid-cols-2 gap-8 mt-8 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4">
         {artists.map((artist) => (
           <ArtistItem key={artist.id} artist={artist} />
         ))}
@@ -50,7 +50,7 @@ export function Artists({ data }: ArtistsProps) {
 
 const ArtistItem = ({ artist }: { artist: ArtistReponse }) => {
   return (
-    <div key={artist.id} className="flex flex-col items-center gap-4 w-full">
+    <div key={artist.id} className="flex flex-col items-center w-full gap-4">
       <div
         className="relative w-52 h-52"
         onClick={() => window.open(artist.uri, "_blank")}
@@ -58,14 +58,14 @@ const ArtistItem = ({ artist }: { artist: ArtistReponse }) => {
         <Image
           src={artist.image_url}
           alt={`${artist.name}'s picture`}
-          className="transition duration-200 ease-in-out transform hover:brightness-50 cursor-pointer rounded-full object-cover"
+          className="object-cover transition duration-200 ease-in-out transform rounded-full cursor-pointer hover:brightness-50"
           fill
         />
       </div>
       <Link
         href={artist.uri}
         target="_blank"
-        className="text-md pb-4 hover:underline underline-offset-4 transition duration-200 ease-in-out"
+        className="pb-4 transition duration-200 ease-in-out text-md hover:underline underline-offset-4"
       >
         {artist.name}
       </Link>
@@ -75,9 +75,9 @@ const ArtistItem = ({ artist }: { artist: ArtistReponse }) => {
 
 export function ArtistItemSkeleton() {
   return (
-    <div className="flex flex-col items-center gap-4 w-full">
+    <div className="flex flex-col items-center w-full gap-4">
       <div className="relative w-52 h-52">
-        <div className="absolute inset-0 bg-zinc-800 animate-pulse rounded-full" />
+        <div className="absolute inset-0 rounded-full bg-zinc-800 animate-pulse" />
       </div>
       <div
         className={`h-4 bg-zinc-800 animate-pulse rounded-full ${

@@ -1,5 +1,5 @@
-import { Container } from "@components";
-import { TimeRange } from "@typings/spotify-profile";
+import { Container } from "@/components";
+import { TimeRange } from "@/types/spotify-profile";
 import { TrackSkeleton } from "./Tracks";
 
 export default function Loading() {
@@ -10,10 +10,10 @@ export default function Loading() {
   };
 
   return (
-    <Container className="my-24 min-h-screen">
-      <div className="flex flex-col lg:flex-row gap-24 lg:gap-16 w-full">
+    <Container className="min-h-screen my-24">
+      <div className="flex flex-col w-full gap-24 lg:flex-row lg:gap-16">
         <div className="flex flex-col items-center w-full gap-8">
-          <div className="flex gap-4 justify-end w-full">
+          <div className="flex justify-end w-full gap-4">
             {Object.entries(labels).map(([key, label]) => (
               <button
                 key={key}
@@ -26,7 +26,7 @@ export default function Loading() {
             ))}
           </div>
 
-          <div className="flex flex-col gap-6 w-full">
+          <div className="flex flex-col w-full gap-6">
             {Array.from({ length: 6 }).map((_, i) => (
               <TrackSkeleton key={i} />
             ))}

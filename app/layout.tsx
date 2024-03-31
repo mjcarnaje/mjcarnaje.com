@@ -1,8 +1,7 @@
-import { AnalyticsWrapper } from "@components/Analytics";
-import { Inter } from "@next/font/google";
-import "@styles/globals.css";
-import "@styles/nprogress.css";
-import { Navbar } from "./components";
+import { Inter } from "next/font/google";
+import { AnalyticsWrapper } from "../components/Analytics";
+import "./globals.css";
+import "./nprogress.css";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -17,8 +16,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <>
       <html lang="en" className={inter.variable}>
+        <AnalyticsWrapper />
         <body className="min-h-screen text-gray-800 bg-gray-100">
-          <AnalyticsWrapper />
           <div>{children}</div>
         </body>
       </html>

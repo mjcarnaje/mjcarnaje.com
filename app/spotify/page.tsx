@@ -1,9 +1,9 @@
-import { Container, TopArtists, TopTracks } from "@components";
-import CurrentlyPlaying from "@components/spotify/CurrentlyPlaying";
-import { Profile } from "@components/spotify/Profile";
-import { getAccessToken } from "@lib/spotify";
-import { ArtistReponse, TrackReponse } from "@typings/spotify-profile";
+import { getAccessToken } from "@/lib/spotify";
+import { ArtistReponse, TrackReponse } from "@/types/spotify-profile";
 import { Suspense } from "react";
+import { Container, TopArtists, TopTracks } from "../../components";
+import CurrentlyPlaying from "../../components/spotify/CurrentlyPlaying";
+import { Profile } from "../../components/spotify/Profile";
 
 async function getTopArtists(): Promise<ArtistReponse[]> {
   const access_token = await getAccessToken();
@@ -75,14 +75,13 @@ export default async function Spotify() {
 
   return (
     <Container className="my-24">
-      <div className="pb-12 flex flex-col gap-8">
+      <div className="flex flex-col gap-8 pb-12">
         <Profile data={me} />
         <Suspense fallback={<p>loading..</p>}>
-          {/* @ts-expect-error Async Server Component */}
           <CurrentlyPlaying />
         </Suspense>
       </div>
-      <div className="flex flex-col lg:flex-row gap-24 lg:gap-16 w-full">
+      <div className="flex flex-col w-full gap-24 lg:flex-row lg:gap-16">
         <TopArtists data={topArtists.slice(0, 10)} />
         <TopTracks data={topTracks.slice(0, 10)} />
       </div>

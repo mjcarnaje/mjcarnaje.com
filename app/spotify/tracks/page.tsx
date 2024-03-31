@@ -1,5 +1,5 @@
-import { Container } from "@components";
-import { TimeRange, TrackReponse } from "@typings/spotify-profile";
+import { Container } from "@/components";
+import { TimeRange, TrackReponse } from "@/types/spotify-profile";
 import { getAccessToken } from "lib/spotify";
 import { Tracks } from "./Tracks";
 
@@ -39,7 +39,7 @@ export default async function SpotifyTopTracks() {
   ]);
   return (
     <Container className="my-24">
-      <div className="flex flex-col lg:flex-row gap-24 lg:gap-16 w-full">
+      <div className="flex flex-col w-full gap-24 lg:flex-row lg:gap-16">
         <Tracks data={{ long_term, medium_term, short_term }} />
       </div>
     </Container>
