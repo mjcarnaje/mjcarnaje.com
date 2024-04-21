@@ -4,7 +4,7 @@ import "./globals.css";
 import "./nprogress.css";
 
 const inter = Inter({
-  variable: "--font-inter",
+  variable: "--font-sans",
   subsets: ["latin"],
 });
 
