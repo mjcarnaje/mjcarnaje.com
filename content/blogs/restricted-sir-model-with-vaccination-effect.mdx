@@ -29,6 +29,93 @@ This is for the explanation of constants used in the model
 
 <NetLogoSimulation />
 
+### Code Snippets and its Explanation
+
+<br />
+
+To handle **birthrate**, the following code snippet is used.
+
+We have a variable input `annual_birth_per_1000` which is used to calculate the birth rate. The birth rate is calculated by multiplying the number of turtles with the birth rate per 1000 per year and dividing it by 1000. The rate is then calculated by dividing the product by 365. We then ask one of the turtles to check if the random float is less than the rate. If it is, the status of the turtle is set to "S" and the birth count is incremented by 1.
+
+```
+to handle_birth_rate
+  let rate (count turtles * (annual_birth_per_1000 / 1000)) / 365
+
+  ifelse random-float 100.0 < rate
+  [
+    set birth_count birth_count + 1
+    create-turtles 1
+    [
+      setxy random-xcor random-ycor
+      set shape "person"
+      set status "S"
+    ]
+  ]
+  []
+end
+```
+
+<br />
+
+To handle the **death rate (natural death rate)**, the following code snippet is used.
+
+We have a variable input `annual_death_per_1000` which is used to calculate the death rate. The death rate is calculated by multiplying the number of turtles with the death rate per 1000 per year and dividing it by 1000. The rate is then calculated by dividing the product by 365. We then ask one of the turtles to check if the random float is less than the rate. If it is, the status of the turtle is set to "D" and the natural death count is incremented by 1.
+
+```
+to handle_death_rate
+  let rate (count turtles * (annual_death_per_1000 / 1000)) / 365
+
+  ask one-of turtles [
+    if random-float 100.0 < rate
+    [
+      set status "D"
+      set natural_death_count natural_death_count + 1
+    ]
+  ]
+end
+```
+
+<br />
+
+To handle the **infection rate**, the following code snippet is used.
+
+We have a variable input `infection_rate` which is used to calculate the infection rate. We then ask the other turtles in the radius of 1 with the status "S" to check if the random float is less than the infection rate. If it is, the status of the turtle is set to "I".
+
+```
+to spread
+  let chance random-float 100
+
+  ask other turtles in-radius 1 with [status = "S"] [
+    if chance < infection_rate [
+      set status "I"
+    ]
+  ]
+end
+```
+
+<br />
+
+To handle the **recovery rate**, the following code snippet is used.
+
+We have a variable input `recovery_rate` which is used to calculate the recovery rate. We then ask the turtle to check if the random float is less than the recovery rate. If it is, the status of the turtle is set to "R".
+
+```
+to recover_or_die
+  if infectious_time > days_until_death [
+    set status "D"
+    set died_from_covid_count died_from_covid_count + 1
+  ]
+
+  if status != "D" and infectious_time > days_to_be_recoverable [
+    if random-float 100 < recovery_rate [
+      set status "R"
+      set infectious_time 0
+      set start_of_susceptability days_to_be_susceptible
+    ]
+  ]
+end
+```
+
 ## Explanation of Test Settings
 
 This is for the explanation of test settings
@@ -40,3 +127,7 @@ This is for the key takeaways
 ## References
 
 This is for the references
+
+```
+
+```
