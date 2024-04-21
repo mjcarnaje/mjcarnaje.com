@@ -74,11 +74,11 @@ export default function Home() {
           <article key={blog._id} className="flex flex-col gap-4 group">
             {blog.coverImage && (
               <Link href={blog.slug}>
-                <div className="relative w-full overflow-hidden border rounded-xl aspect-video bg-gray-50 border-gray-900/10">
+                <div className="relative w-full overflow-hidden border rounded-2xl aspect-video bg-gray-50 border-gray-900/10">
                   <Image
                     src={blog.coverImage}
                     fill
-                    className="object-cover transition-transform rounded-xl group-hover:scale-105"
+                    className="object-cover transition-transform rounded-2xl group-hover:scale-105"
                     alt="Aritcle Cover Photo"
                   />
                 </div>

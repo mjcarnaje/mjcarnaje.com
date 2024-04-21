@@ -14,7 +14,7 @@ const NetLogoSimulation = () => {
           height="28"
         />
       </DrawerTrigger>
-      <DrawerTrigger className="flex items-center justify-center gap-5 w-full py-2 border border-dashed rounded-lg border-gray-900/30 bg-gray-50 hover:shadow-lg transition-all">
+      <DrawerTrigger className="flex items-center justify-center gap-5 w-full py-2 border border-dashed rounded-2xl border-gray-900/30 bg-gray-50 hover:shadow-lg transition-all">
         <img
           src="https://netlogoweb.org/assets/images/netlogowebicon.png"
           alt="NetLogo"
@@ -37,7 +37,7 @@ const NetLogoSimulation = () => {
             </p>
           </div>
 
-          <div className="w-full h-full overflow-hidden border rounded-xl shadow-sm aspect-video bg-gradient-to-b from-blue-600/20 via-white to-green-600/20 border-gray-900/10">
+          <div className="w-full h-full overflow-hidden border rounded-2xl shadow-sm aspect-video bg-gradient-to-b from-blue-600/20 via-white to-green-600/20 border-gray-900/10">
             <iframe
               src={NET_LOGO_URL}
               title="NetLogo simulation"

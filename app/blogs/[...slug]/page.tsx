@@ -78,12 +78,12 @@ export default async function PostPage({ params }: PostProps) {
         </Link>
       </div>
 
-      <div className="relative w-full mb-8 border rounded-xl aspect-video bg-gray-50 border-gray-900/10">
+      <div className="relative w-full mb-8 border rounded-2xl aspect-video bg-gray-50 border-gray-900/10">
         <Image
           src={post.coverImage}
           alt={post.title}
           fill
-          className="object-cover mt-0 mb-0 rounded-xl"
+          className="object-cover mt-0 mb-0 rounded-2xl"
         />
       </div>
 
