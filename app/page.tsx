@@ -5,15 +5,15 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="w-full h-full max-w-5xl py-24 mx-auto lg:px-8">
-      <div className="max-w-3xl mx-auto">
+    <div className="w-full h-full max-w-5xl px-4 py-12 mx-auto md:py-24 md:px-8">
+      <div className="w-full mx-auto">
         <div className="w-full">
           <h1 className="mt-6 text-5xl font-bold tracking-tight sm:text-5xl text-inherit">
             <Twemoji className="w-5 h-5" emoji="💻" /> Web Developer, Mobile
             Developer, a Full-Stack Developer.
           </h1>
 
-          <p className="mt-8 text-base">
+          <p className="mt-8 text-base max-w-3xl">
             Hello! I&apos;m{" "}
             <span className="text-lg font-semibold">Michael James Carnaje</span>
             , a proficient Web and Mobile Developer. I&apos;ve worked with
@@ -66,19 +66,19 @@ export default function Home() {
         </div>
       </div>
       <div className="w-full py-12 border-t"></div>
-      <div className="grid grid-cols-2 gap-12 mx-auto">
-        <div className="col-span-2">
+      <div className="grid grid-cols-1 gap-12 mx-auto md:grid-cols-2">
+        <div className="col-span-1 md:col-span-2">
           <h1 className="text-4xl font-bold tracking-tight">Blog Posts</h1>
         </div>
         {allPosts.map((blog) => (
           <article key={blog._id} className="flex flex-col gap-4 group">
             {blog.coverImage && (
               <Link href={blog.slug}>
-                <div className="relative w-full overflow-hidden border rounded-md aspect-video bg-gray-50 border-gray-900/10">
+                <div className="relative w-full overflow-hidden border rounded-xl aspect-video bg-gray-50 border-gray-900/10">
                   <Image
                     src={blog.coverImage}
                     fill
-                    className="object-cover transition-transform rounded-md group-hover:scale-105"
+                    className="object-cover transition-transform rounded-xl group-hover:scale-105"
                     alt="Aritcle Cover Photo"
                   />
                 </div>

@@ -8,6 +8,7 @@ const nextConfig = {
       "tsh.io",
       "file.techscience.com",
       "drive.google.com",
+      "netlogoweb.org",
     ],
   },
 };
