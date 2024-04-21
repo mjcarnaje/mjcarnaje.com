@@ -5,7 +5,7 @@
   "scripts": {
     "build": "next build",
     "build:content": "contentlayer build --clearCache",
-    "dev": "yarn build:content && next dev",
+    "dev": "next dev",
     "start": "next start",
     "lint": "next lint"
   },

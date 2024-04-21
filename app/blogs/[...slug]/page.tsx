@@ -54,10 +54,10 @@ export default async function PostPage({ params }: PostProps) {
   }
 
   return (
-    <article className="w-full max-w-4xl py-24 mx-auto prose">
+    <article className="w-full h-full max-w-4xl px-4 py-12 mx-auto prose md:py-24 md:px-8">
       <div className="flex items-center justify-between mb-8">
         <Link href="/" className="no-underline">
-          <Button variant="ghost" className="flex gap-2">
+          <Button variant="ghost" className="flex gap-2 px-0">
             <ArrowLeftIcon className="w-6 h-6" />
             Back
           </Button>
@@ -65,12 +65,12 @@ export default async function PostPage({ params }: PostProps) {
       </div>
 
       {post.coverImage && (
-        <div className="relative w-full mb-8 border rounded-md aspect-video bg-gray-50 border-gray-900/10">
+        <div className="relative w-full mb-8 border rounded-xl aspect-video bg-gray-50 border-gray-900/10">
           <Image
             src={post.coverImage}
             alt={post.title}
             fill
-            className="object-cover mt-0 mb-0 rounded-md"
+            className="object-cover mt-0 mb-0 rounded-xl"
           />
         </div>
       )}
