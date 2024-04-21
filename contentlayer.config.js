@@ -49,6 +49,9 @@ export const Post = defineDocumentType(() => ({
       type: "string",
       required: true,
     },
+    coverImageCaption: {
+      type: "string",
+    },
     publishAt: {
       type: "date",
     },
