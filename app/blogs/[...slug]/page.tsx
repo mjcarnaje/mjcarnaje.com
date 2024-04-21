@@ -2,11 +2,11 @@ import { allPosts } from "contentlayer/generated";
 import { notFound } from "next/navigation";
 
 import { Mdx } from "@/components/mdx-components";
+import { Button } from "@/components/ui/button";
+import { ArrowLeftIcon } from "lucide-react";
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeftIcon } from "lucide-react";
-import { Button } from "@/components/ui/button";
 
 interface PostProps {
   params: {
@@ -37,6 +37,20 @@ export async function generateMetadata({
   return {
     title: post.title,
     description: post.description,
+    openGraph: {
+      title: post.title,
+      description: post.description,
+      url: post.slug,
+      images: [
+        {
+          url: post.coverImage,
+          width: 1200,
+          height: 660,
+        },
+      ],
+      locale: "en_US",
+      type: "website",
+    },
   };
 }
 
@@ -64,22 +78,18 @@ export default async function PostPage({ params }: PostProps) {
         </Link>
       </div>
 
-      {post.coverImage && (
-        <div className="relative w-full mb-8 border rounded-xl aspect-video bg-gray-50 border-gray-900/10">
-          <Image
-            src={post.coverImage}
-            alt={post.title}
-            fill
-            className="object-cover mt-0 mb-0 rounded-xl"
-          />
-        </div>
-      )}
+      <div className="relative w-full mb-8 border rounded-xl aspect-video bg-gray-50 border-gray-900/10">
+        <Image
+          src={post.coverImage}
+          alt={post.title}
+          fill
+          className="object-cover mt-0 mb-0 rounded-xl"
+        />
+      </div>
 
       <div>
         <h1>{post.title}</h1>
-        {post.description && (
-          <p className="text-xl text-slate-700">{post.description}</p>
-        )}
+        <p className="text-xl text-slate-700">{post.description}</p>
       </div>
       <hr className="my-8" />
       <Mdx code={post.body.code} />
