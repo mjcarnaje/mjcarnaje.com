@@ -17,7 +17,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <>
       <html lang="en" className={inter.variable}>
         <AnalyticsWrapper />
-        <body className="min-h-screen text-gray-800 bg-gray-100">
+        <body className="min-h-screen text-gray-800 bg-gray-100 sm:px-8">
           <div>{children}</div>
         </body>
       </html>
