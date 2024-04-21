@@ -31,11 +31,13 @@ This is for the explanation of constants used in the model
 
 ### Code Snippets and its Explanation
 
+<br />
+
 #### Birth Rate
 
 We have a variable input `annual_birth_per_1000` which is used to calculate the birth rate. The birth rate is calculated by multiplying the number of turtles with the birth rate per 1000 per year and dividing it by 1000. The rate is then calculated by dividing the product by 365. We then ask one of the turtles to check if the random float is less than the rate. If it is, the status of the turtle is set to "S" and the birth count is incremented by 1.
 
-```
+```javascript
 to handle_birth_rate
   let rate (count turtles * (annual_birth_per_1000 / 1000)) / 365
 
@@ -59,7 +61,7 @@ end
 
 We have a variable input `annual_death_per_1000` which is used to calculate the death rate. The death rate is calculated by multiplying the number of turtles with the death rate per 1000 per year and dividing it by 1000. The rate is then calculated by dividing the product by 365. We then ask one of the turtles to check if the random float is less than the rate. If it is, the status of the turtle is set to "D" and the natural death count is incremented by 1.
 
-```
+```javascript
 to handle_death_rate
   let rate (count turtles * (annual_death_per_1000 / 1000)) / 365
 
@@ -79,7 +81,7 @@ end
 
 We have a variable input `infection_rate` which is used to calculate the infection rate. We then ask the other turtles in the radius of 1 with the status "S" to check if the random float is less than the infection rate. If it is, the status of the turtle is set to "I".
 
-```
+```javascript
 to spread
   let chance random-float 100
 
@@ -97,7 +99,7 @@ end
 
 We have a variable input `recovery_rate` which is used to calculate the recovery rate. We then ask the turtle to check if the random float is less than the recovery rate. If it is, the status of the turtle is set to "R".
 
-```
+```javascript
 to recover_or_die
   if infectious_time > days_until_death [
     set status "D"
