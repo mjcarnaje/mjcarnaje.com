@@ -145,10 +145,8 @@ We have a variable input `infection_rate` which is used to calculate the infecti
 
 ```
 to spread
-  let chance random-float 100
-
   ask other turtles in-radius 1 with [status = "S"] [
-    if chance < infection_rate [
+    if random-float 100 < infection_rate [
       set status "I"
     ]
   ]
@@ -304,7 +302,7 @@ end
 
 ## Explanation of Test Settings
 
-The default values for input parameters are based on a research paper that inspired this model. For example, the `infection_rate` is set at 0.45, the `recovery_rate` at 0.265, the natural death rate at 6.5 per 1000 per year (`annual_death_per_1000`), and the birth rate at 19 per 1000 per year (`annual_birth_per_1000`), which are based on the average values for the Philippines in 2020, according to Wikipedia. The `days_until_death` is set at 14, `days_to_be_recoverable` at 10, and `days_to_be_susceptible` at 30. The `initial_population` is set at 2000. The `vaccination_rate` is variable, allowing us to observe the effect of vaccination on the disease's spread. The `start_of_vaccination` is set at 6 weeks to observe the peak of the first wave of the disease before the vaccination program starts, facilitating accurate comparisons to the previous research or model basis.
+The default values for input parameters are based on a research paper that inspired this model. For example, the `infection_rate` is set at 0.45, the `recovery_rate` at 0.265, the natural death rate at 6.5 per 1000 per year (`annual_death_per_1000`), and the birth rate at 19 per 1000 per year (`annual_birth_per_1000`), which are based on the average values for the Philippines in 2020, according to Wikipedia. The `days_until_death` is set at 24, `days_to_be_recoverable` at 4, and `days_to_be_susceptible` at 2. The `initial_population` is set at 2000. The `vaccination_rate` is variable, allowing us to observe the effect of vaccination on the disease's spread. The `start_of_vaccination` is set at 6 weeks to observe the peak of the first wave of the disease before the vaccination program starts, facilitating accurate comparisons to the previous research or model basis.
 
 The different model parameters used in the simulation are described below:
 
