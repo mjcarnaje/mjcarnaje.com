@@ -34,26 +34,24 @@ The agent-based model presented here is an extension of the SIR model, and based
   alt="New Extended SIR Model Equations"
 />
 
-<br />
-
 Now we have an entirely new equation,
 
-<img 
-  src="https://latex.codecogs.com/svg.image?\frac{dS}{dt}=(1-p)\alpha&space;N-\frac{\beta\sqrt{S}I}{N}-\mu\sqrt{S}" 
+<img
+  src="https://latex.codecogs.com/svg.image?\large\frac{\textbf{dS}}{\textbf{dt}}=(1-p)\alpha&space;N-\frac{\beta\sqrt{S}I}{N}-\mu\sqrt{S}"
   alt="Susceptible equation"
 />
 
-<img 
-  src="https://latex.codecogs.com/svg.image?\frac{dI}{dt}=\frac{\beta\sqrt{S}I}{N}-(\gamma&plus;\mu)I" 
+<img
+  src="https://latex.codecogs.com/svg.image?\large\frac{\textbf{dI}}{\textbf{dt}}=\frac{\beta\sqrt{S}I}{N}-(\gamma&plus;\mu)I"
   alt="Infected equation"
 />
 
-<img 
-  src="https://latex.codecogs.com/svg.image?\frac{dR}{dt}=p\alpha&space;N&plus;\gamma&space;I-\mu&space;R" 
+<img
+  src="https://latex.codecogs.com/svg.image?\large\frac{\textbf{dR}}{\textbf{dt}}=p\alpha&space;N&plus;\gamma&space;I-\mu&space;R"
   alt="Recovered equation"
 />
 
-### Where
+#### Where:
 
 - **dS/dt** - Susceptible over time
 
@@ -73,10 +71,10 @@ Now we have an entirely new equation,
 
 - **Population(N)** - The number of population
 
-### Assumptions:
+#### Assumptions:
 
 1. All vaccinated persons are immune to the disease
-2. All recovered individuals are not immune to the disease
+2. All recovered individuals and not vaccinated individuals are susceptible to the disease
 
 <br />
 
@@ -322,6 +320,15 @@ The different model parameters used in the simulation are described below:
 - `start_of_vaccination`: The day when the vaccination program starts.
 
 <br />
+
+## Results and Discussion
+
+|                                                          Original Paper                                                          |                                                           ABM Version                                                           |
+| :------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------: |
+|  ![0%](https://res.cloudinary.com/mjcarnaje/image/upload/v1713766175/public/zvlv8g75lo2biaspvnpo.png) **0% Vaccination (ORIG)**  |  ![0%](https://res.cloudinary.com/mjcarnaje/image/upload/v1713772892/public/a4aopxhcke1uqe2vnlk5.png) **0% Vaccination (ABM)**  |
+| ![35%](https://res.cloudinary.com/mjcarnaje/image/upload/v1713773916/public/zclg1rjemuonaqcj9ioi.png) **35% Vaccination (ORIG)** | ![35%](https://res.cloudinary.com/mjcarnaje/image/upload/v1713774011/public/ppg5dumucyvn5zmrvoi4.png) **35% Vaccination (ABM)** |
+| ![65%](https://res.cloudinary.com/mjcarnaje/image/upload/v1713766850/public/efimuhbw3ywjbuz6b1dq.png) **65% Vaccination (ORIG)** | ![65%](https://res.cloudinary.com/mjcarnaje/image/upload/v1713774098/public/otti1fxl5aovsesqlfqz.png) **65% Vaccination (ABM)** |
+| ![95%](https://res.cloudinary.com/mjcarnaje/image/upload/v1713766877/public/tgofqjzcegbiexmt0hbs.png) **95% Vaccination (ORIG)** | ![95%](https://res.cloudinary.com/mjcarnaje/image/upload/v1713774164/public/feendnshbatdhg4k4dg1.png) **95% Vaccination (ABM)** |
 
 ## Key Takeaways
 

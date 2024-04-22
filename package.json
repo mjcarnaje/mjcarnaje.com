@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build": "contentlayer build  --clearCache && next build",
-    "dev": "contentlayer dev && next dev",
+    "build": "contentlayer build --clearCache && next build",
+    "dev": "next dev",
     "start": "next start",
     "lint": "next lint"
   },
