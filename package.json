@@ -21,7 +21,7 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "contentlayer": "^0.3.4",
-    "date-fns": "^3.6.0",
+    "dayjs": "^1.11.10",
     "eslint": "8.30.0",
     "eslint-config-next": "latest",
     "lucide-react": "^0.372.0",

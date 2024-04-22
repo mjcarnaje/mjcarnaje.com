@@ -7,6 +7,7 @@ import { ArrowLeftIcon } from "lucide-react";
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import dayjs from "dayjs";
 
 interface PostProps {
   params: {
@@ -95,6 +96,7 @@ export default async function PostPage({ params }: PostProps) {
       <div>
         <h1>{post.title}</h1>
         <p className="text-xl text-slate-700">{post.description}</p>
+
         {post?.authors && (
           <div className="flex items-center gap-4 py-2">
             {post.authors.map((author) => (
@@ -107,11 +109,16 @@ export default async function PostPage({ params }: PostProps) {
                     className="rounded-xl not-prose border border-gray-900/5 aspect-square object-cover"
                   />
                 </div>
-                <span className="mr-2">{author.name}</span>
+                <span className="mr-2 text-sm">{author.name}</span>
               </div>
             ))}
           </div>
         )}
+        <p>
+          <time className="text-gray-500" dateTime={post.publishAt}>
+            {dayjs(post.publishAt).format("MMMM D, YYYY")}
+          </time>
+        </p>
       </div>
       <hr className="my-8" />
       <Mdx code={post.body.code} />
