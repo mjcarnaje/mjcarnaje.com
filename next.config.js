@@ -9,6 +9,7 @@ const nextConfig = {
       "file.techscience.com",
       "drive.google.com",
       "netlogoweb.org",
+      "latex.codecogs.com",
     ],
   },
 };
