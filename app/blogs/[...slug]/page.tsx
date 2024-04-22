@@ -95,6 +95,23 @@ export default async function PostPage({ params }: PostProps) {
       <div>
         <h1>{post.title}</h1>
         <p className="text-xl text-slate-700">{post.description}</p>
+        {post?.authors && (
+          <div className="flex items-center gap-4 py-2">
+            {post.authors.map((author) => (
+              <div key={author.name} className="flex items-center gap-2">
+                <div className="relative w-10 h-10 rounded-xl overflow-hidden aspect-square">
+                  <Image
+                    src={author.avatar}
+                    alt={author.name}
+                    fill
+                    className="rounded-xl not-prose border border-gray-900/5 aspect-square object-cover"
+                  />
+                </div>
+                <span className="mr-2">{author.name}</span>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
       <hr className="my-8" />
       <Mdx code={post.body.code} />
