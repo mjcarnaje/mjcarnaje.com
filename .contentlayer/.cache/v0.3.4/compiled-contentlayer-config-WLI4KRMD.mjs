@@ -34,6 +34,12 @@ var Post = defineDocumentType(() => ({
     coverImageCaption: {
       type: "string"
     },
+    authors: {
+      type: "list",
+      of: {
+        type: "json"
+      }
+    },
     publishAt: {
       type: "date"
     }
@@ -80,4 +86,4 @@ export {
   Post,
   contentlayer_config_default as default
 };
-//# sourceMappingURL=compiled-contentlayer-config-AUFBWRS6.mjs.map
+//# sourceMappingURL=compiled-contentlayer-config-WLI4KRMD.mjs.map

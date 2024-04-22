@@ -52,6 +52,12 @@ export const Post = defineDocumentType(() => ({
     coverImageCaption: {
       type: "string",
     },
+    authors: {
+      type: "list",
+      of: {
+        type: "json",
+      },
+    },
     publishAt: {
       type: "date",
     },
