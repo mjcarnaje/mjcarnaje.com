@@ -2,6 +2,7 @@ import { allPosts } from "@/.contentlayer/generated";
 import Image from "next/image";
 import Twemoji from "../components/Twemoji";
 import Link from "next/link";
+import dayjs from "dayjs";
 
 export default function Home() {
   return (
@@ -95,6 +96,11 @@ export default function Home() {
                   <p>{blog.description}</p>
                 </Link>
               )}
+              <Link href={blog.slug}>
+                <p className="text-sm text-gray-500">
+                  {dayjs(blog.publishAt).format("MMMM D, YYYY")}
+                </p>
+              </Link>
             </div>
           </article>
         ))}
