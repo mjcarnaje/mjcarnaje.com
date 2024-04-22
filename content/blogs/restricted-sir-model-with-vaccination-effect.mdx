@@ -38,19 +38,28 @@ The agent-based model presented here is an extension of the SIR model, and based
 
 Now we have an entirely new equation,
 
-$`\frac{dS}{dt}`$ = (1-p)αN - $`\frac{β\sqrt{S}I}{N}`$ - μ$`\sqrt{S}`$,
+<img 
+  src="https://latex.codecogs.com/svg.image?\frac{dS}{dt}=(1-p)\alpha&space;N-\frac{\beta\sqrt{S}I}{N}-\mu\sqrt{S}" 
+  alt="Susceptible equation"
+/>
 
-$`\frac{dI}{dt}`$ = $`\frac{β\sqrt{S}I}{N}`$ - (γ+μ)I
+<img 
+  src="https://latex.codecogs.com/svg.image?\frac{dI}{dt}=\frac{\beta\sqrt{S}I}{N}-(\gamma&plus;\mu)I" 
+  alt="Infected equation"
+/>
 
-$`\frac{dS}{dt}`$ = pαN + γI - μR
+<img 
+  src="https://latex.codecogs.com/svg.image?\frac{dR}{dt}=p\alpha&space;N&plus;\gamma&space;I-\mu&space;R" 
+  alt="Recovered equation"
+/>
 
 ### Where
 
-- **$`\frac{dS}{dt}`$** - Susceptible over time
+- **dS/dt** - Susceptible over time
 
-- **$`\frac{dI}{dt}`$**- Infected person over time
+- **dI/dt**- Infected person over time
 
-- **$`\frac{dS}{dt}`$**- Recovered over time
+- **dR/dt**- Recovered over time
 
 - **Vaccination Rate(p)** - total percentage of population that are vaccinated
 
@@ -320,6 +329,7 @@ The different model parameters used in the simulation are described below:
 - This model effectively simulates the transmission of COVID-19 and evaluates how vaccination contributes to the containment and potential eradication of the disease.
 - It serves as a powerful tool for assessing the efficacy of vaccination drives and other public health measures aimed at curbing the spread of infectious diseases.
 - Implementing vaccination programs is identified as a proactive and impactful method for mitigating the impact of infectious disease outbreaks.
+- There are really difference between equation-based, agent-based modelling and reality. They may have differences but they gave us insights to what will happen
 
 <br />
 
