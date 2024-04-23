@@ -1,5 +1,4 @@
 import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer";
-import { ScatterChart } from "lucide-react";
 
 const NetLogoSimulation = () => {
   const NET_LOGO_URL = "https://abm-covid-19.netlify.app";
