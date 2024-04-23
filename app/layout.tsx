@@ -1,3 +1,4 @@
+import { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { AnalyticsWrapper } from "../components/Analytics";
 import "./globals.css";
@@ -11,6 +12,12 @@ const inter = Inter({
 interface RootLayoutProps {
   children: React.ReactNode;
 }
+
+export const metadata: Metadata = {
+  title: "Michael James Carnaje",
+  description:
+    "Hello! I'm Michael James Carnaje, a coder from the Philippines. Here you can find my projects, blog posts, and more.",
+};
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (

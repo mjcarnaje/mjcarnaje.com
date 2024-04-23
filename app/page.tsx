@@ -1,16 +1,9 @@
 import { allPosts, allProjects } from "@/.contentlayer/generated";
 import { Button } from "@/components/ui/button";
 import dayjs from "dayjs";
-import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import Twemoji from "../components/Twemoji";
-
-export const metadata: Metadata = {
-  title: "Michael James Carnaje",
-  description:
-    "Hello! I'm Michael James Carnaje, a coder from the Philippines. Here you can find my projects, blog posts, and more.",
-};
 
 export default function Home() {
   return (
