@@ -13,8 +13,8 @@ export default function Home() {
         <div className="w-full mx-auto">
           <div className="w-full">
             <h1 className="mt-6 text-5xl font-bold tracking-tight sm:text-5xl text-inherit">
-              <Twemoji className="w-5 h-5" emoji="💻" /> Web Developer, Mobile
-              Developer, a Full-Stack Developer.
+              <Twemoji emoji="💻" /> Web Developer, Mobile Developer, a
+              Full-Stack Developer.
             </h1>
 
             <p className="mt-8 text-base max-w-3xl">
@@ -29,7 +29,7 @@ export default function Home() {
               Firebase, Supabase, SQL, MySQL, PostgreSQL, and more.
             </p>
           </div>
-          <div className="grid gap-6 my-16">
+          <div className="grid gap-6 mt-16 mb-8">
             <div className="flex gap-4">
               <Twemoji emoji="🎓️" />
               <div>
@@ -112,9 +112,9 @@ export default function Home() {
                     <Button
                       size="sm"
                       variant="ghost"
-                      className="flex gap-1.5 text-sm items-center py-1"
+                      className="flex gap-2 text-sm items-center py-1"
                     >
-                      <LinkIcon className="w-4 h-4" />
+                      <Twemoji className="w-4 h-4" emoji="🔗" />
                       Website
                     </Button>
                   </Link>
@@ -124,9 +124,9 @@ export default function Home() {
                     <Button
                       size="sm"
                       variant="ghost"
-                      className="flex gap-1.5 text-sm items-center py-1"
+                      className="flex gap-2 text-sm items-center py-1"
                     >
-                      <LinkIcon className="w-4 h-4" />
+                      <Twemoji className="w-4 h-4" emoji="🔗" />
                       Play Store
                     </Button>
                   </Link>
@@ -136,9 +136,9 @@ export default function Home() {
                     <Button
                       size="sm"
                       variant="ghost"
-                      className="flex gap-1.5 text-sm items-center py-1"
+                      className="flex gap-2 text-sm items-center py-1"
                     >
-                      <LinkIcon className="w-4 h-4" />
+                      <Twemoji className="w-4 h-4" emoji="🔗" />
                       App Store
                     </Button>
                   </Link>
