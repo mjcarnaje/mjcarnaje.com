@@ -121,7 +121,9 @@ export default async function PostPage({ params }: PostProps) {
         </p>
       </div>
       <hr className="my-8" />
-      <Mdx code={post.body.code} />
+      <div className="prose-img:rounded-xl prose-code:font-mono prose-pre:rounded-xl">
+        <Mdx code={post.body.code} />
+      </div>
     </article>
   );
 }
