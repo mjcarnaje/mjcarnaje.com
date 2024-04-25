@@ -4,28 +4,23 @@ import dayjs from "dayjs";
 import Image from "next/image";
 import Link from "next/link";
 import Twemoji from "../components/Twemoji";
+import technologies from "@/components/technologies";
 
 export default function Home() {
   return (
-    <div className="w-full h-full max-w-5xl px-4 py-12 mx-auto md:py-24 md:px-8">
+    <div className="w-full h-full max-w-6xl px-4 py-12 mx-auto md:py-24 md:px-8">
       <div className="flex flex-col gap-16">
         <div className="w-full mx-auto">
           <div className="w-full">
             <h1 className="mt-6 text-5xl font-bold tracking-tight sm:text-5xl text-inherit">
-              <Twemoji emoji="💻" /> Web Developer, Mobile Developer, a
-              Full-Stack Developer.
+              Hello there! <Twemoji emoji="👋" className="ml-2" />
             </h1>
 
             <p className="mt-8 text-base max-w-3xl">
-              Hello! I&apos;m{" "}
-              <span className="text-lg font-semibold">
-                Michael James Carnaje
-              </span>
-              , a proficient Web and Mobile Developer. I&apos;ve worked with
-              Android and iOS Development using React Native, and Web
-              Development using JavaScript, React, Next.js, Node.js, GraphQL,
-              Python, Flask, C/C++, as well as database management using
-              Firebase, Supabase, SQL, MySQL, PostgreSQL, and more.
+              I&apos;m Michael James Carnaje, a Software Engineer based in the
+              Philippines. I&apos;m passionate about building software that
+              solves real-world problems and improves the lives of those around
+              me.
             </p>
           </div>
           <div className="grid gap-6 mt-16 mb-8">
@@ -72,9 +67,33 @@ export default function Home() {
           </div>
         </div>
         <div className="w-full border-t"></div>
+        <div className="w-full flex-col flex gap-12">
+          <div>
+            <h1 className="text-4xl font-bold tracking-tight">
+              Languages & Technologies <Twemoji emoji="💻" className="ml-2" />
+            </h1>
+          </div>
+          <div className="flex flex-wrap gap-8">
+            {technologies.map((tech) => (
+              <div key={tech.name} className="flex flex-col gap-3 items-center">
+                <div className="flex max-w-xs flex-col items-center bg-white border border-gray-200 shadow-sm space-y-2 rounded-full p-4 cursor-pointer hover:scale-110 transition-all duration-300">
+                  <div className="w-12 h-12 aspect-square">
+                    <tech.icon className="w-full h-full" />
+                  </div>
+                </div>
+                <p className="text-sm text-gray-700 font-medium text-center font-mono">
+                  {tech.name}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="w-full border-t"></div>
         <div className="grid grid-cols-1 gap-12 mx-auto md:grid-cols-2">
           <div className="col-span-1 md:col-span-2">
-            <h1 className="text-4xl font-bold tracking-tight">Projects</h1>
+            <h1 className="text-4xl font-bold tracking-tight">
+              Featured Projects <Twemoji emoji="🚀" className="ml-2" />
+            </h1>
           </div>
           {allProjects.map((project) => (
             <article key={project._id} className="flex flex-col gap-4 group">
