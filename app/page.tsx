@@ -73,7 +73,7 @@ export default function Home() {
               Languages & Technologies <Twemoji emoji="💻" className="ml-2" />
             </h1>
           </div>
-          <div className="flex flex-wrap gap-8">
+          <div className="flex flex-wrap justify-center items-center gap-8">
             {technologies.map((tech) => (
               <div key={tech.name} className="flex flex-col gap-3 items-center">
                 <div className="flex max-w-xs flex-col items-center bg-white border border-gray-200 shadow-sm space-y-2 rounded-full p-4 cursor-pointer hover:scale-110 transition-all duration-300">
