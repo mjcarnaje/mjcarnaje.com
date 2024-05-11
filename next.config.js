@@ -12,6 +12,15 @@ const nextConfig = {
       "latex.codecogs.com",
     ],
   },
+  redirects: async () => {
+    return [
+      {
+        source: "/redirect/ocaomodsimyt",
+        destination: "https://youtu.be/_RnJWDULNCk",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;
