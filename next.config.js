@@ -10,6 +10,7 @@ const nextConfig = {
       "drive.google.com",
       "netlogoweb.org",
       "latex.codecogs.com",
+      "upload.wikimedia.org",
     ],
   },
   redirects: async () => {

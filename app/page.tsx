@@ -16,14 +16,14 @@ export default function Home() {
               Hello there! <Twemoji emoji="👋" className="ml-2" />
             </h1>
 
-            <p className="mt-8 text-base max-w-3xl">
+            <p className="max-w-3xl mt-8 text-base">
               I&apos;m Michael James Carnaje, a Software Engineer based in the
               Philippines. I&apos;m passionate about building software that
               solves real-world problems and improves the lives of those around
               me.
             </p>
           </div>
-          <div className="grid gap-6 mt-16 mb-8">
+          <div className="grid gap-6 mt-16">
             <div className="flex gap-4">
               <Twemoji emoji="🎓️" />
               <div>
@@ -65,23 +65,28 @@ export default function Home() {
               </div>
             </div>
           </div>
+          <div className="flex gap-4 mt-16 mb-4">
+            <Link href={`/resume.pdf`} target="_blank">
+              <Button size="lg">Resume</Button>
+            </Link>
+          </div>
         </div>
         <div className="w-full border-t"></div>
-        <div className="w-full flex-col flex gap-12">
+        <div className="flex flex-col w-full gap-12">
           <div>
             <h1 className="text-4xl font-bold tracking-tight">
               Languages & Technologies <Twemoji emoji="💻" className="ml-2" />
             </h1>
           </div>
-          <div className="flex flex-wrap justify-center items-center gap-8">
+          <div className="flex flex-wrap items-center justify-center gap-8">
             {technologies.map((tech) => (
-              <div key={tech.name} className="flex flex-col gap-3 items-center">
-                <div className="flex max-w-xs flex-col items-center bg-white border border-gray-200 shadow-sm space-y-2 rounded-full p-4 cursor-pointer hover:scale-110 transition-all duration-300">
+              <div key={tech.name} className="flex flex-col items-center gap-3">
+                <div className="flex flex-col items-center max-w-xs p-4 space-y-2 transition-all duration-300 bg-white border border-gray-200 rounded-full shadow-sm cursor-pointer hover:scale-110">
                   <div className="w-12 h-12 aspect-square">
                     <tech.icon className="w-full h-full" />
                   </div>
                 </div>
-                <p className="text-sm text-gray-700 font-medium text-center font-mono">
+                <p className="font-mono text-sm font-medium text-center text-gray-700">
                   {tech.name}
                 </p>
               </div>
@@ -114,7 +119,7 @@ export default function Home() {
                 <p>{project.description}</p>
               </div>
               {project.tags && (
-                <div className="flex gap-2 flex-wrap">
+                <div className="flex flex-wrap gap-2">
                   {project.tags.map((tag) => (
                     <div key={tag}>
                       <span className="px-2 py-1 text-sm text-gray-800 bg-gray-200 rounded-md">
@@ -124,13 +129,13 @@ export default function Home() {
                   ))}
                 </div>
               )}
-              <div className="flex gap-4 flex-wrap">
+              <div className="flex flex-wrap gap-4">
                 {project.websiteUrl && (
                   <Link target="_blank" href={project.websiteUrl}>
                     <Button
                       size="sm"
                       variant="ghost"
-                      className="flex gap-2 text-sm items-center py-1"
+                      className="flex items-center gap-2 py-1 text-sm"
                     >
                       <Twemoji className="w-4 h-4" emoji="🔗" />
                       Website
@@ -142,7 +147,7 @@ export default function Home() {
                     <Button
                       size="sm"
                       variant="ghost"
-                      className="flex gap-2 text-sm items-center py-1"
+                      className="flex items-center gap-2 py-1 text-sm"
                     >
                       <Twemoji className="w-4 h-4" emoji="🔗" />
                       Play Store
@@ -154,7 +159,7 @@ export default function Home() {
                     <Button
                       size="sm"
                       variant="ghost"
-                      className="flex gap-2 text-sm items-center py-1"
+                      className="flex items-center gap-2 py-1 text-sm"
                     >
                       <Twemoji className="w-4 h-4" emoji="🔗" />
                       App Store
