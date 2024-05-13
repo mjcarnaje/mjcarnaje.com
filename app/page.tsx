@@ -66,7 +66,7 @@ export default function Home() {
             </div>
           </div>
           <div className="flex gap-4 mt-16 mb-4">
-            <Link href={`/resume.pdf`} target="_blank">
+            <Link href={`/Carnaje - Resume.pdf`} target="_blank">
               <Button size="lg">Resume</Button>
             </Link>
           </div>
