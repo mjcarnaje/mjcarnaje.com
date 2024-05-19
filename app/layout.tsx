@@ -1,9 +1,9 @@
+import { cn } from "@/lib/misc";
 import { Metadata } from "next";
-import { Inter, Fira_Code } from "next/font/google";
+import { Fira_Code, Inter } from "next/font/google";
 import { AnalyticsWrapper } from "../components/Analytics";
 import "./globals.css";
 import "./nprogress.css";
-import { cn } from "@/lib/misc";
 
 const inter = Inter({
   variable: "--font-sans",
@@ -30,7 +30,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <>
       <html lang="en" className={cn(inter.variable, firaCode.variable)}>
         <AnalyticsWrapper />
-        <body className="min-h-screen text-gray-800 bg-gray-100 sm:px-8">
+        <body className="relative min-h-screen bg-dot-black/[0.2] text-gray-800 bg-gray-100 sm:px-8">
           <div>{children}</div>
         </body>
       </html>

@@ -1,10 +1,11 @@
 import { allPosts, allProjects } from "@/.contentlayer/generated";
+import technologies from "@/components/technologies";
 import { Button } from "@/components/ui/button";
+import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
 import dayjs from "dayjs";
 import Image from "next/image";
 import Link from "next/link";
 import Twemoji from "../components/Twemoji";
-import technologies from "@/components/technologies";
 
 export default function Home() {
   return (
@@ -12,9 +13,22 @@ export default function Home() {
       <div className="flex flex-col gap-16">
         <div className="w-full mx-auto">
           <div className="w-full">
-            <h1 className="mt-6 text-5xl font-bold tracking-tight sm:text-5xl text-inherit">
-              Hello there! <Twemoji emoji="👋" className="ml-2" />
-            </h1>
+            <TypewriterEffectSmooth
+              className="mt-6 text-5xl font-bold tracking-tight sm:text-5xl text-inherit"
+              words={[
+                {
+                  text: "Hello",
+                },
+                {
+                  text: "there!",
+                },
+                {
+                  isEmoji: true,
+                  className: "ml-2",
+                  text: "👋",
+                },
+              ]}
+            />
 
             <p className="max-w-3xl mt-8 text-base">
               I&apos;m Michael James Carnaje, a Software Engineer based in the
@@ -67,7 +81,9 @@ export default function Home() {
           </div>
           <div className="flex gap-4 mt-16 mb-4">
             <Link href={`/Carnaje - Resume.pdf`} target="_blank">
-              <Button size="lg">Resume</Button>
+              <button className="inline-flex h-12 animate-shimmer items-center justify-center rounded-md border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#333f4f,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-white transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
+                Resume
+              </button>
             </Link>
           </div>
         </div>
@@ -81,7 +97,7 @@ export default function Home() {
           <div className="flex flex-wrap items-center justify-center gap-8">
             {technologies.map((tech) => (
               <div key={tech.name} className="flex flex-col items-center gap-3">
-                <div className="flex flex-col items-center max-w-xs p-4 space-y-2 transition-all duration-300 bg-white border border-gray-200 rounded-full shadow-sm cursor-pointer hover:scale-110">
+                <div className="flex flex-col items-center max-w-xs p-4 space-y-2 transition-all duration-300 bg-white bg-grid-small-black/[.1] border-input border rounded-full shadow-sm cursor-pointer hover:scale-110">
                   <div className="w-12 h-12 aspect-square">
                     <tech.icon className="w-full h-full" />
                   </div>
@@ -101,9 +117,12 @@ export default function Home() {
             </h1>
           </div>
           {allProjects.map((project) => (
-            <article key={project._id} className="flex flex-col gap-4 group">
+            <article
+              key={project._id}
+              className="flex bg-grid-small-black/[.1] border-input group hover:shadow-xl flex-col gap-4 group rounded-xl transition duration-200 p-4 bg-white border"
+            >
               {project.coverImage && (
-                <div className="relative w-full overflow-hidden border rounded-2xl aspect-video bg-gray-50 border-gray-900/10">
+                <div className="relative w-full overflow-hidden border rounded-2xl aspect-video bg-gray-50 border-input">
                   <Image
                     src={project.coverImage}
                     fill
@@ -113,10 +132,12 @@ export default function Home() {
                 </div>
               )}
               <div className="flex flex-col gap-2">
-                <h2 className="text-xl font-bold cursor-pointer">
+                <h2 className="text-xl font-bold cursor-pointer group-hover:translate-x-1 transition duration-200">
                   {project.title}
                 </h2>
-                <p>{project.description}</p>
+                <p className="text-sm group-hover:translate-x-1 transition duration-200">
+                  {project.description}
+                </p>
               </div>
               {project.tags && (
                 <div className="flex flex-wrap gap-2">
