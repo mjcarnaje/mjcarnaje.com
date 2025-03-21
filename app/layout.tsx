@@ -1,3 +1,4 @@
+import { Toaster } from "@/components/ui/toaster";
 import { cn } from "@/lib/misc";
 import { Metadata } from "next";
 import { Fira_Code, Inter } from "next/font/google";
@@ -31,7 +32,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
       <html lang="en" className={cn(inter.variable, firaCode.variable)}>
         <AnalyticsWrapper />
         <body className="relative min-h-screen bg-dot-black/[0.2] text-gray-800 bg-gray-100 sm:px-8">
-          <div>{children}</div>
+          <main>{children}</main>
+          <Toaster />
         </body>
       </html>
     </>
