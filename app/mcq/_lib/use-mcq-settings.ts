@@ -21,30 +21,27 @@ function shuffleArray<T>(array: T[]): T[] {
   return shuffled;
 }
 
-// Function to shuffle options in a question
 function shuffleOptions(question: MCQItem): MCQItem {
-  const entries = Object.entries(question.options);
-  const shuffledEntries = shuffleArray(entries);
+  const optionEntries = Object.entries(question.options); // [key, value]
+  const shuffled = shuffleArray(optionEntries); // Shuffle [key, value] pairs
 
-  // Create a mapping from old keys to new keys
-  const keyMapping: Record<string, string> = {};
-  entries.forEach(([key], index) => {
-    keyMapping[key] = shuffledEntries[index][0];
+  const newKeys: ("a" | "b" | "c" | "d")[] = ["a", "b", "c", "d"];
+  const shuffledOptions: Record<"a" | "b" | "c" | "d", string> = {} as any;
+
+  let newAnswer: "a" | "b" | "c" | "d" = "a";
+
+  shuffled.forEach(([originalKey, value], index) => {
+    const newKey = newKeys[index];
+    shuffledOptions[newKey] = value;
+    if (originalKey === question.answer) {
+      newAnswer = newKey;
+    }
   });
-
-  // Create new options object with shuffled entries
-  const shuffledOptions: Record<string, string> = {};
-  shuffledEntries.forEach(([key, value]) => {
-    shuffledOptions[key] = value;
-  });
-
-  // Update the answer key based on the mapping
-  const newAnswer = keyMapping[question.answer];
 
   return {
     ...question,
-    options: shuffledOptions as Record<"a" | "b" | "c" | "d", string>,
-    answer: newAnswer as "a" | "b" | "c" | "d",
+    options: shuffledOptions,
+    answer: newAnswer,
   };
 }
 
