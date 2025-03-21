@@ -102,6 +102,34 @@ export const Settings: React.FC<SettingsProps> = ({
               onCheckedChange={() => handleSwitchChange("showAllQuestions")}
             />
           </div>
+
+          <div className="flex items-center justify-between">
+            <div className="space-y-0.5">
+              <Label className="text-base font-medium">
+                Randomize Questions
+              </Label>
+              <p className="text-sm text-slate-500 dark:text-slate-400">
+                Shuffle the order of questions for each attempt
+              </p>
+            </div>
+            <Switch
+              checked={settings.randomizeQuestions}
+              onCheckedChange={() => handleSwitchChange("randomizeQuestions")}
+            />
+          </div>
+
+          <div className="flex items-center justify-between">
+            <div className="space-y-0.5">
+              <Label className="text-base font-medium">Randomize Options</Label>
+              <p className="text-sm text-slate-500 dark:text-slate-400">
+                Shuffle the order of answer options for each question
+              </p>
+            </div>
+            <Switch
+              checked={settings.randomizeOptions}
+              onCheckedChange={() => handleSwitchChange("randomizeOptions")}
+            />
+          </div>
         </div>
 
         <div className="border-t border-slate-200 dark:border-slate-700 pt-6 mt-6">
@@ -157,6 +185,18 @@ export const Settings: React.FC<SettingsProps> = ({
               Show all questions:{" "}
               <span className="font-medium">
                 {settings.showAllQuestions ? "Yes" : "No"}
+              </span>
+            </p>
+            <p>
+              Randomize questions:{" "}
+              <span className="font-medium">
+                {settings.randomizeQuestions ? "Yes" : "No"}
+              </span>
+            </p>
+            <p>
+              Randomize options:{" "}
+              <span className="font-medium">
+                {settings.randomizeOptions ? "Yes" : "No"}
               </span>
             </p>
             <p>

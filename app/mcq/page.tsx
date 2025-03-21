@@ -1,10 +1,10 @@
 "use client";
 
-import { useState } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { useMCQSettings } from "./_lib/use-mcq-settings";
-import { Settings } from "./_lib/settings";
+import { useState } from "react";
 import { Quiz } from "./_lib/quiz";
+import { Settings } from "./_lib/settings";
+import { useMCQSettings } from "./_lib/use-mcq-settings";
 
 export default function MCQPage() {
   const { settings, updateSettings, settingsJson, isLoaded } = useMCQSettings();

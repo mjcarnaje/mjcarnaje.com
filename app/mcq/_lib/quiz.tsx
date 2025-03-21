@@ -1,21 +1,20 @@
 "use client";
 
-import { useState } from "react";
-import { MCQItem, MCQSettings } from "./schema";
-import { Confetti } from "./confetti";
+import { motion } from "framer-motion";
 import {
+  AlertCircle,
+  Award,
   Check,
-  X,
   ChevronLeft,
   ChevronRight,
-  Send,
-  Info,
-  Award,
   MessageCircle,
-  AlertCircle,
   RefreshCw,
+  Send,
+  X,
 } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
+import { Confetti } from "./confetti";
+import { MCQItem, MCQSettings } from "./schema";
 
 interface QuizProps {
   settings: MCQSettings;
@@ -47,8 +46,6 @@ export const Quiz: React.FC<QuizProps> = ({ settings }) => {
   };
 
   const showAnswer = (questionId: number | string) => {
-    // Only show answer if the question has an option selected AND
-    // either showAnswerImmediately is true OR the question has been submitted
     return (
       getSelectedOption(questionId) !== null &&
       (settings.showAnswerImmediately || isQuestionSubmitted(questionId))
@@ -60,33 +57,11 @@ export const Quiz: React.FC<QuizProps> = ({ settings }) => {
     option: string,
     answer: string
   ) => {
-    // First set the selected option
     setSelectedOptions((prev) => ({
       ...prev,
       [questionId]: option,
     }));
 
-    // If we should show answers immediately
-    if (settings.showAnswerImmediately) {
-      // Mark as submitted with a small delay to allow animation
-      setTimeout(() => {
-        setSubmittedQuestions((prev) => {
-          const newSubmitted = new Set(prev);
-          newSubmitted.add(questionId);
-          return newSubmitted;
-        });
-
-        // Show confetti if correct (with a small delay for better UX)
-        if (option === answer && settings.showConfetti) {
-          setShowConfetti(true);
-          setTimeout(() => setShowConfetti(false), 4000);
-        }
-      }, 300);
-    }
-  };
-
-  const handleSubmit = (questionId: number | string, answer: string) => {
-    // Mark as submitted with a small delay for animation
     setTimeout(() => {
       setSubmittedQuestions((prev) => {
         const newSubmitted = new Set(prev);
@@ -94,7 +69,21 @@ export const Quiz: React.FC<QuizProps> = ({ settings }) => {
         return newSubmitted;
       });
 
-      // Show confetti if correct (with a small delay for better UX)
+      if (option === answer && settings.showConfetti) {
+        setShowConfetti(true);
+        setTimeout(() => setShowConfetti(false), 4000);
+      }
+    }, 300);
+  };
+
+  const handleSubmit = (questionId: number | string, answer: string) => {
+    setTimeout(() => {
+      setSubmittedQuestions((prev) => {
+        const newSubmitted = new Set(prev);
+        newSubmitted.add(questionId);
+        return newSubmitted;
+      });
+
       const selectedOption = getSelectedOption(questionId);
       if (selectedOption === answer && settings.showConfetti) {
         setShowConfetti(true);
@@ -127,9 +116,7 @@ export const Quiz: React.FC<QuizProps> = ({ settings }) => {
     hidden: { opacity: 0 },
     show: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
+      transition: { staggerChildren: 0.1 },
     },
   };
 
@@ -138,20 +125,12 @@ export const Quiz: React.FC<QuizProps> = ({ settings }) => {
     show: {
       opacity: 1,
       y: 0,
-      transition: {
-        type: "spring",
-        damping: 12,
-        duration: 0.3,
-      },
+      transition: { type: "spring", damping: 12, duration: 0.3 },
     },
     exit: {
       opacity: 0,
       y: -20,
-      transition: {
-        duration: 0.2,
-        // Make sure content stays visible until animation completes
-        opacity: { duration: 0.2, delay: 0.1 },
-      },
+      transition: { duration: 0.2, opacity: { duration: 0.2, delay: 0.1 } },
     },
   };
 
@@ -165,11 +144,13 @@ export const Quiz: React.FC<QuizProps> = ({ settings }) => {
       transition: { duration: 0.2 },
     },
     correct: {
+      scale: 1,
       backgroundColor: "rgba(34, 197, 94, 0.2)",
       borderColor: "#22c55e",
       transition: { type: "spring", duration: 0.5 },
     },
     incorrect: {
+      scale: 1,
       backgroundColor: "rgba(239, 68, 68, 0.2)",
       borderColor: "#ef4444",
       transition: { type: "spring", duration: 0.5 },
@@ -189,7 +170,7 @@ export const Quiz: React.FC<QuizProps> = ({ settings }) => {
     }),
   };
 
-  // Render a single question card
+  // Render a single question card with refined animations
   const renderQuestionCard = (question: MCQItem, index: number) => {
     const selected = getSelectedOption(question.id);
     const isSubmitted = isQuestionSubmitted(question.id);
@@ -197,37 +178,20 @@ export const Quiz: React.FC<QuizProps> = ({ settings }) => {
     const shouldShowAnswer = showAnswer(question.id);
 
     return (
-      <motion.div
+      <div
         key={`question-card-${question.id}`}
-        variants={questionVariants}
-        initial="hidden"
-        animate="show"
-        exit="exit"
-        layout
         className="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-lg border-2 border-slate-200 dark:border-slate-700 transition-all hover:shadow-xl"
       >
         <div className="flex justify-between items-start mb-6">
-          <motion.h3
-            className="text-xl font-medium flex-1"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.2 }}
-          >
-            <motion.span
-              className="inline-flex items-center justify-center w-10 h-10 bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 rounded-full mr-3 text-lg font-bold"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-            >
+          <h3 className="text-xl font-medium flex-1">
+            <span className="inline-flex items-center justify-center w-10 h-10 bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 rounded-full mr-3 text-lg font-bold">
               {index + 1}
-            </motion.span>
+            </span>
             {question.question}
-          </motion.h3>
+          </h3>
 
           {shouldShowAnswer && (
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ type: "spring", damping: 12 }}
+            <div
               className={`px-4 py-2 rounded-full flex items-center text-sm font-medium ${
                 isAnswerCorrect
                   ? "bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300"
@@ -245,135 +209,87 @@ export const Quiz: React.FC<QuizProps> = ({ settings }) => {
                   <span>Incorrect</span>
                 </>
               )}
-            </motion.div>
+            </div>
           )}
         </div>
 
-        <motion.div
-          className="space-y-4 mb-6"
-          variants={containerVariants}
-          initial="hidden"
-          animate="show"
-        >
+        <div className="space-y-4 mb-6">
           {Object.entries(question.options).map(([key, value], optionIndex) => {
             const isSelected = selected === key;
             const isCorrectOption = key === question.answer;
 
-            // Determine which animation variant to use
-            let animationState = "show";
-            if (shouldShowAnswer) {
-              if (isCorrectOption) {
-                animationState = "correct";
-              } else if (isSelected && !isCorrectOption) {
-                animationState = "incorrect";
-              }
-            } else if (isSelected) {
-              animationState = "selected";
-            }
-
             return (
-              <motion.button
+              <button
                 key={key}
                 onClick={() =>
+                  !isSubmitted &&
                   handleOptionSelect(question.id, key, question.answer)
                 }
                 disabled={isSubmitted}
-                className="block w-full p-5 border-2 rounded-xl text-left transition overflow-hidden flex items-center"
-                initial="hidden"
-                animate={animationState}
-                variants={optionVariants}
-                custom={optionIndex}
-                whileHover={!isSubmitted ? { scale: 1.02 } : {}}
-                whileTap={!isSubmitted ? { scale: 0.98 } : {}}
-                transition={{
-                  delay: optionIndex * 0.05,
-                  type: "spring",
-                  stiffness: 500,
-                  damping: 30,
-                }}
+                className={`block w-full p-5 border-2 rounded-xl text-left transition overflow-hidden flex items-center ${
+                  shouldShowAnswer && isCorrectOption
+                    ? "bg-green-50 dark:bg-green-900/30 border-green-500"
+                    : shouldShowAnswer && isSelected && !isCorrectOption
+                    ? "bg-red-50 dark:bg-red-900/30 border-red-500"
+                    : isSelected
+                    ? "bg-blue-50 dark:bg-blue-900/30 border-blue-500"
+                    : "border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700/50"
+                }`}
               >
-                <motion.span
-                  className="font-mono bg-slate-200 dark:bg-slate-700 h-10 w-10 rounded-full flex items-center justify-center mr-4 shrink-0 text-lg font-bold shadow-sm"
-                  whileHover={{ rotate: [0, -10, 10, -10, 0] }}
-                  transition={{ duration: 0.5 }}
-                >
+                <span className="font-mono bg-slate-200 dark:bg-slate-700 h-10 w-10 rounded-full flex items-center justify-center mr-4 shrink-0 text-lg font-bold shadow-sm">
                   {key.toUpperCase()}
-                </motion.span>
+                </span>
                 <span className="flex-1 font-medium">{value}</span>
 
-                {shouldShowAnswer && isCorrectOption && (
-                  <motion.div
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    transition={{ type: "spring", damping: 10, delay: 0.2 }}
-                  >
-                    <Check
-                      className="text-green-600 dark:text-green-400 ml-2 shrink-0"
-                      size={24}
-                    />
-                  </motion.div>
-                )}
+                {shouldShowAnswer && (
+                  <>
+                    {isCorrectOption && (
+                      <div className="flex-shrink-0 flex items-center justify-center h-8 w-8 rounded-full bg-green-100 dark:bg-green-900/50 ml-2">
+                        <Check
+                          className="text-green-600 dark:text-green-400 shrink-0"
+                          size={20}
+                        />
+                      </div>
+                    )}
 
-                {shouldShowAnswer && isSelected && !isCorrectOption && (
-                  <motion.div
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    transition={{ type: "spring", damping: 10, delay: 0.2 }}
-                  >
-                    <X
-                      className="text-red-600 dark:text-red-400 ml-2 shrink-0"
-                      size={24}
-                    />
-                  </motion.div>
+                    {isSelected && !isCorrectOption && (
+                      <div className="flex-shrink-0 flex items-center justify-center h-8 w-8 rounded-full bg-red-100 dark:bg-red-900/50 ml-2">
+                        <X
+                          className="text-red-600 dark:text-red-400 shrink-0"
+                          size={20}
+                        />
+                      </div>
+                    )}
+                  </>
                 )}
-              </motion.button>
+              </button>
             );
           })}
-        </motion.div>
+        </div>
 
         {!settings.showAnswerImmediately && !isSubmitted && (
-          <motion.button
+          <button
             onClick={() => handleSubmit(question.id, question.answer)}
             disabled={!selected}
             className="mt-6 px-6 py-3 bg-blue-500 text-white rounded-xl disabled:opacity-50 transition hover:bg-blue-600 flex items-center justify-center font-bold text-lg"
-            whileHover={selected ? { scale: 1.05 } : {}}
-            whileTap={selected ? { scale: 0.95 } : {}}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
           >
             <Send size={18} className="mr-2" />
             Check Answer
-          </motion.button>
+          </button>
         )}
 
         {shouldShowAnswer && question.explanation && (
-          <motion.div
-            className="mt-8 p-5 bg-blue-50 dark:bg-blue-900/30 rounded-xl border-2 border-blue-200 dark:border-blue-800"
-            variants={explanationVariants}
-            initial="hidden"
-            animate="show"
-          >
-            <motion.h4
-              className="font-bold mb-3 flex items-center text-blue-700 dark:text-blue-300 text-lg"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.1 }}
-            >
+          <div className="mt-8 p-5 bg-blue-50 dark:bg-blue-900/30 rounded-xl border-2 border-blue-200 dark:border-blue-800">
+            <h4 className="font-bold mb-3 flex items-center text-blue-700 dark:text-blue-300 text-lg">
               <MessageCircle size={20} className="mr-2" />
               Explanation:
-            </motion.h4>
-            <motion.p
-              className="text-slate-700 dark:text-slate-300"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.2 }}
-            >
+            </h4>
+            <p className="text-slate-700 dark:text-slate-300">
               {question.explanation}
-            </motion.p>
-          </motion.div>
+            </p>
+          </div>
         )}
-      </motion.div>
+      </div>
     );
   };
 
@@ -432,7 +348,6 @@ export const Quiz: React.FC<QuizProps> = ({ settings }) => {
       </motion.div>
 
       {showAllQuestions ? (
-        // Show all questions mode
         <div className="space-y-8">
           <motion.div
             className="bg-slate-100 dark:bg-slate-800 rounded-xl p-5 flex items-center justify-between"
@@ -482,9 +397,8 @@ export const Quiz: React.FC<QuizProps> = ({ settings }) => {
           </motion.div>
         </div>
       ) : (
-        // One-by-one mode - completely redesigned
+        // One-by-one mode remains unchanged
         <div className="space-y-6">
-          {/* Navigation header */}
           <motion.div
             className="flex justify-between items-center bg-slate-100 dark:bg-slate-800 rounded-xl p-5"
             initial={{ y: -20, opacity: 0 }}
@@ -553,9 +467,7 @@ export const Quiz: React.FC<QuizProps> = ({ settings }) => {
             </div>
           </motion.div>
 
-          {/* Question container - simplified without AnimatePresence */}
           <div className="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-lg border-2 border-slate-200 dark:border-slate-700">
-            {/* Question header */}
             <div className="flex justify-between items-start mb-6">
               <motion.h3
                 className="text-xl font-medium flex-1"
@@ -594,7 +506,6 @@ export const Quiz: React.FC<QuizProps> = ({ settings }) => {
               )}
             </div>
 
-            {/* Options */}
             <div className="space-y-4 mb-6">
               {Object.entries(currentQuestion.options).map(
                 ([key, value], optionIndex) => {
@@ -604,7 +515,6 @@ export const Quiz: React.FC<QuizProps> = ({ settings }) => {
                   const shouldShowAnswer = showAnswer(currentQuestion.id);
                   const isSubmitted = isQuestionSubmitted(currentQuestion.id);
 
-                  // Determine option appearance
                   let optionClassName =
                     "block w-full p-5 border-2 rounded-xl text-left transition flex items-center";
 
@@ -627,6 +537,7 @@ export const Quiz: React.FC<QuizProps> = ({ settings }) => {
                   return (
                     <motion.button
                       key={`option-${currentQuestion.id}-${key}`}
+                      layout
                       onClick={() =>
                         handleOptionSelect(
                           currentQuestion.id,
@@ -650,38 +561,44 @@ export const Quiz: React.FC<QuizProps> = ({ settings }) => {
                       </span>
                       <span className="flex-1 font-medium">{value}</span>
 
-                      {shouldShowAnswer && isCorrectOption && (
-                        <motion.div
-                          initial={{ scale: 0 }}
-                          animate={{ scale: 1 }}
-                          transition={{
-                            type: "spring",
-                            damping: 10,
-                            delay: 0.2,
-                          }}
-                        >
-                          <Check
-                            className="text-green-600 dark:text-green-400 ml-2 shrink-0"
-                            size={24}
-                          />
-                        </motion.div>
-                      )}
+                      {shouldShowAnswer && (
+                        <>
+                          {isCorrectOption && (
+                            <motion.div
+                              initial={{ scale: 0 }}
+                              animate={{ scale: 1 }}
+                              transition={{
+                                type: "spring",
+                                damping: 10,
+                                delay: 0.2,
+                              }}
+                              className="flex-shrink-0 flex items-center justify-center h-8 w-8 rounded-full bg-green-100 dark:bg-green-900/50 ml-2"
+                            >
+                              <Check
+                                className="text-green-600 dark:text-green-400 shrink-0"
+                                size={20}
+                              />
+                            </motion.div>
+                          )}
 
-                      {shouldShowAnswer && isSelected && !isCorrectOption && (
-                        <motion.div
-                          initial={{ scale: 0 }}
-                          animate={{ scale: 1 }}
-                          transition={{
-                            type: "spring",
-                            damping: 10,
-                            delay: 0.2,
-                          }}
-                        >
-                          <X
-                            className="text-red-600 dark:text-red-400 ml-2 shrink-0"
-                            size={24}
-                          />
-                        </motion.div>
+                          {isSelected && !isCorrectOption && (
+                            <motion.div
+                              initial={{ scale: 0 }}
+                              animate={{ scale: 1 }}
+                              transition={{
+                                type: "spring",
+                                damping: 10,
+                                delay: 0.2,
+                              }}
+                              className="flex-shrink-0 flex items-center justify-center h-8 w-8 rounded-full bg-red-100 dark:bg-red-900/50 ml-2"
+                            >
+                              <X
+                                className="text-red-600 dark:text-red-400 shrink-0"
+                                size={20}
+                              />
+                            </motion.div>
+                          )}
+                        </>
                       )}
                     </motion.button>
                   );
@@ -689,7 +606,6 @@ export const Quiz: React.FC<QuizProps> = ({ settings }) => {
               )}
             </div>
 
-            {/* Submit button */}
             {!settings.showAnswerImmediately &&
               !isQuestionSubmitted(currentQuestion.id) && (
                 <motion.button
@@ -713,9 +629,9 @@ export const Quiz: React.FC<QuizProps> = ({ settings }) => {
                 </motion.button>
               )}
 
-            {/* Explanation */}
             {showAnswer(currentQuestion.id) && currentQuestion.explanation && (
               <motion.div
+                layout
                 key={`explanation-${currentQuestion.id}`}
                 className="mt-8 p-5 bg-blue-50 dark:bg-blue-900/30 rounded-xl border-2 border-blue-200 dark:border-blue-800"
                 initial={{ opacity: 0, height: 0, overflow: "hidden" }}
