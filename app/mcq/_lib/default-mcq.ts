@@ -9,6 +9,8 @@ export const defaultMCQ = [
       d: "A branch of science focused on physical well-being",
     },
     answer: "b",
+    explanation:
+      "Ethics is defined as the study of what it means to 'do the right thing' and involves understanding that individuals are responsible for their actions. This concept forms the basis of ethical inquiry by examining moral values and decision-making.",
   },
   {
     id: 2,
@@ -20,6 +22,8 @@ export const defaultMCQ = [
       d: "Emotional reaction and impulse",
     },
     answer: "b",
+    explanation:
+      "Ethical theory assumes that people are rational beings who make free choices. This rationality and freedom of choice allow individuals to use judgment when evaluating what is right or wrong.",
   },
   {
     id: 3,
@@ -32,6 +36,8 @@ export const defaultMCQ = [
       d: "Natural rights theory",
     },
     answer: "b",
+    explanation:
+      "Deontological ethics, also known as nonconsequentialist ethics, emphasizes following established rules and duties irrespective of the outcomes. It holds that certain actions are inherently right or wrong.",
   },
   {
     id: 4,
@@ -43,6 +49,8 @@ export const defaultMCQ = [
       d: "Thomas Hobbes",
     },
     answer: "b",
+    explanation:
+      "Immanuel Kant is the philosopher most famously linked to deontological ethics. His work, especially the concept of the categorical imperative, underpins the idea of universal moral duties.",
   },
   {
     id: 5,
@@ -55,6 +63,8 @@ export const defaultMCQ = [
       d: "Ethics are subjective and vary by individual",
     },
     answer: "b",
+    explanation:
+      "The Principle of Universality states that one should act only according to rules that can be applied universally. This means that any rule one follows should be valid for everyone without exception.",
   },
   {
     id: 6,
@@ -67,6 +77,8 @@ export const defaultMCQ = [
       d: "Natural rights theory",
     },
     answer: "a",
+    explanation:
+      "Utilitarianism is focused on the consequences of actions and strives to maximize overall happiness or utility. It judges actions based on the amount of good they produce.",
   },
   {
     id: 7,
@@ -78,6 +90,8 @@ export const defaultMCQ = [
       d: "Thomas Hobbes",
     },
     answer: "c",
+    explanation:
+      "John Stuart Mill is a central figure in utilitarian thought, advocating that actions should be evaluated based on their capacity to maximize happiness and minimize suffering.",
   },
   {
     id: 8,
@@ -89,6 +103,8 @@ export const defaultMCQ = [
       d: "Rule Utilitarianism disregards the long-term consequences",
     },
     answer: "b",
+    explanation:
+      "Act Utilitarianism assesses each individual action by its immediate consequences, while Rule Utilitarianism focuses on the benefits of following established rules that typically produce the greatest overall happiness in the long run.",
   },
   {
     id: 9,
@@ -100,6 +116,8 @@ export const defaultMCQ = [
       d: "Rights based solely on social contract",
     },
     answer: "b",
+    explanation:
+      "Natural Rights Theory holds that certain rights, like life, liberty, and property, are inherent to individuals and exist independently of any governmental or social institution.",
   },
   {
     id: 10,
@@ -112,6 +130,8 @@ export const defaultMCQ = [
       d: "John Stuart Mill",
     },
     answer: "b",
+    explanation:
+      "John Locke is renowned for his advocacy of natural rights. He argued that individuals inherently possess rights to life, liberty, and property, which governments should protect.",
   },
   {
     id: 11,
@@ -124,6 +144,8 @@ export const defaultMCQ = [
       d: "Rights that must be granted by law",
     },
     answer: "b",
+    explanation:
+      "Negative rights are those that protect individuals from interference by others. They are about non-interference, ensuring that one’s personal freedom is not violated.",
   },
   {
     id: 12,
@@ -135,6 +157,8 @@ export const defaultMCQ = [
       d: "Rights that depend on social hierarchy",
     },
     answer: "b",
+    explanation:
+      "Positive rights obligate others—whether society, individuals, or the government—to provide certain benefits or services, such as healthcare or education.",
   },
   {
     id: 13,
@@ -146,6 +170,8 @@ export const defaultMCQ = [
       d: '"Might makes right"',
     },
     answer: "b",
+    explanation:
+      "The Golden Rule promotes reciprocity by advising individuals to treat others the way they themselves would like to be treated. It is a universal ethical guideline found in many cultures.",
   },
   {
     id: 14,
@@ -158,6 +184,8 @@ export const defaultMCQ = [
       d: "Enforcing legal norms",
     },
     answer: "c",
+    explanation:
+      "Virtue Ethics emphasizes the development of good character traits or virtues. According to Aristotle, living a virtuous life is key to achieving ethical excellence and overall well-being.",
   },
   {
     id: 15,
@@ -169,6 +197,8 @@ export const defaultMCQ = [
       d: "Government is unnecessary for ethical behavior",
     },
     answer: "b",
+    explanation:
+      "Social Contract Theory posits that individuals agree, either explicitly or implicitly, to surrender some freedoms in return for societal benefits like security and order provided by a government or collective rules.",
   },
   {
     id: 16,
@@ -181,6 +211,8 @@ export const defaultMCQ = [
       d: "John Stuart Mill",
     },
     answer: "c",
+    explanation:
+      "Thomas Hobbes is known for his view that in the absence of government—a condition he termed the 'State of Nature'—life would be chaotic and dangerous, necessitating a strong central authority.",
   },
   {
     id: 17,
@@ -193,6 +225,8 @@ export const defaultMCQ = [
       d: "To maximize societal happiness",
     },
     answer: "b",
+    explanation:
+      "John Locke argued that the fundamental purpose of government is to protect the natural rights of its citizens, including life, liberty, and property. This protection justifies the existence and authority of governmental institutions.",
   },
   {
     id: 18,
@@ -204,6 +238,8 @@ export const defaultMCQ = [
       d: "To promote majority interests exclusively",
     },
     answer: "b",
+    explanation:
+      "Rawls' Veil of Ignorance is a thought experiment designed to promote fairness. By stripping decision-makers of personal information that could bias their judgments, it encourages the creation of policies that are just for all members of society.",
   },
   {
     id: 19,
@@ -215,6 +251,8 @@ export const defaultMCQ = [
       d: "Justice is a secondary concern to social order",
     },
     answer: "b",
+    explanation:
+      "Rawls’ concept of 'justice as fairness' suggests that a just society is one where the basic structure is acceptable to everyone, particularly when viewed from an unbiased perspective. This involves ensuring that even the least advantaged benefit from social arrangements.",
   },
   {
     id: 20,
@@ -227,6 +265,8 @@ export const defaultMCQ = [
       d: "Legal rules always resolve ethical issues",
     },
     answer: "b",
+    explanation:
+      "This statement reflects the idea that ethical problems rarely have straightforward solutions. They typically involve multiple factors, conflicting values, and necessary trade-offs that prevent a one-size-fits-all answer.",
   },
   {
     id: 21,
@@ -238,6 +278,8 @@ export const defaultMCQ = [
       d: "Right and wrong only",
     },
     answer: "b",
+    explanation:
+      "The text categorizes ethical decisions into three areas: actions that are obligatory (must be done), prohibited (must not be done), and acceptable (permissible but not required). This categorization recognizes the complexity of ethical decision-making.",
   },
   {
     id: 22,
@@ -250,6 +292,8 @@ export const defaultMCQ = [
       d: "Harm is irrelevant to ethical evaluations",
     },
     answer: "b",
+    explanation:
+      "The text explains that an action might cause harm but still not be considered ethically wrong if it does not violate any moral rights or duties. Ethical wrongness involves more than just the presence of harm.",
   },
   {
     id: 23,
@@ -262,6 +306,8 @@ export const defaultMCQ = [
       d: "To eliminate personal judgment entirely",
     },
     answer: "b",
+    explanation:
+      "Ethical theories help in elucidating the underlying principles and values that should guide decision-making. They offer frameworks for reasoning through complex moral issues rather than providing rigid answers.",
   },
   {
     id: 24,
@@ -273,6 +319,8 @@ export const defaultMCQ = [
       d: "They only apply in academic contexts",
     },
     answer: "b",
+    explanation:
+      "When legal frameworks do not fully address all moral complexities, ethical theories offer guidance for behavior and decision-making. They help individuals navigate situations where the law might be ambiguous or insufficient.",
   },
   {
     id: 25,
@@ -284,6 +332,8 @@ export const defaultMCQ = [
       d: "It is less important than technical skills",
     },
     answer: "b",
+    explanation:
+      "Honesty is fundamental in professional ethics because it builds trust, prevents harm, and ensures that all stakeholders can make informed decisions. Dishonesty undermines the integrity of professional relationships and outcomes.",
   },
   {
     id: 26,
@@ -296,6 +346,8 @@ export const defaultMCQ = [
       d: "Optimizing code performance",
     },
     answer: "b",
+    explanation:
+      "Distributing software that circumvents copy protection raises ethical concerns related to intellectual property rights. This issue directly affects the fairness and legality of software distribution practices.",
   },
   {
     id: 27,
@@ -308,6 +360,8 @@ export const defaultMCQ = [
       d: "They are irrelevant to ethical considerations",
     },
     answer: "b",
+    explanation:
+      "Proper planning and scheduling help avoid the temptation to cut corners, which can lead to unethical practices such as inadequate testing or ignoring safety protocols. They ensure that ethical standards are maintained throughout the development process.",
   },
   {
     id: 28,
@@ -320,6 +374,8 @@ export const defaultMCQ = [
       d: "Design that prioritizes aesthetics over functionality",
     },
     answer: "b",
+    explanation:
+      "Designing for real users means considering the actual needs and behaviors of users, including potential human errors. This approach ensures that systems are safe, user-friendly, and ethically responsible.",
   },
   {
     id: 29,
@@ -332,6 +388,8 @@ export const defaultMCQ = [
       d: "Testing can be abbreviated to save time",
     },
     answer: "b",
+    explanation:
+      "Both the Therac-25 and Ariane 5 incidents highlight the dangers of reusing software without rigorous safety verification. They emphasize the ethical responsibility to ensure that any reused software is fully compatible with its new context.",
   },
   {
     id: 30,
@@ -344,6 +402,8 @@ export const defaultMCQ = [
       d: "It minimizes the need for regulatory oversight",
     },
     answer: "b",
+    explanation:
+      "In safety-critical applications, a convincing safety case is essential to prevent harm to users and others who might be affected. It ensures that all potential risks have been thoroughly assessed and mitigated before the system is deployed.",
   },
   {
     id: 31,
@@ -356,6 +416,8 @@ export const defaultMCQ = [
       d: "Network bandwidth allocation",
     },
     answer: "b",
+    explanation:
+      "Computing raises specific ethical issues such as privacy, security, and intellectual property, which are critical in protecting users and ensuring the responsible use of technology.",
   },
   {
     id: 32,
@@ -368,6 +430,8 @@ export const defaultMCQ = [
       d: "Consulting legal experts exclusively",
     },
     answer: "b",
+    explanation:
+      "The initial step in ethical decision-making is recognizing that an ethical issue exists. Once identified, professionals can apply ethical theories and guidelines to navigate the dilemma.",
   },
   {
     id: 33,
@@ -380,6 +444,8 @@ export const defaultMCQ = [
       d: "They solely focus on abstract moral principles",
     },
     answer: "b",
+    explanation:
+      "Ethical theories offer foundational principles and values that influence the development and interpretation of laws. They help ensure that legal systems reflect broader moral considerations and societal norms.",
   },
   {
     id: 34,
@@ -392,6 +458,8 @@ export const defaultMCQ = [
       d: "Social Contract Theory",
     },
     answer: "b",
+    explanation:
+      "Kantian ethics, a deontological approach, insists that individuals have inherent worth and should never be exploited merely as tools for achieving other goals. This emphasizes the intrinsic dignity of every person.",
   },
   {
     id: 35,
@@ -403,6 +471,8 @@ export const defaultMCQ = [
       d: "Maintaining traditional social roles",
     },
     answer: "b",
+    explanation:
+      "Utilitarianism is centered on the idea of maximizing overall happiness or utility. Actions are evaluated based on the extent to which they produce positive outcomes for the majority.",
   },
   {
     id: 36,
@@ -415,6 +485,8 @@ export const defaultMCQ = [
       d: "Means are irrelevant if the goal is noble",
     },
     answer: "b",
+    explanation:
+      "Distinguishing between ends and means is important because ethical evaluation considers not just the final outcome but also the methods used to achieve that outcome. Unethical methods cannot be justified by a good end.",
   },
   {
     id: 37,
@@ -426,6 +498,8 @@ export const defaultMCQ = [
       d: "They are earned through personal achievements",
     },
     answer: "b",
+    explanation:
+      "Natural Rights Theory maintains that rights are intrinsic to all individuals by virtue of their humanity. These rights exist independently of government or societal recognition.",
   },
   {
     id: 38,
@@ -437,6 +511,8 @@ export const defaultMCQ = [
       d: "Right to housing",
     },
     answer: "b",
+    explanation:
+      "A negative right requires non-interference from others. The right to life is an example because it demands that no one should unlawfully take another’s life.",
   },
   {
     id: 39,
@@ -448,6 +524,8 @@ export const defaultMCQ = [
       d: "Right to freedom from interference",
     },
     answer: "c",
+    explanation:
+      "Positive rights require others to take action, such as providing services or benefits. The right to healthcare is a positive right because it often necessitates that government or society actively provides medical services.",
   },
   {
     id: 40,
@@ -460,6 +538,8 @@ export const defaultMCQ = [
       d: "To justify existing inequalities",
     },
     answer: "b",
+    explanation:
+      "The 'veil of ignorance' is a hypothetical tool designed to eliminate personal bias by having decision-makers ignore their own status. This leads to the creation of fair and impartial policies that protect everyone's interests.",
   },
   {
     id: 41,
@@ -471,6 +551,8 @@ export const defaultMCQ = [
       d: "Only non-experts need to adhere to ethical codes",
     },
     answer: "b",
+    explanation:
+      "Professional ethics require that experts use their specialized knowledge responsibly. Clients and the public rely on professionals to be honest and competent, which underscores the ethical obligation inherent in possessing specialized skills.",
   },
   {
     id: 42,
@@ -483,6 +565,8 @@ export const defaultMCQ = [
       d: "They discourage innovation",
     },
     answer: "b",
+    explanation:
+      "Professional codes of ethics serve as a framework for behavior, especially for those new to a field. They outline core values and responsibilities, making it easier for newcomers to navigate ethical dilemmas and professional challenges.",
   },
   {
     id: 43,
@@ -495,6 +579,8 @@ export const defaultMCQ = [
       d: "To focus solely on technical performance",
     },
     answer: "b",
+    explanation:
+      "Managers have an ethical responsibility to establish a culture of integrity and to guide and support less-experienced team members. By setting clear ethical standards, they help ensure that ethical practices are upheld throughout the organization.",
   },
   {
     id: 44,
@@ -507,6 +593,8 @@ export const defaultMCQ = [
       d: "It simplifies the design process",
     },
     answer: "b",
+    explanation:
+      "Involving users in the design and testing phases ensures that the system is both usable and safe, as real-world feedback can reveal potential issues that designers might overlook. This practice is essential for ethical and effective system development.",
   },
   {
     id: 45,
@@ -519,6 +607,8 @@ export const defaultMCQ = [
       d: "Ethics only apply to non-technical roles",
     },
     answer: "b",
+    explanation:
+      "The text emphasizes that ethical behavior is a core aspect of professional responsibility. Upholding ethical standards is crucial to ensuring that professional work, especially in fields like computing, is safe, reliable, and respectful of privacy.",
   },
   {
     id: 46,
@@ -531,6 +621,8 @@ export const defaultMCQ = [
       d: "Only those in creative fields make ethical contributions",
     },
     answer: "b",
+    explanation:
+      "The term 'ethical contribution' means that all roles, regardless of position or title, have the opportunity to make positive ethical contributions to society. Every professional, no matter their role, plays a part in upholding ethical standards.",
   },
   {
     id: 47,
@@ -543,6 +635,8 @@ export const defaultMCQ = [
       d: "It is primarily for regulatory documentation",
     },
     answer: "b",
+    explanation:
+      "Thorough testing is vital in safety-critical applications because it identifies potential faults and ensures that the software performs reliably under all conditions. This minimizes the risk of harm to users and others affected by the system.",
   },
   {
     id: 48,
@@ -555,6 +649,8 @@ export const defaultMCQ = [
       d: "Delegate all tasks to others",
     },
     answer: "b",
+    explanation:
+      "Professionals are expected to accurately assess and communicate their own limitations. Being honest about what they can and cannot do helps maintain trust and ensures that projects are handled by those with the necessary expertise.",
   },
   {
     id: 49,
@@ -567,6 +663,8 @@ export const defaultMCQ = [
       d: "It is unrelated to ethical considerations",
     },
     answer: "b",
+    explanation:
+      "The COPPA example illustrates that even well-intentioned policies can have unforeseen negative effects. In this case, companies chose to ban children instead of properly safeguarding their privacy, highlighting the complexity of ethical policy-making.",
   },
   {
     id: 50,
@@ -579,5 +677,7 @@ export const defaultMCQ = [
       d: "By following only technical specifications",
     },
     answer: "b",
+    explanation:
+      "Incorporating user input into the design and testing process ensures that systems are developed with the actual needs, behaviors, and limitations of users in mind. This practice leads to more ethical, user-friendly, and reliable products.",
   },
 ];
