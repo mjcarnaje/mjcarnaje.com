@@ -1,32 +1,34 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { MCQSettings, MCQSettingsSchema, MCQItem } from "./schema";
 import { JsonEditor } from "./json-editor";
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
+import { Button } from "@/components/ui/button";
+import { useMCQ } from "./MCQContext";
 
-interface SettingsProps {
-  settings: MCQSettings;
-  settingsJson: string;
-  onSettingsChange: (settings: MCQSettings) => void;
-}
+export const Settings = () => {
+  const {
+    rawSettings,
+    settingsJson,
+    localSettings,
+    setLocalSettings,
+    updateSettings,
+    hasSettingsChanges,
+    setHasSettingsChanges,
+    resetQuiz,
+  } = useMCQ();
 
-export const Settings: React.FC<SettingsProps> = ({
-  settings,
-  settingsJson,
-  onSettingsChange,
-}) => {
   // Parse the existing settings to get just the questions for the JSON editor
   const [questionsJson, setQuestionsJson] = useState(() => {
-    return JSON.stringify(settings.questions, null, 2);
+    return JSON.stringify(rawSettings.questions, null, 2);
   });
   const [isValid, setIsValid] = useState(true);
 
-  // Update questionsJson when settings.questions changes (e.g., on initial load)
+  // Update questionsJson when settings.questions changes
   useEffect(() => {
-    setQuestionsJson(JSON.stringify(settings.questions, null, 2));
-  }, [settings.questions]);
+    setQuestionsJson(JSON.stringify(rawSettings.questions, null, 2));
+  }, [rawSettings.questions]);
 
   const handleJsonChange = (
     value: string,
@@ -37,25 +39,51 @@ export const Settings: React.FC<SettingsProps> = ({
     setIsValid(valid);
 
     if (valid && parsedValue) {
-      // Only update the questions array, not the entire settings
-      onSettingsChange({
-        ...settings,
+      // Update local settings
+      setLocalSettings({
+        ...localSettings,
         questions: parsedValue,
       });
+      setHasSettingsChanges(true);
     }
   };
 
-  const handleSwitchChange = (setting: keyof MCQSettings) => {
-    onSettingsChange({
-      ...settings,
-      [setting]: !settings[setting as keyof MCQSettings],
+  const handleSwitchChange = (setting: keyof typeof localSettings) => {
+    setLocalSettings({
+      ...localSettings,
+      [setting]: !localSettings[setting as keyof typeof localSettings],
     });
+    setHasSettingsChanges(true);
+  };
+
+  const handleSave = () => {
+    if (isValid) {
+      updateSettings(localSettings);
+    }
+  };
+
+  const handleDiscard = () => {
+    setLocalSettings(rawSettings);
+    setQuestionsJson(JSON.stringify(rawSettings.questions, null, 2));
+    setHasSettingsChanges(false);
   };
 
   return (
     <div className="space-y-6">
       <div className="bg-white dark:bg-slate-800 rounded-lg p-6 shadow-md">
-        <h2 className="text-xl font-semibold mb-6">Settings</h2>
+        <div className="flex justify-between items-center mb-6">
+          <h2 className="text-xl font-semibold">Settings</h2>
+          {hasSettingsChanges && (
+            <div className="space-x-2">
+              <Button variant="outline" onClick={handleDiscard}>
+                Discard
+              </Button>
+              <Button onClick={handleSave} disabled={!isValid}>
+                Save Changes
+              </Button>
+            </div>
+          )}
+        </div>
 
         <div className="space-y-5 mb-8">
           <div className="flex items-center justify-between">
@@ -66,7 +94,7 @@ export const Settings: React.FC<SettingsProps> = ({
               </p>
             </div>
             <Switch
-              checked={settings.showConfetti}
+              checked={localSettings.showConfetti}
               onCheckedChange={() => handleSwitchChange("showConfetti")}
             />
           </div>
@@ -81,7 +109,7 @@ export const Settings: React.FC<SettingsProps> = ({
               </p>
             </div>
             <Switch
-              checked={settings.showAnswerImmediately}
+              checked={localSettings.showAnswerImmediately}
               onCheckedChange={() =>
                 handleSwitchChange("showAnswerImmediately")
               }
@@ -98,7 +126,7 @@ export const Settings: React.FC<SettingsProps> = ({
               </p>
             </div>
             <Switch
-              checked={settings.showAllQuestions}
+              checked={localSettings.showAllQuestions}
               onCheckedChange={() => handleSwitchChange("showAllQuestions")}
             />
           </div>
@@ -113,7 +141,7 @@ export const Settings: React.FC<SettingsProps> = ({
               </p>
             </div>
             <Switch
-              checked={settings.randomizeQuestions}
+              checked={localSettings.randomizeQuestions}
               onCheckedChange={() => handleSwitchChange("randomizeQuestions")}
             />
           </div>
@@ -126,7 +154,7 @@ export const Settings: React.FC<SettingsProps> = ({
               </p>
             </div>
             <Switch
-              checked={settings.randomizeOptions}
+              checked={localSettings.randomizeOptions}
               onCheckedChange={() => handleSwitchChange("randomizeOptions")}
             />
           </div>
@@ -171,36 +199,38 @@ export const Settings: React.FC<SettingsProps> = ({
             <p>
               Show confetti:{" "}
               <span className="font-medium">
-                {settings.showConfetti ? "Yes" : "No"}
+                {rawSettings.showConfetti ? "Yes" : "No"}
               </span>
             </p>
             <p>
               Show answer immediately:{" "}
               <span className="font-medium">
-                {settings.showAnswerImmediately ? "Yes" : "No"}
+                {rawSettings.showAnswerImmediately ? "Yes" : "No"}
               </span>
             </p>
             <p>
               Show all questions:{" "}
               <span className="font-medium">
-                {settings.showAllQuestions ? "Yes" : "No"}
+                {rawSettings.showAllQuestions ? "Yes" : "No"}
               </span>
             </p>
             <p>
               Randomize questions:{" "}
               <span className="font-medium">
-                {settings.randomizeQuestions ? "Yes" : "No"}
+                {rawSettings.randomizeQuestions ? "Yes" : "No"}
               </span>
             </p>
             <p>
               Randomize options:{" "}
               <span className="font-medium">
-                {settings.randomizeOptions ? "Yes" : "No"}
+                {rawSettings.randomizeOptions ? "Yes" : "No"}
               </span>
             </p>
             <p>
               Number of questions:{" "}
-              <span className="font-medium">{settings.questions.length}</span>
+              <span className="font-medium">
+                {rawSettings.questions.length}
+              </span>
             </p>
           </div>
         </div>
@@ -213,6 +243,17 @@ export const Settings: React.FC<SettingsProps> = ({
           {isValid ? "Valid JSON" : "Invalid JSON"}
         </div>
       </div>
+
+      {hasSettingsChanges && (
+        <div className="fixed bottom-6 right-6 z-50 flex gap-2 bg-white dark:bg-slate-800 p-4 rounded-lg shadow-lg border border-slate-200 dark:border-slate-700">
+          <Button variant="outline" onClick={handleDiscard}>
+            Discard
+          </Button>
+          <Button onClick={handleSave} disabled={!isValid}>
+            Save Changes
+          </Button>
+        </div>
+      )}
     </div>
   );
 };
