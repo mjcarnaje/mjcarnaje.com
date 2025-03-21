@@ -1,6 +1,5 @@
 export const defaultMCQ = [
   {
-    id: 1,
     question: "What is the definition of ethics?",
     options: {
       a: "The study of human behavior in nature",
@@ -13,7 +12,6 @@ export const defaultMCQ = [
       "Ethics is defined as the study of what it means to 'do the right thing' and involves understanding that individuals are responsible for their actions. This concept forms the basis of ethical inquiry by examining moral values and decision-making.",
   },
   {
-    id: 2,
     question: "Which assumption is considered the basis of ethical theory?",
     options: {
       a: "Determinism and fate",
@@ -26,7 +24,6 @@ export const defaultMCQ = [
       "Ethical theory assumes that people are rational beings who make free choices. This rationality and freedom of choice allow individuals to use judgment when evaluating what is right or wrong.",
   },
   {
-    id: 3,
     question:
       "Which ethical theory focuses on rules and duties regardless of the outcome?",
     options: {
@@ -40,7 +37,6 @@ export const defaultMCQ = [
       "Deontological ethics, also known as nonconsequentialist ethics, emphasizes following established rules and duties irrespective of the outcomes. It holds that certain actions are inherently right or wrong.",
   },
   {
-    id: 4,
     question: "Who is most closely associated with deontological ethics?",
     options: {
       a: "John Stuart Mill",
@@ -53,7 +49,6 @@ export const defaultMCQ = [
       "Immanuel Kant is the philosopher most famously linked to deontological ethics. His work, especially the concept of the categorical imperative, underpins the idea of universal moral duties.",
   },
   {
-    id: 5,
     question:
       "What does the Principle of Universality in Kantian ethics imply?",
     options: {
@@ -67,7 +62,6 @@ export const defaultMCQ = [
       "The Principle of Universality states that one should act only according to rules that can be applied universally. This means that any rule one follows should be valid for everyone without exception.",
   },
   {
-    id: 6,
     question:
       "Which ethical theory is primarily concerned with maximizing happiness?",
     options: {
@@ -81,7 +75,6 @@ export const defaultMCQ = [
       "Utilitarianism is focused on the consequences of actions and strives to maximize overall happiness or utility. It judges actions based on the amount of good they produce.",
   },
   {
-    id: 7,
     question: "Who is the main philosopher associated with Utilitarianism?",
     options: {
       a: "Immanuel Kant",
@@ -94,7 +87,6 @@ export const defaultMCQ = [
       "John Stuart Mill is a central figure in utilitarian thought, advocating that actions should be evaluated based on their capacity to maximize happiness and minimize suffering.",
   },
   {
-    id: 8,
     question: "What distinguishes Act Utilitarianism from Rule Utilitarianism?",
     options: {
       a: "Act Utilitarianism follows fixed rules; Rule Utilitarianism evaluates each action separately",
@@ -107,7 +99,6 @@ export const defaultMCQ = [
       "Act Utilitarianism assesses each individual action by its immediate consequences, while Rule Utilitarianism focuses on the benefits of following established rules that typically produce the greatest overall happiness in the long run.",
   },
   {
-    id: 9,
     question: "What does Natural Rights Theory emphasize?",
     options: {
       a: "Rights granted by governmental authority",
@@ -120,7 +111,6 @@ export const defaultMCQ = [
       "Natural Rights Theory holds that certain rights, like life, liberty, and property, are inherent to individuals and exist independently of any governmental or social institution.",
   },
   {
-    id: 10,
     question:
       "Which philosopher is most closely associated with Natural Rights Theory?",
     options: {
@@ -134,7 +124,6 @@ export const defaultMCQ = [
       "John Locke is renowned for his advocacy of natural rights. He argued that individuals inherently possess rights to life, liberty, and property, which governments should protect.",
   },
   {
-    id: 11,
     question:
       "How are Negative Rights defined in the context of Natural Rights Theory?",
     options: {
@@ -148,7 +137,6 @@ export const defaultMCQ = [
       "Negative rights are those that protect individuals from interference by others. They are about non-interference, ensuring that one’s personal freedom is not violated.",
   },
   {
-    id: 12,
     question: "What are Positive Rights?",
     options: {
       a: "Rights that require freedom from interference",
@@ -161,7 +149,6 @@ export const defaultMCQ = [
       "Positive rights obligate others—whether society, individuals, or the government—to provide certain benefits or services, such as healthcare or education.",
   },
   {
-    id: 13,
     question: "What ethical principle is encapsulated by the Golden Rule?",
     options: {
       a: '"Do unto others as they do unto you"',
@@ -174,7 +161,6 @@ export const defaultMCQ = [
       "The Golden Rule promotes reciprocity by advising individuals to treat others the way they themselves would like to be treated. It is a universal ethical guideline found in many cultures.",
   },
   {
-    id: 14,
     question:
       "What is the main focus of Virtue Ethics as proposed by Aristotle?",
     options: {
@@ -188,7 +174,6 @@ export const defaultMCQ = [
       "Virtue Ethics emphasizes the development of good character traits or virtues. According to Aristotle, living a virtuous life is key to achieving ethical excellence and overall well-being.",
   },
   {
-    id: 15,
     question: "What does Social Contract Theory propose?",
     options: {
       a: "Individuals have inherent rights that do not require compromise",
@@ -201,7 +186,6 @@ export const defaultMCQ = [
       "Social Contract Theory posits that individuals agree, either explicitly or implicitly, to surrender some freedoms in return for societal benefits like security and order provided by a government or collective rules.",
   },
   {
-    id: 16,
     question:
       "Which philosopher argued that without government, society would be in a chaotic 'State of Nature'?",
     options: {
@@ -215,7 +199,6 @@ export const defaultMCQ = [
       "Thomas Hobbes is known for his view that in the absence of government—a condition he termed the 'State of Nature'—life would be chaotic and dangerous, necessitating a strong central authority.",
   },
   {
-    id: 17,
     question:
       "According to John Locke, what is the primary role of government under the social contract?",
     options: {
@@ -229,7 +212,6 @@ export const defaultMCQ = [
       "John Locke argued that the fundamental purpose of government is to protect the natural rights of its citizens, including life, liberty, and property. This protection justifies the existence and authority of governmental institutions.",
   },
   {
-    id: 18,
     question: "What is the purpose of Rawls' Veil of Ignorance?",
     options: {
       a: "To allow personal biases to influence policy",
@@ -242,7 +224,6 @@ export const defaultMCQ = [
       "Rawls' Veil of Ignorance is a thought experiment designed to promote fairness. By stripping decision-makers of personal information that could bias their judgments, it encourages the creation of policies that are just for all members of society.",
   },
   {
-    id: 19,
     question: "What does 'justice as fairness' imply in Rawls' theory?",
     options: {
       a: "Policies should favor the majority regardless of fairness",
@@ -255,7 +236,6 @@ export const defaultMCQ = [
       "Rawls’ concept of 'justice as fairness' suggests that a just society is one where the basic structure is acceptable to everyone, particularly when viewed from an unbiased perspective. This involves ensuring that even the least advantaged benefit from social arrangements.",
   },
   {
-    id: 20,
     question:
       "What does the statement 'No Simple Answers' imply about ethical dilemmas?",
     options: {
@@ -269,7 +249,6 @@ export const defaultMCQ = [
       "This statement reflects the idea that ethical problems rarely have straightforward solutions. They typically involve multiple factors, conflicting values, and necessary trade-offs that prevent a one-size-fits-all answer.",
   },
   {
-    id: 21,
     question: "How are ethical judgments categorized in the text?",
     options: {
       a: "Good, bad, and indifferent",
@@ -282,7 +261,6 @@ export const defaultMCQ = [
       "The text categorizes ethical decisions into three areas: actions that are obligatory (must be done), prohibited (must not be done), and acceptable (permissible but not required). This categorization recognizes the complexity of ethical decision-making.",
   },
   {
-    id: 22,
     question:
       "How does the text differentiate between harm and ethical wrongness?",
     options: {
@@ -296,7 +274,6 @@ export const defaultMCQ = [
       "The text explains that an action might cause harm but still not be considered ethically wrong if it does not violate any moral rights or duties. Ethical wrongness involves more than just the presence of harm.",
   },
   {
-    id: 23,
     question:
       "What is one of the main roles of ethical theories as mentioned in the text?",
     options: {
@@ -310,7 +287,6 @@ export const defaultMCQ = [
       "Ethical theories help in elucidating the underlying principles and values that should guide decision-making. They offer frameworks for reasoning through complex moral issues rather than providing rigid answers.",
   },
   {
-    id: 24,
     question: "How do ethical theories help when legal standards fall short?",
     options: {
       a: "They replace the need for any laws",
@@ -323,7 +299,6 @@ export const defaultMCQ = [
       "When legal frameworks do not fully address all moral complexities, ethical theories offer guidance for behavior and decision-making. They help individuals navigate situations where the law might be ambiguous or insufficient.",
   },
   {
-    id: 25,
     question: "Why is honesty considered a core value in professional ethics?",
     options: {
       a: "It has minimal impact on outcomes",
@@ -336,7 +311,6 @@ export const defaultMCQ = [
       "Honesty is fundamental in professional ethics because it builds trust, prevents harm, and ensures that all stakeholders can make informed decisions. Dishonesty undermines the integrity of professional relationships and outcomes.",
   },
   {
-    id: 26,
     question:
       "Which of the following is an example of an ethical issue in software development mentioned in the text?",
     options: {
@@ -350,7 +324,6 @@ export const defaultMCQ = [
       "Distributing software that circumvents copy protection raises ethical concerns related to intellectual property rights. This issue directly affects the fairness and legality of software distribution practices.",
   },
   {
-    id: 27,
     question:
       "What role does thorough planning and scheduling play in ethical software development?",
     options: {
@@ -364,7 +337,6 @@ export const defaultMCQ = [
       "Proper planning and scheduling help avoid the temptation to cut corners, which can lead to unethical practices such as inadequate testing or ignoring safety protocols. They ensure that ethical standards are maintained throughout the development process.",
   },
   {
-    id: 28,
     question:
       "What does 'design for real users' mean in the context of ethical computing?",
     options: {
@@ -378,7 +350,6 @@ export const defaultMCQ = [
       "Designing for real users means considering the actual needs and behaviors of users, including potential human errors. This approach ensures that systems are safe, user-friendly, and ethically responsible.",
   },
   {
-    id: 29,
     question:
       "What lesson can be learned from the Therac-25 and Ariane 5 disasters?",
     options: {
@@ -392,7 +363,6 @@ export const defaultMCQ = [
       "Both the Therac-25 and Ariane 5 incidents highlight the dangers of reusing software without rigorous safety verification. They emphasize the ethical responsibility to ensure that any reused software is fully compatible with its new context.",
   },
   {
-    id: 30,
     question:
       "Why is it important to have a convincing case for safety in safety-critical applications?",
     options: {
@@ -406,7 +376,6 @@ export const defaultMCQ = [
       "In safety-critical applications, a convincing safety case is essential to prevent harm to users and others who might be affected. It ensures that all potential risks have been thoroughly assessed and mitigated before the system is deployed.",
   },
   {
-    id: 31,
     question:
       "Which of the following ethical issues is directly associated with computing?",
     options: {
@@ -420,7 +389,6 @@ export const defaultMCQ = [
       "Computing raises specific ethical issues such as privacy, security, and intellectual property, which are critical in protecting users and ensuring the responsible use of technology.",
   },
   {
-    id: 32,
     question:
       "What is one of the first steps in ethical decision-making according to the text?",
     options: {
@@ -434,7 +402,6 @@ export const defaultMCQ = [
       "The initial step in ethical decision-making is recognizing that an ethical issue exists. Once identified, professionals can apply ethical theories and guidelines to navigate the dilemma.",
   },
   {
-    id: 33,
     question:
       "How do ethical theories contribute to our understanding of laws?",
     options: {
@@ -448,7 +415,6 @@ export const defaultMCQ = [
       "Ethical theories offer foundational principles and values that influence the development and interpretation of laws. They help ensure that legal systems reflect broader moral considerations and societal norms.",
   },
   {
-    id: 34,
     question:
       "Which ethical theory emphasizes that humans should never be used merely as a means to an end?",
     options: {
@@ -462,7 +428,6 @@ export const defaultMCQ = [
       "Kantian ethics, a deontological approach, insists that individuals have inherent worth and should never be exploited merely as tools for achieving other goals. This emphasizes the intrinsic dignity of every person.",
   },
   {
-    id: 35,
     question: "What is the guiding principle of utilitarianism?",
     options: {
       a: "Maximizing individual freedom at all costs",
@@ -475,7 +440,6 @@ export const defaultMCQ = [
       "Utilitarianism is centered on the idea of maximizing overall happiness or utility. Actions are evaluated based on the extent to which they produce positive outcomes for the majority.",
   },
   {
-    id: 36,
     question:
       "In ethical decision-making, what is the significance of distinguishing between the 'ends' and the 'means'?",
     options: {
@@ -489,7 +453,6 @@ export const defaultMCQ = [
       "Distinguishing between ends and means is important because ethical evaluation considers not just the final outcome but also the methods used to achieve that outcome. Unethical methods cannot be justified by a good end.",
   },
   {
-    id: 37,
     question: "According to Natural Rights Theory, where do rights originate?",
     options: {
       a: "They are granted by the government",
@@ -502,7 +465,6 @@ export const defaultMCQ = [
       "Natural Rights Theory maintains that rights are intrinsic to all individuals by virtue of their humanity. These rights exist independently of government or societal recognition.",
   },
   {
-    id: 38,
     question: "Which of the following is an example of a negative right?",
     options: {
       a: "Right to education",
@@ -515,7 +477,6 @@ export const defaultMCQ = [
       "A negative right requires non-interference from others. The right to life is an example because it demands that no one should unlawfully take another’s life.",
   },
   {
-    id: 39,
     question: "Which of the following is an example of a positive right?",
     options: {
       a: "Freedom of speech",
@@ -528,7 +489,6 @@ export const defaultMCQ = [
       "Positive rights require others to take action, such as providing services or benefits. The right to healthcare is a positive right because it often necessitates that government or society actively provides medical services.",
   },
   {
-    id: 40,
     question:
       "What is the purpose of the 'veil of ignorance' in Rawls' theory?",
     options: {
@@ -542,7 +502,6 @@ export const defaultMCQ = [
       "The 'veil of ignorance' is a hypothetical tool designed to eliminate personal bias by having decision-makers ignore their own status. This leads to the creation of fair and impartial policies that protect everyone's interests.",
   },
   {
-    id: 41,
     question: "What role does expertise play in professional ethics?",
     options: {
       a: "Experts are exempt from ethical responsibilities",
@@ -555,7 +514,6 @@ export const defaultMCQ = [
       "Professional ethics require that experts use their specialized knowledge responsibly. Clients and the public rely on professionals to be honest and competent, which underscores the ethical obligation inherent in possessing specialized skills.",
   },
   {
-    id: 42,
     question:
       "How do professional codes of ethics assist newcomers in the field?",
     options: {
@@ -569,7 +527,6 @@ export const defaultMCQ = [
       "Professional codes of ethics serve as a framework for behavior, especially for those new to a field. They outline core values and responsibilities, making it easier for newcomers to navigate ethical dilemmas and professional challenges.",
   },
   {
-    id: 43,
     question:
       "What is one of the responsibilities of managers regarding professional ethics?",
     options: {
@@ -583,7 +540,6 @@ export const defaultMCQ = [
       "Managers have an ethical responsibility to establish a culture of integrity and to guide and support less-experienced team members. By setting clear ethical standards, they help ensure that ethical practices are upheld throughout the organization.",
   },
   {
-    id: 44,
     question:
       "Why is it important to include users in the design and testing of systems?",
     options: {
@@ -597,7 +553,6 @@ export const defaultMCQ = [
       "Involving users in the design and testing phases ensures that the system is both usable and safe, as real-world feedback can reveal potential issues that designers might overlook. This practice is essential for ethical and effective system development.",
   },
   {
-    id: 45,
     question:
       "What does the text suggest about the connection between ethical behavior and professional responsibility?",
     options: {
@@ -611,7 +566,6 @@ export const defaultMCQ = [
       "The text emphasizes that ethical behavior is a core aspect of professional responsibility. Upholding ethical standards is crucial to ensuring that professional work, especially in fields like computing, is safe, reliable, and respectful of privacy.",
   },
   {
-    id: 46,
     question:
       "What does the term 'ethical contribution' refer to in the workplace?",
     options: {
@@ -625,7 +579,6 @@ export const defaultMCQ = [
       "The term 'ethical contribution' means that all roles, regardless of position or title, have the opportunity to make positive ethical contributions to society. Every professional, no matter their role, plays a part in upholding ethical standards.",
   },
   {
-    id: 47,
     question:
       "Why is thorough testing important in the development of safety-critical software?",
     options: {
@@ -639,7 +592,6 @@ export const defaultMCQ = [
       "Thorough testing is vital in safety-critical applications because it identifies potential faults and ensures that the software performs reliably under all conditions. This minimizes the risk of harm to users and others affected by the system.",
   },
   {
-    id: 48,
     question:
       "According to the text, what should professionals do regarding their capabilities and limitations?",
     options: {
@@ -653,7 +605,6 @@ export const defaultMCQ = [
       "Professionals are expected to accurately assess and communicate their own limitations. Being honest about what they can and cannot do helps maintain trust and ensures that projects are handled by those with the necessary expertise.",
   },
   {
-    id: 49,
     question:
       "What ethical challenge is highlighted by the example of COPPA (Children’s Online Privacy Protection Act)?",
     options: {
@@ -667,7 +618,6 @@ export const defaultMCQ = [
       "The COPPA example illustrates that even well-intentioned policies can have unforeseen negative effects. In this case, companies chose to ban children instead of properly safeguarding their privacy, highlighting the complexity of ethical policy-making.",
   },
   {
-    id: 50,
     question:
       "How should ethical decision-making in computing account for user input?",
     options: {

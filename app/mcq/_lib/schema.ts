@@ -8,7 +8,6 @@ export const MCQOptionSchema = z.object({
 });
 
 export const MCQItemSchema = z.object({
-  id: z.number().or(z.string()),
   question: z.string().min(1, "Question is required"),
   options: MCQOptionSchema,
   answer: z.enum(["a", "b", "c", "d"]),

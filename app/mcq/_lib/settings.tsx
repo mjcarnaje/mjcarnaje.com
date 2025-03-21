@@ -141,7 +141,6 @@ export const Settings: React.FC<SettingsProps> = ({
           <pre className="mt-2 p-3 bg-slate-100 dark:bg-slate-900 rounded-md text-xs overflow-auto">
             {`[
   {
-    "id": number | string,
     "question": string,
     "options": {
       "a": string,
