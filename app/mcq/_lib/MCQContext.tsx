@@ -33,7 +33,7 @@ function shuffleOptions(question: MCQItem): MCQItem {
   // Create a map from old keys to new keys
   const keyMap: Record<string, string> = {};
   entries.forEach(([oldKey], index) => {
-    keyMap[oldKey] = shuffledEntries[index][0];
+    keyMap[oldKey] = String.fromCharCode(97 + index); // 'a', 'b', 'c', 'd'
   });
 
   // Create new options object with shuffled values
@@ -44,8 +44,11 @@ function shuffleOptions(question: MCQItem): MCQItem {
     d: "",
   };
 
-  shuffledEntries.forEach(([key, value]) => {
-    newOptions[key as keyof typeof newOptions] = value;
+  // Assign shuffled values to fixed keys a, b, c, d
+  shuffledEntries.forEach(([oldKey, value], index) => {
+    const newKey = String.fromCharCode(97 + index); // 'a', 'b', 'c', 'd'
+    newOptions[newKey as keyof typeof newOptions] = value;
+    keyMap[oldKey] = newKey; // Update the key mapping
   });
 
   // Update the answer key to match the new position
@@ -109,8 +112,6 @@ export function MCQProvider({ children }: { children: ReactNode }) {
   );
   const [quizQuestions, setQuizQuestions] = useState<MCQItem[]>([]);
 
-  // Process default MCQ to ensure it matches our schema
-
   // Load settings from localStorage on mount
   useEffect(() => {
     const processedDefaultMCQ = defaultMCQ.map((item) => ({
@@ -125,8 +126,16 @@ export function MCQProvider({ children }: { children: ReactNode }) {
         const result = MCQSettingsSchema.safeParse(parsedSettings);
 
         if (result.success) {
-          setRawSettings(result.data);
-          setLocalSettings(result.data);
+          // If questions array is empty, add default questions
+          const finalSettings = {
+            ...result.data,
+            questions:
+              result.data.questions.length > 0
+                ? result.data.questions
+                : processedDefaultMCQ,
+          };
+          setRawSettings(finalSettings);
+          setLocalSettings(finalSettings);
         } else {
           // If validation fails, use default settings with default questions
           const defaultWithQuestions = {

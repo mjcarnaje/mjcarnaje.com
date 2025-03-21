@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { defaultMCQ } from "./default-mcq";
 
 export const MCQOptionSchema = z.object({
   a: z.string().min(1, "Option A is required"),
@@ -33,5 +34,5 @@ export const defaultSettings: MCQSettings = {
   showAllQuestions: false,
   randomizeQuestions: true,
   randomizeOptions: true,
-  questions: [],
+  questions: defaultMCQ as MCQItem[],
 };
