@@ -18,7 +18,7 @@ export const MCQItemSchema = z.object({
 export const MCQSettingsSchema = z.object({
   showConfetti: z.boolean().default(true),
   showAnswerImmediately: z.boolean().default(true),
-  showAllQuestions: z.boolean().default(true),
+  showAllQuestions: z.boolean().default(false),
   randomizeQuestions: z.boolean().default(true),
   randomizeOptions: z.boolean().default(true),
   questions: z.array(MCQItemSchema).min(1, "At least one question is required"),
@@ -31,7 +31,7 @@ export type MCQOption = z.infer<typeof MCQOptionSchema>;
 export const defaultSettings: MCQSettings = {
   showConfetti: true,
   showAnswerImmediately: true,
-  showAllQuestions: true,
+  showAllQuestions: false,
   randomizeQuestions: true,
   randomizeOptions: true,
   questions: [],
