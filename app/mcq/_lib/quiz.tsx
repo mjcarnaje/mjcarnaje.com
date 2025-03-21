@@ -8,10 +8,9 @@ import {
   ChevronRight,
   MessageCircle,
   RefreshCw,
-  Send,
   X,
 } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Confetti } from "./confetti";
 import { useMCQ } from "./MCQContext";
 import { MCQItem } from "./schema";
@@ -260,38 +259,10 @@ export const Quiz = () => {
       </div>
 
       {showAllQuestions ? (
-        <div className="space-y-8">
-          <div className="bg-slate-100 dark:bg-slate-800 rounded-xl p-4 sm:p-5 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <h2 className="text-xl font-bold flex items-center">
-              <div>
-                <Award size={24} className="mr-3 text-amber-500" />
-              </div>
-              Quiz ({quizQuestions.length} questions)
-            </h2>
-
-            <div className="flex flex-col sm:flex-row items-center gap-4">
-              <div className="text-sm text-slate-500 dark:text-slate-400 font-medium text-center sm:text-left">
-                Answer all questions{" "}
-                {settings.showAnswerImmediately
-                  ? "to see immediate feedback"
-                  : "and submit each one"}
-              </div>
-              <button
-                onClick={handleReset}
-                className="px-4 py-2 bg-white dark:bg-slate-700 rounded-lg transition hover:bg-slate-50 dark:hover:bg-slate-600 flex items-center text-red-500 dark:text-red-400 font-medium"
-                aria-label="Reset quiz"
-              >
-                <RefreshCw size={16} className="mr-2" />
-                Reset
-              </button>
-            </div>
-          </div>
-
-          <div className="space-y-6">
-            {quizQuestions.map((question, index) =>
-              renderQuestionCard(question, index)
-            )}
-          </div>
+        <div className="space-y-6">
+          {quizQuestions.map((question, index) =>
+            renderQuestionCard(question, index)
+          )}
         </div>
       ) : (
         <div>
