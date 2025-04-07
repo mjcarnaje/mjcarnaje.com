@@ -5,7 +5,7 @@ import { JsonEditor } from "./json-editor";
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
-import { useMCQ } from "./MCQContext";
+import { useMCQ } from "./quizlet-context";
 
 export const Settings = () => {
   const {
