@@ -67,7 +67,12 @@ export default function Page() {
       });
     }
 
-    return questionList;
+    // Add empty optionMapping and originalAnswer for type consistency
+    return questionList.map((question) => ({
+      ...question,
+      originalAnswer: question.answer,
+      optionMapping: {} as Record<string, string>,
+    }));
   }, [questions, config.randomizeQuestions, config.randomizeOptions]);
 
   const startQuiz = () => {
