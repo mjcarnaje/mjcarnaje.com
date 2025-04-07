@@ -35,6 +35,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useQuizlet } from "./_lib/quizlet-context";
 import { QuestionItem } from "./_lib/schema";
+import { useToast } from "@/hooks/use-toast";
 
 interface ModeCardProps {
   icon: LucideIcon;
@@ -71,6 +72,8 @@ const ModeCard = ({ icon: Icon, title, description, href }: ModeCardProps) => (
 );
 
 export default function Page() {
+  const { toast } = useToast();
+
   const { handleQuestionsChange, questions } = useQuizlet();
   const [jsonInput, setJsonInput] = useState("");
   const [isValidating, setIsValidating] = useState(false);
@@ -162,26 +165,70 @@ export default function Page() {
                   the correct format:
                 </p>
                 <div className="bg-white dark:bg-slate-800 p-4 rounded-md border border-slate-200 dark:border-slate-700">
-                  <pre className="text-xs text-slate-800 dark:text-slate-200 whitespace-pre-wrap">
-                    {`Create a set of 5 multiple choice questions about [YOUR TOPIC]. 
-Format the response as a valid JSON array using this exact structure:
+                  <div className="flex justify-between items-start mb-2">
+                    <pre className="text-xs text-slate-800 dark:text-slate-200 whitespace-pre-wrap">
+                      {`Create a set of 50 multiple choice questions.
+
+Feel free to include any specific notes or subtopics you wish to cover:
+
+[INSERT YOUR NOTES OR TOPIC HERE]
+
+Make sure the output is a valid JSON array structured as follows:
 
 [
   {
-    "question": "Question text here?",
+    "question": "Type your question text here?",
     "options": {
-      "a": "First option",
-      "b": "Second option",
-      "c": "Third option",
-      "d": "Fourth option"
+      "a": "Text for Option A",
+      "b": "Text for Option B",
+      "c": "Text for Option C",
+      "d": "Text for Option D"
     },
     "answer": "a",
-    "explanation": "Detailed explanation of why this answer is correct"
+    "explanation": "Provide a comprehensive explanation for the correct answer"
   }
 ]
 
-Make sure each question has exactly 4 options labeled a, b, c, and d. The "answer" field must contain only the letter of the correct option. Include challenging questions with plausible distractors.`}
-                  </pre>
+Each question should have exactly 4 options labeled a, b, c, and d. The "answer" field must contain only the letter of the correct option. Strive to craft challenging questions with plausible distractors to enhance the learning experience.`}
+                    </pre>
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      className="ml-2"
+                      onClick={() => {
+                        const promptText = `Create a set of 50 multiple choice questions.
+
+Feel free to include any specific notes or subtopics you wish to cover:
+
+[INSERT YOUR NOTES OR TOPIC HERE]
+
+Make sure the output is a valid JSON array structured as follows:
+
+[
+  {
+    "question": "Type your question text here?",
+    "options": {
+      "a": "Text for Option A",
+      "b": "Text for Option B",
+      "c": "Text for Option C",
+      "d": "Text for Option D"
+    },
+    "answer": "a",
+    "explanation": "Provide a comprehensive explanation for the correct answer"
+  }
+]
+
+Each question should have exactly 4 options labeled a, b, c, and d. The "answer" field must contain only the letter of the correct option. Strive to craft challenging questions with plausible distractors to enhance the learning experience.`;
+                        navigator.clipboard.writeText(promptText);
+                        toast({
+                          title: "Prompt copied to clipboard",
+                          description: "You can now paste it into ChatGPT",
+                        });
+                      }}
+                    >
+                      Copy
+                    </Button>
+                  </div>
                 </div>
                 <div className="flex items-start gap-2 text-sm text-slate-700 dark:text-slate-300">
                   <Lightbulb className="h-4 w-4 text-amber-500 mt-0.5 flex-shrink-0" />
@@ -208,25 +255,6 @@ Make sure each question has exactly 4 options labeled a, b, c, and d. The "answe
             </CardDescription>
           </CardHeader>
           <CardContent className="pt-6">
-            <div className="bg-slate-50 dark:bg-slate-900 p-4 rounded-md mb-4 border border-slate-200 dark:border-slate-800">
-              <p className="text-sm font-medium mb-2">Question Format:</p>
-              <pre className="text-xs bg-white dark:bg-slate-800 p-3 rounded-md overflow-x-auto">
-                {`[
-  {
-    "question": "Your question text here?",
-    "options": {
-      "a": "Option A text",
-      "b": "Option B text",
-      "c": "Option C text",
-      "d": "Option D text"
-    },
-    "answer": "a",  // Must be one of: "a", "b", "c", or "d"
-    "explanation": "Optional explanation text" // Optional
-  },
-  // Additional questions...
-]`}
-              </pre>
-            </div>
             <Textarea
               placeholder="Enter your JSON formatted questions here..."
               className="min-h-[300px] font-mono text-sm resize-y"
