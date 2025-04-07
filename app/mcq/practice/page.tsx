@@ -126,7 +126,7 @@ export default function Page() {
         <div className="mb-8">
           <h1 className="text-2xl font-bold mb-4">Practice Mode</h1>
 
-          <Card className="p-6 mb-6">
+          <Card className="p-4 sm:p-6 mb-6">
             <h2 className="text-xl font-semibold mb-4">
               What is Practice Mode?
             </h2>
@@ -158,10 +158,10 @@ export default function Page() {
             </p>
           </Card>
 
-          <Card className="p-6 mb-6">
+          <Card className="p-4 sm:p-6 mb-6">
             <h2 className="text-xl font-semibold mb-4">Settings</h2>
             <div className="space-y-4">
-              <div className="flex items-center justify-between">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
                 <div className="space-y-0.5">
                   <Label htmlFor="randomize-questions">
                     Randomize Questions
@@ -181,7 +181,7 @@ export default function Page() {
                   }
                 />
               </div>
-              <div className="flex items-center justify-between">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
                 <div className="space-y-0.5">
                   <Label htmlFor="show-explanation-immediately">
                     Show Explanation Immediately
@@ -205,14 +205,14 @@ export default function Page() {
             </div>
           </Card>
 
-          <div className="flex justify-between">
-            <Button asChild variant="outline">
+          <div className="flex flex-col sm:flex-row justify-between gap-4">
+            <Button asChild variant="outline" className="w-full sm:w-auto">
               <Link href="/mcq">
                 <ArrowLeft className="mr-2 h-4 w-4" />
                 Back
               </Link>
             </Button>
-            <Button onClick={startPractice} className="px-8">
+            <Button onClick={startPractice} className="w-full sm:w-auto px-8">
               <Play className="mr-2 h-4 w-4" />
               Start Practice
             </Button>
@@ -224,13 +224,13 @@ export default function Page() {
 
   if (completed) {
     return (
-      <div className="flex flex-col items-center justify-center min-h-[60vh] p-6">
+      <div className="flex flex-col items-center justify-center min-h-[60vh] p-4 sm:p-6">
         <div className="text-center mb-8">
           <h1 className="text-2xl font-bold mb-4">Practice Complete!</h1>
           <p className="text-gray-600 mb-6">
             You&apos;ve successfully learned all the cards in this session.
           </p>
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4">
             <Button
               onClick={() => {
                 let cards = [...questions];
@@ -241,14 +241,19 @@ export default function Page() {
                 setCurrentCardIndex(0);
                 setCompleted(false);
               }}
+              className="w-full sm:w-auto"
             >
               Practice Again
             </Button>
-            <Button onClick={resetPractice} variant="outline">
+            <Button
+              onClick={resetPractice}
+              variant="outline"
+              className="w-full sm:w-auto"
+            >
               <Settings2 className="mr-2 h-4 w-4" />
               Configure
             </Button>
-            <Button asChild variant="outline">
+            <Button asChild variant="outline" className="w-full sm:w-auto">
               <Link href="/mcq">
                 <ArrowLeft className="mr-2 h-4 w-4" />
                 Back to Menu
@@ -268,7 +273,7 @@ export default function Page() {
 
   return (
     <div className="max-w-4xl mx-auto p-4">
-      <div className="mb-6 flex justify-between items-center">
+      <div className="mb-6 flex flex-col sm:flex-row justify-between sm:items-center gap-4">
         <div>
           <h1 className="text-2xl font-bold mb-2">Practice Mode</h1>
           <p className="text-gray-600">Cards remaining: {activeCards.length}</p>
@@ -279,7 +284,7 @@ export default function Page() {
         </Button>
       </div>
 
-      <div className="perspective-1000 mb-6 h-[300px]">
+      <div className="perspective-1000 mb-6 h-[250px] sm:h-[300px]">
         <div
           className={`relative w-full h-full transition-transform duration-300 transform-style-preserve-3d ${
             isFlipping ? "scale-95" : ""
@@ -287,18 +292,20 @@ export default function Page() {
           onClick={handleCardClick}
         >
           {/* Front of card (Question) */}
-          <Card className="absolute w-full h-full p-6 cursor-pointer backface-hidden flex items-center justify-center">
-            <h2 className="text-xl font-semibold text-center">
+          <Card className="absolute w-full h-full p-4 sm:p-6 cursor-pointer backface-hidden flex items-center justify-center">
+            <h2 className="text-lg sm:text-xl font-semibold text-center">
               {currentCard.question}
             </h2>
           </Card>
 
           {/* Back of card (Answer) */}
-          <Card className="absolute w-full h-full p-6 cursor-pointer backface-hidden rotate-y-180 flex flex-col items-center justify-center bg-gray-50">
+          <Card className="absolute w-full h-full p-4 sm:p-6 cursor-pointer backface-hidden rotate-y-180 flex flex-col items-center justify-center bg-gray-50 overflow-y-auto">
             <div className="text-center">
               <h3 className="font-medium mb-4">Answer:</h3>
-              <div className="p-4 rounded-md bg-green-100 border border-green-300 mb-4">
-                <p className="font-medium">{correctAnswer}</p>
+              <div className="p-3 sm:p-4 rounded-md bg-green-100 border border-green-300 mb-4">
+                <p className="font-medium text-sm sm:text-base">
+                  {correctAnswer}
+                </p>
               </div>
 
               {currentCard.explanation && (
@@ -327,8 +334,10 @@ export default function Page() {
                     </Button>
                   )}
                   {showExplanation && (
-                    <div className="mt-4 p-4 bg-blue-50 rounded-md">
-                      <p className="text-sm">{currentCard.explanation}</p>
+                    <div className="mt-4 p-3 sm:p-4 bg-blue-50 rounded-md">
+                      <p className="text-xs sm:text-sm">
+                        {currentCard.explanation}
+                      </p>
                     </div>
                   )}
                 </>
@@ -339,16 +348,16 @@ export default function Page() {
       </div>
 
       {showAnswer && (
-        <div className="flex space-x-4">
+        <div className="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
           <Button
             onClick={handleStillLearning}
             variant="outline"
-            className="flex-1 py-6"
+            className="flex-1 py-4 sm:py-6"
           >
             <HelpCircle className="mr-2 h-5 w-5" />
             Still Learning
           </Button>
-          <Button onClick={handleKnewIt} className="flex-1 py-6">
+          <Button onClick={handleKnewIt} className="flex-1 py-4 sm:py-6">
             <CheckCircle2 className="mr-2 h-5 w-5" />I Knew It
           </Button>
         </div>

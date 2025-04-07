@@ -153,18 +153,22 @@ export default function Page() {
 
   if (isConfiguring) {
     return (
-      <div className="max-w-4xl mx-auto p-4">
-        <div className="mb-8">
-          <h1 className="text-2xl font-bold mb-4">Quiz Mode</h1>
+      <div className="max-w-4xl mx-auto p-2 sm:p-4">
+        <div className="mb-6 sm:mb-8">
+          <h1 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">
+            Quiz Mode
+          </h1>
 
-          <Card className="p-6 mb-6">
-            <h2 className="text-xl font-semibold mb-4">What is Quiz Mode?</h2>
-            <p className="text-gray-600 mb-4">
+          <Card className="p-4 sm:p-6 mb-4 sm:mb-6">
+            <h2 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-4">
+              What is Quiz Mode?
+            </h2>
+            <p className="text-sm sm:text-base text-gray-600 mb-3 sm:mb-4">
               Quiz Mode tests your knowledge through a structured assessment.
               Answer questions and receive immediate feedback.
             </p>
 
-            <ul className="list-disc pl-5 space-y-2 text-gray-600 mb-6">
+            <ul className="list-disc pl-5 space-y-1 sm:space-y-2 text-sm sm:text-base text-gray-600 mb-4 sm:mb-6">
               <li>Questions appear one at a time</li>
               <li>Select your answer and receive immediate feedback</li>
               <li>Review your results at the end of the quiz</li>
@@ -172,13 +176,15 @@ export default function Page() {
             </ul>
           </Card>
 
-          <Card className="p-6 mb-6">
-            <h2 className="text-xl font-semibold mb-4">Settings</h2>
-            <div className="space-y-4">
-              <div className="flex items-center justify-between">
+          <Card className="p-4 sm:p-6 mb-4 sm:mb-6">
+            <h2 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4">
+              Settings
+            </h2>
+            <div className="space-y-3 sm:space-y-4">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-0">
                 <div className="space-y-0.5">
                   <Label htmlFor="show-confetti">Show Confetti</Label>
-                  <p className="text-sm text-gray-500">
+                  <p className="text-xs sm:text-sm text-gray-500">
                     Celebrate correct answers with confetti
                   </p>
                 </div>
@@ -193,12 +199,12 @@ export default function Page() {
                   }
                 />
               </div>
-              <div className="flex items-center justify-between">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-0">
                 <div className="space-y-0.5">
                   <Label htmlFor="show-answer-immediately">
                     Show Answer Immediately
                   </Label>
-                  <p className="text-sm text-gray-500">
+                  <p className="text-xs sm:text-sm text-gray-500">
                     Show correct answer immediately after answering
                   </p>
                 </div>
@@ -213,10 +219,10 @@ export default function Page() {
                   }
                 />
               </div>
-              <div className="flex items-center justify-between">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-0">
                 <div className="space-y-0.5">
                   <Label htmlFor="show-all-questions">Show All Questions</Label>
-                  <p className="text-sm text-gray-500">
+                  <p className="text-xs sm:text-sm text-gray-500">
                     Display all questions at once instead of one at a time
                   </p>
                 </div>
@@ -231,12 +237,12 @@ export default function Page() {
                   }
                 />
               </div>
-              <div className="flex items-center justify-between">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-0">
                 <div className="space-y-0.5">
                   <Label htmlFor="randomize-questions">
                     Randomize Questions
                   </Label>
-                  <p className="text-sm text-gray-500">
+                  <p className="text-xs sm:text-sm text-gray-500">
                     Shuffle the order of questions each time
                   </p>
                 </div>
@@ -251,10 +257,10 @@ export default function Page() {
                   }
                 />
               </div>
-              <div className="flex items-center justify-between">
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-0">
                 <div className="space-y-0.5">
                   <Label htmlFor="randomize-options">Randomize Options</Label>
-                  <p className="text-sm text-gray-500">
+                  <p className="text-xs sm:text-sm text-gray-500">
                     Shuffle the order of answer options
                   </p>
                 </div>
@@ -272,14 +278,21 @@ export default function Page() {
             </div>
           </Card>
 
-          <div className="flex justify-between">
-            <Button asChild variant="outline">
+          <div className="flex flex-col sm:flex-row justify-between gap-3 sm:gap-0">
+            <Button
+              asChild
+              variant="outline"
+              className="w-full sm:w-auto order-2 sm:order-1"
+            >
               <Link href="/mcq">
                 <ArrowLeft className="mr-2 h-4 w-4" />
                 Back
               </Link>
             </Button>
-            <Button onClick={startQuiz} className="px-8">
+            <Button
+              onClick={startQuiz}
+              className="w-full sm:w-auto px-4 sm:px-8 order-1 sm:order-2"
+            >
               <Play className="mr-2 h-4 w-4" />
               Start Quiz
             </Button>
@@ -291,15 +304,15 @@ export default function Page() {
 
   // Render quiz content
   return (
-    <div className="max-w-4xl mx-auto p-4 relative">
+    <div className="max-w-4xl mx-auto p-2 sm:p-4 relative">
       {/* Confetti overlay */}
       <Confetti active={showConfetti} />
 
-      <div className="mb-8">
-        <div className="flex justify-between items-center mb-4">
-          <h1 className="text-2xl font-bold">Quiz</h1>
+      <div className="mb-6 sm:mb-8">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-3 sm:mb-4 gap-2 sm:gap-0">
+          <h1 className="text-xl sm:text-2xl font-bold">Quiz</h1>
           {isQuizComplete && (
-            <div className="text-lg font-medium">
+            <div className="text-base sm:text-lg font-medium">
               Score: {calculateScore().correct}/{calculateScore().total} (
               {calculateScore().percentage}%)
             </div>
@@ -308,17 +321,19 @@ export default function Page() {
 
         {/* Show all questions mode */}
         {config.showAllQuestions ? (
-          <div className="space-y-8">
+          <div className="space-y-6 sm:space-y-8">
             {preparedQuestions.map((question, questionIndex) => (
-              <Card key={questionIndex} className="p-6 relative">
-                <div className="mb-4">
-                  <span className="text-sm text-gray-500 mr-2">
+              <Card key={questionIndex} className="p-4 sm:p-6 relative">
+                <div className="mb-3 sm:mb-4">
+                  <span className="text-xs sm:text-sm text-gray-500 mr-2">
                     Question {questionIndex + 1}
                   </span>
-                  <h2 className="text-xl font-semibold">{question.question}</h2>
+                  <h2 className="text-lg sm:text-xl font-semibold">
+                    {question.question}
+                  </h2>
                 </div>
 
-                <div className="space-y-3">
+                <div className="space-y-2 sm:space-y-3">
                   {Object.entries(question.options).map(([key, value]) => {
                     const isSelected = selectedAnswers[questionIndex] === key;
                     const isCorrect = question.answer === key;
@@ -329,7 +344,7 @@ export default function Page() {
                     return (
                       <button
                         key={key}
-                        className={`w-full text-left p-3 rounded-md border transition-colors ${
+                        className={`w-full text-left p-2 sm:p-3 rounded-md border transition-colors text-sm sm:text-base ${
                           isSelected
                             ? showResult
                               ? isCorrect
@@ -351,12 +366,12 @@ export default function Page() {
                           {showResult &&
                             isSelected &&
                             (isCorrect ? (
-                              <Check className="h-5 w-5 text-green-600" />
+                              <Check className="h-4 w-4 sm:h-5 sm:w-5 text-green-600 flex-shrink-0" />
                             ) : (
-                              <X className="h-5 w-5 text-red-600" />
+                              <X className="h-4 w-4 sm:h-5 sm:w-5 text-red-600 flex-shrink-0" />
                             ))}
                           {showResult && !isSelected && isCorrect && (
-                            <Check className="h-5 w-5 text-green-600" />
+                            <Check className="h-4 w-4 sm:h-5 sm:w-5 text-green-600 flex-shrink-0" />
                           )}
                         </div>
                       </button>
@@ -369,8 +384,8 @@ export default function Page() {
                   (config.showAnswerImmediately &&
                     selectedAnswers[questionIndex] !== undefined)) &&
                   question.explanation && (
-                    <div className="mt-4 p-3 bg-gray-50 rounded-md">
-                      <p className="text-sm text-gray-700">
+                    <div className="mt-3 sm:mt-4 p-2 sm:p-3 bg-gray-50 rounded-md">
+                      <p className="text-xs sm:text-sm text-gray-700">
                         <span className="font-medium">Explanation:</span>{" "}
                         {question.explanation}
                       </p>
@@ -381,27 +396,27 @@ export default function Page() {
           </div>
         ) : (
           // Show one question at a time mode
-          <Card className="p-6 relative">
-            <div className="mb-4 flex justify-between items-center">
-              <span className="text-sm text-gray-500">
+          <Card className="p-4 sm:p-6 relative">
+            <div className="mb-3 sm:mb-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-1 sm:gap-0">
+              <span className="text-xs sm:text-sm text-gray-500">
                 Question {currentQuestionIndex + 1} of{" "}
                 {preparedQuestions.length}
               </span>
               {!isQuizComplete && (
-                <div className="text-sm font-medium">
+                <div className="text-xs sm:text-sm font-medium">
                   {Object.values(selectedAnswers).filter(Boolean).length}{" "}
                   answered
                 </div>
               )}
             </div>
 
-            <div className="mb-6">
-              <h2 className="text-xl font-semibold">
+            <div className="mb-4 sm:mb-6">
+              <h2 className="text-lg sm:text-xl font-semibold">
                 {preparedQuestions[currentQuestionIndex]?.question}
               </h2>
             </div>
 
-            <div className="space-y-3 mb-6">
+            <div className="space-y-2 sm:space-y-3 mb-4 sm:mb-6">
               {Object.entries(
                 preparedQuestions[currentQuestionIndex]?.options || {}
               ).map(([key, value]) => {
@@ -416,7 +431,7 @@ export default function Page() {
                 return (
                   <button
                     key={key}
-                    className={`w-full text-left p-3 rounded-md border transition-colors ${
+                    className={`w-full text-left p-2 sm:p-3 rounded-md border transition-colors text-sm sm:text-base ${
                       isSelected
                         ? showResult
                           ? isCorrect
@@ -434,7 +449,7 @@ export default function Page() {
                     }
                   >
                     <div className="flex items-center justify-between">
-                      <span>
+                      <span className="pr-2">
                         <span className="font-medium mr-2">
                           {key.toUpperCase()}.
                         </span>
@@ -443,12 +458,12 @@ export default function Page() {
                       {showResult &&
                         isSelected &&
                         (isCorrect ? (
-                          <Check className="h-5 w-5 text-green-600" />
+                          <Check className="h-4 w-4 sm:h-5 sm:w-5 text-green-600 flex-shrink-0" />
                         ) : (
-                          <X className="h-5 w-5 text-red-600" />
+                          <X className="h-4 w-4 sm:h-5 sm:w-5 text-red-600 flex-shrink-0" />
                         ))}
                       {showResult && !isSelected && isCorrect && (
-                        <Check className="h-5 w-5 text-green-600" />
+                        <Check className="h-4 w-4 sm:h-5 sm:w-5 text-green-600 flex-shrink-0" />
                       )}
                     </div>
                   </button>
@@ -461,8 +476,8 @@ export default function Page() {
               (config.showAnswerImmediately &&
                 selectedAnswers[currentQuestionIndex] !== undefined)) &&
               preparedQuestions[currentQuestionIndex]?.explanation && (
-                <div className="mb-6 p-3 bg-gray-50 rounded-md">
-                  <p className="text-sm text-gray-700">
+                <div className="mb-4 sm:mb-6 p-2 sm:p-3 bg-gray-50 rounded-md">
+                  <p className="text-xs sm:text-sm text-gray-700">
                     <span className="font-medium">Explanation:</span>{" "}
                     {preparedQuestions[currentQuestionIndex]?.explanation}
                   </p>
@@ -470,13 +485,14 @@ export default function Page() {
               )}
 
             {/* Navigation buttons */}
-            <div className="flex justify-between">
+            <div className="flex justify-between gap-2">
               <Button
                 variant="outline"
                 onClick={previousQuestion}
                 disabled={currentQuestionIndex === 0}
+                className="text-xs sm:text-sm px-2 sm:px-4"
               >
-                <ArrowLeft className="mr-2 h-4 w-4" />
+                <ArrowLeft className="mr-1 sm:mr-2 h-3 w-3 sm:h-4 sm:w-4" />
                 Previous
               </Button>
 
@@ -488,9 +504,10 @@ export default function Page() {
                     selectedAnswers[currentQuestionIndex] === undefined &&
                     !isQuizComplete
                   }
+                  className="text-xs sm:text-sm px-2 sm:px-4"
                 >
                   Next
-                  <ArrowRight className="ml-2 h-4 w-4" />
+                  <ArrowRight className="ml-1 sm:ml-2 h-3 w-3 sm:h-4 sm:w-4" />
                 </Button>
               ) : (
                 <Button
@@ -499,9 +516,10 @@ export default function Page() {
                     selectedAnswers[currentQuestionIndex] === undefined &&
                     !isQuizComplete
                   }
+                  className="text-xs sm:text-sm px-2 sm:px-4"
                 >
                   Finish Quiz
-                  <Check className="ml-2 h-4 w-4" />
+                  <Check className="ml-1 sm:ml-2 h-3 w-3 sm:h-4 sm:w-4" />
                 </Button>
               )}
             </div>
@@ -509,14 +527,21 @@ export default function Page() {
         )}
 
         {/* Quiz control buttons */}
-        <div className="mt-6 flex justify-between">
-          <Button onClick={resetQuiz} variant="outline">
+        <div className="mt-4 sm:mt-6 flex flex-col sm:flex-row justify-between gap-3 sm:gap-0">
+          <Button
+            onClick={resetQuiz}
+            variant="outline"
+            className="w-full sm:w-auto order-2 sm:order-1"
+          >
             <Settings2 className="mr-2 h-4 w-4" />
             Back to Configuration
           </Button>
 
           {isQuizComplete && (
-            <Button onClick={startQuiz}>
+            <Button
+              onClick={startQuiz}
+              className="w-full sm:w-auto order-1 sm:order-2"
+            >
               <Play className="mr-2 h-4 w-4" />
               Restart Quiz
             </Button>
