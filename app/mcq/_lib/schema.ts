@@ -14,12 +14,6 @@ export const QuestionItemSchema = z.object({
   explanation: z.string().optional(),
 });
 
-export const quizletSchema = z.object({
-  questions: z
-    .array(QuestionItemSchema)
-    .min(1, "At least one question is required"),
-});
-
 export const quizModeConfigSchema = z.object({
   showConfetti: z.boolean().default(true),
   showAnswerImmediately: z.boolean().default(true),
@@ -33,8 +27,23 @@ export const practiceModeConfigSchema = z.object({
   showExplanationImmediately: z.boolean().default(true),
 });
 
-export type Quizlet = z.infer<typeof quizletSchema>;
+export const QuizSchema = z.object({
+  id: z.string().min(1, "Quiz ID is required"),
+  title: z.string().min(1, "Quiz title is required"),
+  description: z.string().optional(),
+  questions: z
+    .array(QuestionItemSchema)
+    .min(1, "At least one question is required"),
+});
 
+export const quizletSchema = z.object({
+  quizzes: z.array(QuizSchema).optional().default([]),
+  quizModeConfig: quizModeConfigSchema,
+  practiceModeConfig: practiceModeConfigSchema,
+});
+
+export type Quizlet = z.infer<typeof quizletSchema>;
+export type Quiz = z.infer<typeof QuizSchema>;
 export type QuestionItem = z.infer<typeof QuestionItemSchema>;
 export type QuestionOption = z.infer<typeof QuestionOptionSchema>;
 

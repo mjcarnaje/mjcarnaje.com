@@ -1,27 +1,34 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { useQuizlet } from "../_lib/quizlet-context";
-import { QuestionItem, PracticeModeConfig } from "../_lib/schema";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { Label } from "@/components/ui/label";
+import { Switch } from "@/components/ui/switch";
+import { shuffle } from "@/lib/utils";
 import {
   ArrowLeft,
-  HelpCircle,
   CheckCircle2,
-  Play,
-  Settings2,
   Eye,
   EyeOff,
+  HelpCircle,
+  Play,
+  Settings2,
 } from "lucide-react";
-import { shuffle } from "@/lib/utils";
 import Link from "next/link";
-import { Switch } from "@/components/ui/switch";
-import { Label } from "@/components/ui/label";
+import { useState } from "react";
+import { PracticeModeConfig, QuestionItem } from "../_lib/schema";
 
-export default function Page() {
-  const { questions, practiceModeConfig, handlePracticeModeConfigChange } =
-    useQuizlet();
+interface PracticeQuizProps {
+  questions: QuestionItem[];
+  practiceModeConfig: PracticeModeConfig;
+  handlePracticeModeConfigChange: (config: PracticeModeConfig) => void;
+}
+
+export default function PracticeQuiz({
+  questions,
+  practiceModeConfig,
+  handlePracticeModeConfigChange,
+}: PracticeQuizProps) {
   const [activeCards, setActiveCards] = useState<QuestionItem[]>([]);
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
   const [showAnswer, setShowAnswer] = useState(false);

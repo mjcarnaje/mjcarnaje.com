@@ -1,5 +1,6 @@
 "use client";
 
+import { nanoid } from "nanoid";
 import {
   createContext,
   ReactNode,
@@ -7,11 +8,16 @@ import {
   useEffect,
   useState,
 } from "react";
-import defaultQuestions from "./default-questions.json";
-import { PracticeModeConfig, QuestionItem, QuizModeConfig } from "./schema";
+import defaultQuizData from "./default-questions.json";
+import {
+  PracticeModeConfig,
+  Quiz,
+  QuestionItem,
+  QuizModeConfig,
+} from "./schema";
 
 interface QuizletState {
-  questions: QuestionItem[];
+  quizzes: Quiz[];
   quizModeConfig: QuizModeConfig;
   practiceModeConfig: PracticeModeConfig;
 }
@@ -19,18 +25,31 @@ interface QuizletState {
 interface QuizletContextType extends QuizletState {
   handleQuizModeConfigChange: (config: QuizModeConfig) => void;
   handlePracticeModeConfigChange: (config: PracticeModeConfig) => void;
-  handleQuestionsChange: (questions: QuestionItem[]) => void;
+  createQuiz: (quiz: Omit<Quiz, "id">) => string;
+  updateQuiz: (id: string, quiz: Partial<Omit<Quiz, "id">>) => void;
+  deleteQuiz: (id: string) => void;
+  getQuiz: (id: string) => Quiz | undefined;
+  updateQuizQuestions: (id: string, questions: QuestionItem[]) => void;
   saveChanges: () => void;
   resetToDefaults: () => void;
 }
 
-const LOCAL_STORAGE_KEY = "quizlet-settings";
+const LOCAL_STORAGE_KEY = "quizzes-data";
 
 const QuizletContext = createContext<QuizletContextType | undefined>(undefined);
 
+const createDefaultQuiz = (): Quiz => {
+  return {
+    id: nanoid(),
+    title: defaultQuizData.title,
+    description: defaultQuizData.description,
+    questions: defaultQuizData.questions as QuestionItem[],
+  };
+};
+
 export function QuizletProvider({ children }: { children: ReactNode }) {
   const [state, setState] = useState<QuizletState>({
-    questions: defaultQuestions as QuestionItem[],
+    quizzes: [createDefaultQuiz()],
     quizModeConfig: {
       showConfetti: true,
       showAnswerImmediately: true,
@@ -84,10 +103,47 @@ export function QuizletProvider({ children }: { children: ReactNode }) {
     }));
   };
 
-  const handleQuestionsChange = (questions: QuestionItem[]) => {
+  const createQuiz = (quiz: Omit<Quiz, "id">) => {
+    const id = nanoid();
+    const newQuiz: Quiz = {
+      id,
+      ...quiz,
+    };
+
     setState((prevState) => ({
       ...prevState,
-      questions: questions,
+      quizzes: [...prevState.quizzes, newQuiz],
+    }));
+
+    return id;
+  };
+
+  const updateQuiz = (id: string, quiz: Partial<Omit<Quiz, "id">>) => {
+    setState((prevState) => ({
+      ...prevState,
+      quizzes: prevState.quizzes.map((q) =>
+        q.id === id ? { ...q, ...quiz } : q
+      ),
+    }));
+  };
+
+  const deleteQuiz = (id: string) => {
+    setState((prevState) => ({
+      ...prevState,
+      quizzes: prevState.quizzes.filter((q) => q.id !== id),
+    }));
+  };
+
+  const getQuiz = (id: string) => {
+    return state.quizzes.find((q) => q.id === id);
+  };
+
+  const updateQuizQuestions = (id: string, questions: QuestionItem[]) => {
+    setState((prevState) => ({
+      ...prevState,
+      quizzes: prevState.quizzes.map((q) =>
+        q.id === id ? { ...q, questions } : q
+      ),
     }));
   };
 
@@ -103,7 +159,7 @@ export function QuizletProvider({ children }: { children: ReactNode }) {
 
   const resetToDefaults = () => {
     const defaultState: QuizletState = {
-      questions: defaultQuestions as QuestionItem[],
+      quizzes: [createDefaultQuiz()],
       quizModeConfig: {
         showConfetti: true,
         showAnswerImmediately: true,
@@ -126,7 +182,11 @@ export function QuizletProvider({ children }: { children: ReactNode }) {
         ...state,
         handleQuizModeConfigChange,
         handlePracticeModeConfigChange,
-        handleQuestionsChange,
+        createQuiz,
+        updateQuiz,
+        deleteQuiz,
+        getQuiz,
+        updateQuizQuestions,
         saveChanges,
         resetToDefaults,
       }}

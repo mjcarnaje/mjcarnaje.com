@@ -1,20 +1,27 @@
 "use client";
 
-import { useState, useEffect, useMemo } from "react";
-import { useQuizlet } from "../_lib/quizlet-context";
-import { QuestionItem, QuizModeConfig } from "../_lib/schema";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { ArrowLeft, Play, Settings2, ArrowRight, Check, X } from "lucide-react";
-import { shuffle } from "@/lib/utils";
-import Link from "next/link";
-import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
+import { Switch } from "@/components/ui/switch";
+import { shuffle } from "@/lib/utils";
+import { ArrowLeft, ArrowRight, Check, Play, Settings2, X } from "lucide-react";
+import Link from "next/link";
+import { useMemo, useState } from "react";
 import { Confetti } from "../_lib/confetti";
+import { QuestionItem, QuizModeConfig } from "../_lib/schema";
 
-export default function Page() {
-  const { questions, quizModeConfig, handleQuizModeConfigChange } =
-    useQuizlet();
+interface TakeQuizProps {
+  questions: QuestionItem[];
+  quizModeConfig: QuizModeConfig;
+  handleQuizModeConfigChange: (config: QuizModeConfig) => void;
+}
+
+export default function TakeQuiz({
+  questions,
+  quizModeConfig,
+  handleQuizModeConfigChange,
+}: TakeQuizProps) {
   const [isConfiguring, setIsConfiguring] = useState(true);
   const [config, setConfig] = useState<QuizModeConfig>({
     ...quizModeConfig,
