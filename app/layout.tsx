@@ -21,18 +21,41 @@ interface RootLayoutProps {
 }
 
 export const metadata: Metadata = {
-  title: "Michael James Carnaje",
+  title: "MJ Carnaje",
   description:
     "Hello! I'm Michael James Carnaje, a coder from the Philippines. Here you can find my projects, blog posts, and more.",
+  openGraph: {
+    title: "MJ Carnaje",
+    description: "Hello! I'm Michael James Carnaje, a coder from the Philippines. Here you can find my projects, blog posts, and more.",
+    url: "https://mjcarnaje.com",
+    siteName: "MJ Carnaje",
+    locale: "en_US",
+    type: "website",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  twitter: {
+    title: "MJ Carnaje",
+    card: "summary_large_image",
+  },
 };
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <>
-      <html lang="en" className={cn(inter.variable, firaCode.variable)}>
+      <html lang="en" className={cn(inter.variable, firaCode.variable)} style={{ scrollBehavior: "smooth" }}>
         <AnalyticsWrapper />
-        <body className="relative min-h-screen bg-dot-black/[0.2] text-gray-800 bg-gray-100 sm:px-8">
-          <main>{children}</main>
+        <body className="relative min-h-screen bg-dot-black/[0.2] text-gray-800 bg-gray-100">
+          {children}
           <Toaster />
         </body>
       </html>
