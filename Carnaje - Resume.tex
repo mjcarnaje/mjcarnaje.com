@@ -1,0 +1,206 @@
+% !TEX root = Carnaje - Resume.tex
+% MIT Resume Template
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+% Use Helvetica font
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    \textbf{\Huge \scshape Michael James Carnaje} \\ \vspace{1pt}
+    \small +63 956 731 3009 $|$ \href{mailto:carnaje.michaeljames@gmail.com}{\underline{carnaje.michaeljames@gmail.com}} $|$ 
+    \href{https://linkedin.com/in/mjcarnaje}{\underline{linkedin.com/in/mjcarnaje}} $|$
+    \href{https://github.com/mjcarnaje}{\underline{github.com/mjcarnaje}} $|$
+    \href{https://www.mjcarnaje.com}{\underline{mjcarnaje.com}}
+\end{center}
+
+%-----------EDUCATION-----------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Mindanao State University -- Iligan Institute of Technology}{Iligan City, Philippines}
+      {Bachelor of Science in Computer Science}{Aug. 2021 -- June 2025}
+  \resumeSubHeadingListEnd
+
+%-----------TECHNICAL SKILLS-----------
+\section{Technical Skills}
+ \begin{itemize}[leftmargin=0.15in, label={}]
+    \small{\item{
+     \textbf{Languages}{: TypeScript, JavaScript, Python} \\
+     \textbf{Frontend}{: HTML5, CSS3, Tailwind CSS, Sass, React, Vite, Next.js, React Native, Expo} \\
+     \textbf{Backend}{: Node.js, Express, NestJS, Flask, Django, GraphQL, Firebase, Supabase} \\
+     \textbf{Databases}{: MongoDB, MySQL, PostgreSQL, SQL} \\
+     \textbf{Tools}{: Git, Docker, Stripe, Twilio, Resend, RxDB}
+    }}
+ \end{itemize}
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+  \resumeSubHeadingListStart
+
+    \resumeSubheading
+      {Geriatric Care Solution}{Jan. 2024 -- May 2024}
+      {Full-Stack Web Developer}{Remote, California, USA}
+      \resumeItemListStart
+        \resumeItem{Independently developed 3 full-stack applications using \textbf{Next.js}, \textbf{React Native}, and AI integration technologies}
+        \resumeItem{Built subscription-based digital asset platform with watermarking protection, admin content management, and \textbf{Stripe} payment integration}
+        \resumeItem{Engineered \textbf{Anaya Care} - AI-powered care management system with automated care plan generation, client/caregiver management, and cross-platform mobile app}
+        \resumeItem{Developed \textbf{For Little Readers} - children's digital content platform with subscription model and secure content delivery}
+        \resumeItem{Integrated \textbf{Twilio} SMS notifications and \textbf{Resend} email services across all platforms, improving user engagement and communication workflows}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {BuildMyWealth}{Jan. 2022 -- Present}
+      {Lead Mobile Developer \& Co-Founder}{Remote, Las Piñas, PH}
+      \resumeItemListStart
+        \resumeItem{Co-founded fintech startup focused on personal financial management; led mobile development using \textbf{React Native} and \textbf{Expo}}
+        \resumeItem{Architected offline-first data sync with \textbf{RxDB}, achieving seamless local persistence and conflict resolution on reconnect}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Creating Info}{Oct. 2023 -- Apr. 2024}
+      {Mobile Developer (Contract)}{Remote}
+      \resumeItemListStart
+        \resumeItem{Developed 3 React Native applications: warehouse management system, EasyBrand cooking platform, and geo-based promotional notification app}
+        \resumeItem{Implemented offline caching of data and images across all applications, ensuring seamless user experience in low-connectivity environments}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Vashcorp Inc.}{Jan. 2023 -- July 2023}
+      {Front-End Web Developer}{Remote, Quezon City, PH}
+      \resumeItemListStart
+        \resumeItem{Developed two high-performance websites with \textbf{Next.js}, applying modern best practices for SEO and accessibility}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Freelance Web \& Mobile Developer}{Sep. 2021 -- Oct. 2022}
+      {Self-Employed}{Iligan City, PH}
+      \resumeItemListStart
+        \resumeItem{Developed full-stack solutions for academic thesis projects using MERN stack and React Native}
+        \resumeItem{Created a crypto accounting front-end and TikTok analytics dashboard, enhancing data visualization for end users}
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {Sunnyside}{Feb. 2021 -- June 2021}
+      {Mobile Developer}{Remote, Iligan City, PH}
+      \resumeItemListStart
+        \resumeItem{Built two React Native apps: a financial management tool and a warehouse inventory system, collaborating in a two-person team}
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+%-----------PROJECTS-----------
+\section{Projects}
+    \resumeSubHeadingListStart
+      \resumeProjectHeading
+          {\textbf{Anaya Care} $|$ \emph{Next.js, NestJS, React Native, AI Integration, Stripe, Twilio, Resend}}{}
+          \resumeItemListStart
+            \resumeItem{AI-powered care management platform with automated care plan generation, meal planning, and activity scheduling}
+            \resumeItem{Cross-platform solution with web admin portal and mobile apps for families and caregivers}
+            \resumeItem{\href{https://anaya.care}{\underline{anaya.care}}}
+          \resumeItemListEnd
+      \resumeProjectHeading
+          {\textbf{Geriatric Care Solution} $|$ \emph{Next.js, Stripe, Twilio, Resend}}{}
+          \resumeItemListStart
+            \resumeItem{Subscription-based digital asset platform (Care Prints) with watermarking protection and admin content management}
+            \resumeItem{\href{https://www.geriatriccaresolution.com}{\underline{geriatriccaresolution.com}}}
+          \resumeItemListEnd
+      \resumeProjectHeading
+          {\textbf{For Little Readers} $|$ \emph{Next.js, Stripe, Twilio, Resend}}{}
+          \resumeItemListStart
+            \resumeItem{Children's digital content platform with subscription model and secure content delivery system}
+            \resumeItem{Implemented watermarking and download protection for premium educational materials}
+            \resumeItem{\href{https://www.forlittlereaders.com}{\underline{forlittlereaders.com}}}
+          \resumeItemListEnd
+      \resumeProjectHeading
+          {\textbf{BuildMyWealth} $|$ \emph{React Native, Expo, RxDB}}{}
+          \resumeItemListStart
+            \resumeItem{Personal finance mobile application with offline-first architecture}
+            \resumeItem{\href{https://www.buildmywealth.app}{\underline{buildmywealth.app}}}
+          \resumeItemListEnd
+    \resumeSubHeadingListEnd
+
+\end{document}

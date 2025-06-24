@@ -39,3 +39,13 @@ next-env.d.ts
 .vercel
 
 .contentlayer
+
+# latex
+*.log
+*.aux
+*.fls
+*.fdb_latexmk
+*.out
+*.toc
+*.lof
+*.gz
