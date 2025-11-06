@@ -82,10 +82,10 @@ export default async function Image() {
               marginBottom: "48px",
             }}
           >
-            I'm Michael James Carnaje, a software engineer from the Philippines
-            with 4 years of experience. I enjoy building products that address
-            real user needs—whether that's through web applications, mobile
-            apps, or automation tools.
+            I&apos;m Michael James Carnaje, a software engineer from the
+            Philippines with 4 years of experience. I enjoy building products
+            that address real user needs—whether that&apos;s through web
+            applications, mobile apps, or automation tools.
           </div>
 
           {/* Footer */}
