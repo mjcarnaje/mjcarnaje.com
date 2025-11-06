@@ -6,19 +6,20 @@ import { useToast } from "@/hooks/use-toast";
 import { AlertCircle, ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 import TakeQuiz from "../../_components/take-quiz";
 import { BreadcrumbNav } from "../../_components/breadcrumb-nav";
 import { useQuizlet } from "../../_lib/quizlet-context";
 
 interface EditQuizPageProps {
-  params: {
+  params: Promise<{
     "quiz-id": string;
-  };
+  }>;
 }
 
 export default function EditQuizPage({ params }: EditQuizPageProps) {
-  const quizId = params["quiz-id"];
+  const resolvedParams = use(params);
+  const quizId = resolvedParams["quiz-id"];
   const router = useRouter();
   const { toast } = useToast();
   const { getQuiz, quizModeConfig, handleQuizModeConfigChange } = useQuizlet();

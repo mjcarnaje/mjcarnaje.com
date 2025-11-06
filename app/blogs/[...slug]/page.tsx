@@ -10,14 +10,15 @@ import Link from "next/link";
 import dayjs from "dayjs";
 
 interface PostProps {
-  params: {
+  params: Promise<{
     slug: string[];
-  };
+  }>;
 }
 
 async function getPostFromParams(params: PostProps["params"]) {
-  const slug = params?.slug?.join("/");
-  const post = allPosts.find((post) => post.slugAsParams === slug);
+  const { slug } = await params;
+  const slugString = slug?.join("/");
+  const post = allPosts.find((post) => post.slugAsParams === slugString);
 
   if (!post) {
     null;
@@ -55,7 +56,7 @@ export async function generateMetadata({
   };
 }
 
-export async function generateStaticParams(): Promise<PostProps["params"][]> {
+export async function generateStaticParams() {
   return allPosts.map((post) => ({
     slug: post.slugAsParams.split("/"),
   }));

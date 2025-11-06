@@ -22,7 +22,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 import { useQuizlet } from "../_lib/quizlet-context";
 import { BreadcrumbNav } from "../_components/breadcrumb-nav";
 
@@ -64,13 +64,14 @@ const ModeCard = ({ icon: Icon, title, description, href }: ModeCardProps) => (
 );
 
 interface ViewQuizPageProps {
-  params: {
+  params: Promise<{
     "quiz-id": string;
-  };
+  }>;
 }
 
 export default function ViewQuizPage({ params }: ViewQuizPageProps) {
-  const quizId = params["quiz-id"];
+  const resolvedParams = use(params);
+  const quizId = resolvedParams["quiz-id"];
   const router = useRouter();
   const { toast } = useToast();
   const { getQuiz } = useQuizlet();

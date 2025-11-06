@@ -7,7 +7,7 @@ import { useToast } from "@/hooks/use-toast";
 import { AlertCircle, ArrowLeft, Trash2 } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 import { QuizCreationMethodSelector } from "../../_components/QuizCreationMethodSelector";
 import { QuizForm } from "../../_components/quiz-form";
 import { BreadcrumbNav } from "../../_components/breadcrumb-nav";
@@ -15,13 +15,14 @@ import { useQuizlet } from "../../_lib/quizlet-context";
 import { QuestionItem } from "../../_lib/schema";
 
 interface EditQuizPageProps {
-  params: {
+  params: Promise<{
     "quiz-id": string;
-  };
+  }>;
 }
 
 export default function EditQuizPage({ params }: EditQuizPageProps) {
-  const quizId = params["quiz-id"];
+  const resolvedParams = use(params);
+  const quizId = resolvedParams["quiz-id"];
   const router = useRouter();
   const { toast } = useToast();
   const { getQuiz, updateQuiz, deleteQuiz, updateQuizQuestions } = useQuizlet();
