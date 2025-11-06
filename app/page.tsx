@@ -34,10 +34,14 @@ export default function Home() {
               />
 
               <p className="max-w-3xl mt-8 text-base">
-                I&apos;m Michael James Carnaje, a Software Engineer based in the
-                Philippines. I&apos;m passionate about building software that
-                solves real-world problems and improves the lives of those around
-                me. I&apos;m an expert in AI integration with various models including GPT, Claude, and open-source AI like Llama and DeepSeek.
+                I&apos;m Michael James Carnaje, a software engineer from the
+                Philippines with 4 years of experience. I enjoy building
+                products that address real user needs—whether that&apos;s
+                through web applications, mobile apps, or automation tools. My
+                work often involves integrating AI-powered features; I&apos;ve
+                built with models like GPT, Claude, and open-source options such
+                as Llama and DeepSeek. I&apos;m always learning new technologies
+                and aim to deliver solutions that make a practical difference.
               </p>
             </div>
             <div className="grid gap-6 mt-16">
@@ -99,7 +103,10 @@ export default function Home() {
             </div>
             <div className="flex flex-wrap items-center justify-center gap-8">
               {technologies.map((tech) => (
-                <div key={tech.name} className="flex flex-col items-center gap-3">
+                <div
+                  key={tech.name}
+                  className="flex flex-col items-center gap-3"
+                >
                   <div className="flex flex-col items-center max-w-xs p-4 space-y-2 transition-all duration-300 bg-white bg-grid-small-black/[.1] border-input border rounded-full shadow-sm cursor-pointer hover:scale-110">
                     <div className="w-12 h-12 aspect-square">
                       <tech.icon className="w-full h-full" />
@@ -121,22 +128,54 @@ export default function Home() {
             </div>
             <div className="grid grid-cols-1 gap-8">
               <p className="text-base">
-                I specialize in integrating various AI models into applications and systems, turning cutting-edge AI capabilities into practical solutions.
+                I specialize in building production-ready AI systems that solve
+                complex domain-specific challenges, with deep expertise in
+                healthcare AI and multi-model integration architectures.
               </p>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div className="p-6 bg-white border rounded-xl bg-grid-small-black/[.1] border-input">
-                  <h3 className="mb-3 text-xl font-bold">Large Language Models</h3>
-                  <p>Expert integration with commercial APIs like OpenAI GPT and Anthropic Claude, as well as open-source models like Llama, DeepSeek, and Mistral.</p>
+                  <h3 className="mb-3 text-xl font-bold">
+                    Healthcare AI Systems
+                  </h3>
+                  <p>
+                    Built 9 specialized AI services for geriatric care including
+                    intelligent care plan generation, personalized meal
+                    recommendations, medication management, cognitive activity
+                    creation, and health observation analysis. Implemented
+                    streaming responses with real-time progress tracking for
+                    enhanced user experience.
+                  </p>
                 </div>
                 <div className="p-6 bg-white border rounded-xl bg-grid-small-black/[.1] border-input">
-                  <h3 className="mb-3 text-xl font-bold">AI Application Development</h3>
-                  <p>Building AI-powered applications with RAG (Retrieval Augmented Generation), fine-tuning for specific domains, and creating intuitive AI interfaces.</p>
+                  <h3 className="mb-3 text-xl font-bold">
+                    Multi-Model Integration
+                  </h3>
+                  <p>
+                    Expert in architecting dual AI systems combining OpenAI
+                    GPT-4 and Google Generative AI for complementary
+                    capabilities. Seamless integration with commercial APIs
+                    (OpenAI, Anthropic Claude) and open-source models (Llama,
+                    DeepSeek, Mistral) for cost-effective, flexible solutions.
+                  </p>
+                </div>
+                <div className="p-6 bg-white border rounded-xl bg-grid-small-black/[.1] border-input">
+                  <h3 className="mb-3 text-xl font-bold">Domain-Specific AI</h3>
+                  <p>
+                    Developed AI-powered content generation across healthcare,
+                    education, and entertainment domains. Experience with RAG
+                    (Retrieval Augmented Generation), fine-tuning for
+                    specialized use cases, e-book creation systems, and building
+                    intuitive interfaces for complex AI workflows.
+                  </p>
                 </div>
               </div>
             </div>
           </div>
           <div className="w-full border-t"></div>
-          <div id="projects" className="grid grid-cols-1 gap-12 mx-auto md:grid-cols-2">
+          <div
+            id="projects"
+            className="grid grid-cols-1 gap-12 mx-auto md:grid-cols-2"
+          >
             <div className="col-span-1 md:col-span-2">
               <h1 className="text-4xl font-bold tracking-tight">
                 Featured Projects <Twemoji emoji="🚀" className="ml-2" />
@@ -218,7 +257,10 @@ export default function Home() {
             ))}
           </div>
           <div className="w-full border-t"></div>
-          <div id="blog" className="grid grid-cols-1 gap-12 mx-auto md:grid-cols-2">
+          <div
+            id="blog"
+            className="grid grid-cols-1 gap-12 mx-auto md:grid-cols-2"
+          >
             <div className="col-span-1 md:col-span-2">
               <h1 className="text-4xl font-bold tracking-tight">Blog Posts</h1>
             </div>

@@ -110,10 +110,10 @@
  \begin{itemize}[leftmargin=0.15in, label={}]
     \small{\item{
      \textbf{Languages}{: TypeScript, JavaScript, Python} \\
-     \textbf{Frontend}{: HTML5, CSS3, Tailwind CSS, Sass, React, Vite, Next.js, React Native, Expo} \\
-     \textbf{Backend}{: Node.js, Express, NestJS, Flask, Django, GraphQL, Firebase, Supabase} \\
-     \textbf{Databases}{: MongoDB, MySQL, PostgreSQL, SQL} \\
-     \textbf{Tools}{: Git, Docker, Stripe, Twilio, Resend, RxDB}
+     \textbf{Frontend}{: HTML5, CSS3, Tailwind CSS, Sass, React, Vite, Next.js, React Native, Expo, TanStack Query, Zustand, Tamagui, shadcn/ui} \\
+     \textbf{Backend}{: Node.js, Express, NestJS, Flask, Django, GraphQL, Firebase, Supabase, Socket.IO, BullMQ, Mongoose, Passport} \\
+     \textbf{Databases}{: MongoDB, MySQL, PostgreSQL, SQL, Redis} \\
+     \textbf{Tools}{: Git, Docker, Stripe, Twilio, Resend, RxDB, AWS S3, Cloudinary, OpenAI SDK, Google Generative AI, Puppeteer}
     }}
  \end{itemize}
 
@@ -125,11 +125,11 @@
       {Geriatric Care Solution}{Jan. 2024 -- May 2024}
       {Full-Stack Web Developer}{Remote, California, USA}
       \resumeItemListStart
-        \resumeItem{Independently developed 3 full-stack applications using \textbf{Next.js}, \textbf{React Native}, and AI integration technologies}
-        \resumeItem{Built subscription-based digital asset platform with watermarking protection, admin content management, and \textbf{Stripe} payment integration}
-        \resumeItem{Engineered \textbf{Anaya Care} - AI-powered care management system with automated care plan generation, client/caregiver management, and cross-platform mobile app}
-        \resumeItem{Developed \textbf{For Little Readers} - children's digital content platform with subscription model and secure content delivery}
-        \resumeItem{Integrated \textbf{Twilio} SMS notifications and \textbf{Resend} email services across all platforms, improving user engagement and communication workflows}
+        \resumeItem{Independently architected and developed 3 enterprise-scale full-stack applications using \textbf{Next.js}, \textbf{React Native}, dual AI integration (\textbf{OpenAI GPT-4}, \textbf{Google Generative AI}), and \textbf{Stripe} payment processing}
+        \resumeItem{Engineered \textbf{Anaya Care} - enterprise-grade monorepo with \textbf{NestJS backend (30+ modules)}, \textbf{React Native mobile (72 screens)}, and \textbf{Next.js web (94+ dashboard pages)} featuring 9 specialized AI services, dual \textbf{Socket.IO} gateways, and \textbf{BullMQ + Redis} background processing}
+        \resumeItem{Built comprehensive mobile app with 6 role-based interfaces, GPS-tracked time clock, real-time messaging, and HIPAA-compliant document management (Lockare) with advanced shift scheduling using RRule patterns}
+        \resumeItem{Implemented real-time collaborative features across web and mobile platforms with \textbf{Socket.IO}, modern state management using \textbf{TanStack Query} and \textbf{Zustand}, and automated AI-powered care planning across 9 health domains}
+        \resumeItem{Built scalable subscription-based digital asset platforms (\textbf{Care Prints}, \textbf{For Little Readers}) with watermarking protection, secure content delivery, and integrated \textbf{Twilio} SMS and \textbf{Resend} email services across all applications}
       \resumeItemListEnd
 
     \resumeSubheading
@@ -176,29 +176,27 @@
 \section{Projects}
     \resumeSubHeadingListStart
       \resumeProjectHeading
-          {\textbf{Anaya Care} $|$ \emph{Next.js, NestJS, React Native, AI Integration, Stripe, Twilio, Resend}}{}
+          {\textbf{Anaya Care Backend Architecture} $|$ \emph{NestJS, Passport, BullMQ, Redis, AWS S3, Expo Push}}{}
           \resumeItemListStart
-            \resumeItem{AI-powered care management platform with automated care plan generation, meal planning, and activity scheduling}
-            \resumeItem{Cross-platform solution with web admin portal and mobile apps for families and caregivers}
-            \resumeItem{\href{https://anaya.care}{\underline{anaya.care}}}
+            \resumeItem{Architected scalable backend with 30+ \textbf{NestJS} modules using event-driven architecture with EventEmitter2 for cross-module communication and dependency injection patterns}
+            \resumeItem{Designed background job processing system with \textbf{BullMQ} and \textbf{Redis} queues (notification, shift generation, AI processing, email) with retry logic and Bull Board monitoring dashboard}
+            \resumeItem{Implemented multi-method authentication with \textbf{Passport} strategies (JWT, Local, Phone OTP via Twilio) and hierarchical role-based access control across 6 user roles}
+            \resumeItem{Integrated \textbf{AWS S3} with presigned URLs for secure file uploads, \textbf{Expo Push Notifications} for mobile alerts, and comprehensive API error handling with global exception filters}
           \resumeItemListEnd
       \resumeProjectHeading
-          {\textbf{Geriatric Care Solution} $|$ \emph{Next.js, Stripe, Twilio, Resend}}{}
+          {\textbf{Cognitive Activities Engine} $|$ \emph{MongoDB Aggregation, OpenAI, Google AI, Puppeteer, Cloudinary}}{}
           \resumeItemListStart
-            \resumeItem{Subscription-based digital asset platform (Care Prints) with watermarking protection and admin content management}
-            \resumeItem{\href{https://www.geriatriccaresolution.com}{\underline{geriatriccaresolution.com}}}
+            \resumeItem{Engineered complex activity system with 13 cognitive activity types (crossword, word search, sudoku, paint-by-numbers, etc.) and bidirectional transformation algorithms between compatible formats}
+            \resumeItem{Built \textbf{MongoDB} aggregation pipelines with pagination, multi-field search, and real-time member tracking for family circles with compound indexes for query optimization}
+            \resumeItem{Developed AI-assisted e-book wizard with 7-step workflow using \textbf{OpenAI GPT-4} for story generation and \textbf{Google Generative AI} for image creation with 4 reading difficulty levels}
+            \resumeItem{Created \textbf{Puppeteer}-based server-side PDF generation for printable activities and care proposals with custom fonts, watermarking, and \textbf{Cloudinary} image optimization}
           \resumeItemListEnd
       \resumeProjectHeading
-          {\textbf{For Little Readers} $|$ \emph{Next.js, Stripe, Twilio, Resend}}{}
+          {\textbf{BuildMyWealth - Offline-First Architecture} $|$ \emph{React Native, Expo, RxDB, CouchDB, CRDT}}{}
           \resumeItemListStart
-            \resumeItem{Children's digital content platform with subscription model and secure content delivery system}
-            \resumeItem{Implemented watermarking and download protection for premium educational materials}
-            \resumeItem{\href{https://www.forlittlereaders.com}{\underline{forlittlereaders.com}}}
-          \resumeItemListEnd
-      \resumeProjectHeading
-          {\textbf{BuildMyWealth} $|$ \emph{React Native, Expo, RxDB}}{}
-          \resumeItemListStart
-            \resumeItem{Personal finance mobile application with offline-first architecture}
+            \resumeItem{Architected offline-first mobile fintech app using \textbf{RxDB} with local-first data persistence and bi-directional CouchDB synchronization, enabling full functionality without network connectivity}
+            \resumeItem{Implemented \textbf{CRDT}-based (Conflict-free Replicated Data Type) conflict resolution algorithm ensuring eventual consistency across devices when reconnecting after extended offline periods}
+            \resumeItem{Designed reactive data layer with RxDB observables providing automatic UI updates on data mutations, eliminating manual state management for complex financial transaction workflows}
             \resumeItem{\href{https://www.buildmywealth.app}{\underline{buildmywealth.app}}}
           \resumeItemListEnd
     \resumeSubHeadingListEnd
