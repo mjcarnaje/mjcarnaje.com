@@ -110,10 +110,10 @@
  \begin{itemize}[leftmargin=0.15in, label={}]
     \small{\item{
      \textbf{Languages}{: TypeScript, JavaScript, Python} \\
-     \textbf{Frontend}{: HTML5, CSS3, Tailwind CSS, Sass, React, Vite, Next.js, React Native, Expo, TanStack Query, Zustand, Tamagui, shadcn/ui} \\
+     \textbf{Frontend}{: HTML5, CSS3, Tailwind CSS, Sass, React, Vite, Next.js, React Native, Expo, TanStack Query, Zustand, Tamagui, shadcn/ui, Radix UI, Recharts} \\
      \textbf{Backend}{: Node.js, Express, NestJS, Flask, Django, GraphQL, Firebase, Supabase, Socket.IO, BullMQ, Mongoose, Passport} \\
      \textbf{Databases}{: MongoDB, MySQL, PostgreSQL, SQL, Redis} \\
-     \textbf{Tools}{: Git, Docker, Stripe, Twilio, Resend, RxDB, AWS S3, Cloudinary, OpenAI SDK, Google Generative AI, Puppeteer}
+     \textbf{Tools}{: Git, Docker, Stripe, Twilio, Resend, RxDB, AWS S3, Cloudinary, OpenAI SDK, Google Generative AI, Puppeteer, SQLAlchemy, Alembic, Pillow}
     }}
  \end{itemize}
 
@@ -176,6 +176,14 @@
 \section{Projects}
     \resumeSubHeadingListStart
       \resumeProjectHeading
+          {\textbf{Welicious Inventory \& Analytics System} $|$ \emph{Flask, MySQL, React 19, SQLAlchemy, TanStack Query}}{}
+          \resumeItemListStart
+            \resumeItem{Architected full-stack open-source inventory management system for small food businesses with \textbf{Flask} REST API (10 modular blueprints), \textbf{MySQL} database, and \textbf{React 19 + TypeScript} dashboard with real-time analytics}
+            \resumeItem{Engineered comprehensive POS system with automatic stock updates, multi-payment method tracking, product variants (size/flavor combinations), add-ons system, and customer relationship management with credit limit monitoring}
+            \resumeItem{Designed database schema with \textbf{SQLAlchemy} ORM and \textbf{Alembic} migrations featuring 12+ interconnected tables for sales tracking, expense management, and customer analytics with optimized relationship mapping}
+            \resumeItem{Built business intelligence dashboard with \textbf{Recharts} visualizations, revenue forecasting, category breakdowns, and automated image optimization pipeline using \textbf{Pillow} for product catalog management}
+          \resumeItemListEnd
+      \resumeProjectHeading
           {\textbf{Anaya Care Backend Architecture} $|$ \emph{NestJS, Passport, BullMQ, Redis, AWS S3, Expo Push}}{}
           \resumeItemListStart
             \resumeItem{Architected scalable backend with 30+ \textbf{NestJS} modules using event-driven architecture with EventEmitter2 for cross-module communication and dependency injection patterns}
@@ -184,20 +192,19 @@
             \resumeItem{Integrated \textbf{AWS S3} with presigned URLs for secure file uploads, \textbf{Expo Push Notifications} for mobile alerts, and comprehensive API error handling with global exception filters}
           \resumeItemListEnd
       \resumeProjectHeading
-          {\textbf{Cognitive Activities Engine} $|$ \emph{MongoDB Aggregation, OpenAI, Google AI, Puppeteer, Cloudinary}}{}
+          {\textbf{Geriatric Care Solution} $|$ \emph{MongoDB Aggregation, OpenAI, Google AI, Puppeteer, Cloudinary}}{}
           \resumeItemListStart
-            \resumeItem{Engineered complex activity system with 13 cognitive activity types (crossword, word search, sudoku, paint-by-numbers, etc.) and bidirectional transformation algorithms between compatible formats}
-            \resumeItem{Built \textbf{MongoDB} aggregation pipelines with pagination, multi-field search, and real-time member tracking for family circles with compound indexes for query optimization}
-            \resumeItem{Developed AI-assisted e-book wizard with 7-step workflow using \textbf{OpenAI GPT-4} for story generation and \textbf{Google Generative AI} for image creation with 4 reading difficulty levels}
-            \resumeItem{Created \textbf{Puppeteer}-based server-side PDF generation for printable activities and care proposals with custom fonts, watermarking, and \textbf{Cloudinary} image optimization}
+            \resumeItem{Independently architected and developed 3 enterprise-scale full-stack applications using \textbf{Next.js}, \textbf{React Native}, dual AI integration (\textbf{OpenAI GPT-4}, \textbf{Google Generative AI}), and \textbf{Stripe} payment processing}
+            \resumeItem{Engineered \textbf{Anaya Care} - enterprise-grade monorepo with \textbf{NestJS backend (30+ modules)}, \textbf{React Native mobile (72 screens)}, and \textbf{Next.js web (94+ dashboard pages)} featuring 9 specialized AI services, dual \textbf{Socket.IO} gateways, and \textbf{BullMQ + Redis} background processing}
+            \resumeItem{Built comprehensive mobile app with 6 role-based interfaces, GPS-tracked time clock, real-time messaging, and HIPAA-compliant document management (Lockare) with advanced shift scheduling using RRule patterns}
+            \resumeItem{Implemented real-time collaborative features across web and mobile platforms with \textbf{Socket.IO}, modern state management using \textbf{TanStack Query} and \textbf{Zustand}, and automated AI-powered care planning across 9 health domains}
+            \resumeItem{Built scalable subscription-based digital asset platforms (\textbf{Care Prints}, \textbf{For Little Readers}) with watermarking protection, secure content delivery, and integrated \textbf{Twilio} SMS and \textbf{Resend} email services across all applications}
           \resumeItemListEnd
       \resumeProjectHeading
-          {\textbf{BuildMyWealth - Offline-First Architecture} $|$ \emph{React Native, Expo, RxDB, CouchDB, CRDT}}{}
+          {\textbf{BuildMyWealth - A budget tracking app} $|$ \emph{React Native, Expo, RxDB, CouchDB, CRDT}}{}
           \resumeItemListStart
-            \resumeItem{Architected offline-first mobile fintech app using \textbf{RxDB} with local-first data persistence and bi-directional CouchDB synchronization, enabling full functionality without network connectivity}
-            \resumeItem{Implemented \textbf{CRDT}-based (Conflict-free Replicated Data Type) conflict resolution algorithm ensuring eventual consistency across devices when reconnecting after extended offline periods}
-            \resumeItem{Designed reactive data layer with RxDB observables providing automatic UI updates on data mutations, eliminating manual state management for complex financial transaction workflows}
-            \resumeItem{\href{https://www.buildmywealth.app}{\underline{buildmywealth.app}}}
+            \resumeItem{Co-founded fintech startup focused on personal financial management; led mobile development using \textbf{React Native} and \textbf{Expo}}
+            \resumeItem{Architected offline-first data sync with \textbf{RxDB}, achieving seamless local persistence and conflict resolution on reconnect}
           \resumeItemListEnd
     \resumeSubHeadingListEnd
 
