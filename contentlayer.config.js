@@ -68,7 +68,6 @@ export const Projects = defineDocumentType(() => ({
     },
     websiteUrl: {
       type: "string",
-      required: true,
     },
     playStoreUrl: {
       type: "string",
