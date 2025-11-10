@@ -1,6 +1,7 @@
 import { allPosts, allProjects } from "@/.contentlayer/generated";
 import technologies from "@/components/technologies";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
 import { Navbar } from "@/components/nav/Navbar";
 import dayjs from "dayjs";
@@ -261,39 +262,73 @@ export default function Home() {
             id="blog"
             className="grid grid-cols-1 gap-12 mx-auto md:grid-cols-2"
           >
-            <div className="col-span-1 md:col-span-2">
-              <h1 className="text-4xl font-bold tracking-tight">Blog Posts</h1>
+            <div className="col-span-1 md:col-span-2 flex items-center justify-between">
+              <h1 className="text-4xl font-bold tracking-tight">
+                Blog Posts <Twemoji emoji="📝" className="ml-2" />
+              </h1>
+              <Link href="/blogs">
+                <Button variant="ghost" className="text-base">
+                  View all
+                </Button>
+              </Link>
             </div>
-            {allPosts.map((blog) => (
-              <article key={blog._id} className="flex flex-col gap-4 group">
+            {allPosts.slice(0, 4).map((blog) => (
+              <article
+                key={blog._id}
+                className="flex bg-grid-small-black/[.1] border-input group hover:shadow-xl flex-col gap-4 rounded-xl transition duration-200 p-4 bg-white border"
+              >
                 {blog.coverImage && (
                   <Link href={blog.slug}>
-                    <div className="relative w-full overflow-hidden border rounded-2xl aspect-video bg-gray-50 border-gray-900/10">
+                    <div className="relative w-full overflow-hidden border rounded-2xl aspect-[3/2] bg-gray-50 border-input">
                       <Image
                         src={blog.coverImage}
                         fill
                         className="object-cover transition-transform rounded-2xl group-hover:scale-105"
-                        alt="Aritcle Cover Photo"
+                        alt="Article Cover Photo"
                       />
                     </div>
                   </Link>
                 )}
-                <div className="flex flex-col gap-2">
+                <div className="flex flex-col gap-3">
+                  {blog.category && (
+                    <div className="flex items-center gap-2">
+                      <Badge
+                        variant="default"
+                        className="bg-blue-500 hover:bg-blue-600 text-white font-medium"
+                      >
+                        {blog.category}
+                      </Badge>
+                    </div>
+                  )}
                   <Link href={blog.slug}>
-                    <h2 className="text-xl font-bold cursor-pointer">
+                    <h2 className="text-xl font-bold cursor-pointer group-hover:translate-x-1 transition duration-200">
                       {blog.title}
                     </h2>
                   </Link>
                   {blog.description && (
                     <Link href={blog.slug}>
-                      <p>{blog.description}</p>
+                      <p className="text-sm group-hover:translate-x-1 transition duration-200 line-clamp-2">
+                        {blog.description}
+                      </p>
                     </Link>
                   )}
-                  <Link href={blog.slug}>
+                  <div className="flex items-center justify-between">
                     <p className="text-sm text-gray-500">
                       {dayjs(blog.publishAt).format("MMMM D, YYYY")}
                     </p>
-                  </Link>
+                  </div>
+                  {blog.tags && blog.tags.length > 0 && (
+                    <div className="flex flex-wrap gap-2">
+                      {blog.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="px-2 py-1 text-sm text-gray-800 bg-gray-200 rounded-md"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  )}
                 </div>
               </article>
             ))}

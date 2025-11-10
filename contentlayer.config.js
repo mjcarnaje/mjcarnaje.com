@@ -45,6 +45,15 @@ export const Post = defineDocumentType(() => ({
     publishAt: {
       type: "date",
     },
+    category: {
+      type: "string",
+    },
+    tags: {
+      type: "list",
+      of: {
+        type: "string",
+      },
+    },
   },
   computedFields,
 }));

@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 
 import { Mdx } from "@/components/mdx-components";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import { ArrowLeftIcon } from "lucide-react";
 import { Metadata } from "next";
 import Image from "next/image";
@@ -81,7 +82,7 @@ export default async function PostPage({ params }: PostProps) {
       </div>
 
       <div className="flex flex-col mb-8 gap-1">
-        <div className="relative w-full border rounded-2xl aspect-video bg-gray-50 border-gray-900/10">
+        <div className="relative w-full border rounded-2xl aspect-[3/2] bg-gray-50 border-gray-900/10">
           <Image
             src={post.coverImage}
             alt={post.title}
@@ -97,6 +98,31 @@ export default async function PostPage({ params }: PostProps) {
       <div>
         <h1>{post.title}</h1>
         <p className="text-xl text-slate-700">{post.description}</p>
+
+        {(post.category || (post.tags && post.tags.length > 0)) && (
+          <div className="flex flex-wrap items-center gap-3 my-4 not-prose">
+            {post.category && (
+              <Badge
+                variant="default"
+                className="bg-blue-500 hover:bg-blue-600 text-white font-medium text-sm px-3 py-1"
+              >
+                {post.category}
+              </Badge>
+            )}
+            {post.tags && post.tags.length > 0 && (
+              <div className="flex flex-wrap gap-2">
+                {post.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="px-2.5 py-1 text-sm text-gray-800 bg-gray-200 rounded-md"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            )}
+          </div>
+        )}
 
         {post?.authors && (
           <div className="flex items-center gap-4 py-2">
