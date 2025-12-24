@@ -11,31 +11,45 @@ export function Footer() {
               MJ<span className="text-primary">.</span>
             </Link>
             <p className="max-w-xs text-sm text-muted-foreground leading-relaxed font-medium">
-              Software Engineer from the Philippines focused on building modern web applications and AI-powered solutions.
+              Software Engineer from the Philippines focused on building modern
+              web applications and AI-powered solutions.
             </p>
           </div>
           <div>
-            <h3 className="text-xs font-black uppercase tracking-widest text-gray-400 mb-6">Navigation</h3>
+            <h3 className="text-xs font-black uppercase tracking-widest text-gray-400 mb-6">
+              Navigation
+            </h3>
             <ul className="space-y-4">
               <li>
-                <Link href="/#about" className="text-sm font-bold text-gray-600 hover:text-primary transition-colors">
+                <Link
+                  href="/#about"
+                  className="text-sm font-bold text-gray-600 hover:text-primary transition-colors"
+                >
                   About
                 </Link>
               </li>
               <li>
-                <Link href="/#projects" className="text-sm font-bold text-gray-600 hover:text-primary transition-colors">
+                <Link
+                  href="/#projects"
+                  className="text-sm font-bold text-gray-600 hover:text-primary transition-colors"
+                >
                   Projects
                 </Link>
               </li>
               <li>
-                <Link href="/blogs" className="text-sm font-bold text-gray-600 hover:text-primary transition-colors">
+                <Link
+                  href="/blogs"
+                  className="text-sm font-bold text-gray-600 hover:text-primary transition-colors"
+                >
                   Journal
                 </Link>
               </li>
             </ul>
           </div>
           <div>
-            <h3 className="text-xs font-black uppercase tracking-widest text-gray-400 mb-6">Connect</h3>
+            <h3 className="text-xs font-black uppercase tracking-widest text-gray-400 mb-6">
+              Connect
+            </h3>
             <div className="flex space-x-6">
               <a
                 href="https://linkedin.com/in/mjcarnaje"
@@ -74,4 +88,3 @@ export function Footer() {
     </footer>
   );
 }
-

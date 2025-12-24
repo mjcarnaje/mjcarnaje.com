@@ -26,7 +26,8 @@ export const metadata: Metadata = {
     "Hello! I'm Michael James Carnaje, a coder from the Philippines. Here you can find my projects, blog posts, and more.",
   openGraph: {
     title: "MJ Carnaje",
-    description: "Hello! I'm Michael James Carnaje, a coder from the Philippines. Here you can find my projects, blog posts, and more.",
+    description:
+      "Hello! I'm Michael James Carnaje, a coder from the Philippines. Here you can find my projects, blog posts, and more.",
     url: "https://mjcarnaje.com",
     siteName: "MJ Carnaje",
     locale: "en_US",
@@ -52,7 +53,11 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <>
-      <html lang="en" className={cn(inter.variable, firaCode.variable)} style={{ scrollBehavior: "smooth" }}>
+      <html
+        lang="en"
+        className={cn(inter.variable, firaCode.variable)}
+        style={{ scrollBehavior: "smooth" }}
+      >
         <AnalyticsWrapper />
         <body className="relative min-h-screen bg-background text-foreground grain font-sans bg-dot-black/[0.03]">
           {children}
