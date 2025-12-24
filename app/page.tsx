@@ -162,7 +162,7 @@ export default function Home() {
               </div>
               <div className="md:pt-12">
                 <p className="text-gray-400 max-w-xs text-xl leading-relaxed italic border-l-4 border-primary pl-6">
-                  "Building digital products that bridge the gap between human needs and AI potential."
+                  &ldquo;Building digital products that bridge the gap between human needs and AI potential.&rdquo;
                 </p>
               </div>
             </div>
