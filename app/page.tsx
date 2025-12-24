@@ -3,6 +3,7 @@ import technologies from "@/components/technologies";
 import { Button } from "@/components/ui/button";
 import { Navbar } from "@/components/nav/Navbar";
 import { Footer } from "@/components/Footer";
+import { GitHubIcon } from "@/assets/icons";
 import Image from "next/image";
 import Link from "next/link";
 import Twemoji from "../components/Twemoji";
@@ -205,67 +206,85 @@ export default function Home() {
             </div>
 
             <div className="space-y-48">
-              {allProjects.map((project, index) => (
-                <div
-                  key={project._id}
-                  className={cn(
-                    "flex flex-col lg:items-center gap-16 lg:gap-24",
-                    index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
-                  )}
-                >
-                  <div className="w-full lg:w-3/5 group relative">
-                    {/* Unique Project Image Treatment */}
-                    <div className="absolute -inset-4 bg-primary/10 rounded-[3rem] blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-                    <div className="relative aspect-[16/10] rounded-[2rem] overflow-hidden bg-gray-100 border border-white/10 transition-all duration-700 group-hover:scale-[1.02] group-hover:-rotate-1 shadow-2xl shadow-black/20">
-                      {project.coverImage && (
-                        <Image
-                          src={project.coverImage}
-                          fill
-                          className="object-cover transition-all duration-700"
-                          alt={project.title}
-                        />
-                      )}
+              {allProjects
+                .sort((a, b) => (a.order || 100) - (b.order || 100))
+                .map((project, index) => (
+                  <div
+                    key={project._id}
+                    className={cn(
+                      "flex flex-col gap-16 lg:gap-24",
+                      index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
+                    )}
+                  >
+                    <div className="w-full lg:w-1/2 group">
+                      <div className="relative">
+                        {/* Unique Project Image Treatment */}
+                        <div className="absolute -inset-20 bg-primary/20 rounded-full blur-[120px] opacity-100 transition-all duration-700 group-hover:bg-primary/30 group-hover:-inset-24"></div>
+                        <div className="relative aspect-[16/10] rounded-[2rem] overflow-hidden bg-gray-100 border border-white/10 transition-all duration-700 group-hover:scale-[1.02] group-hover:-rotate-1 shadow-2xl shadow-black/20">
+                          {project.coverImage && (
+                            <Image
+                              src={project.coverImage}
+                              fill
+                              className="object-cover transition-all duration-700"
+                              alt={project.title}
+                            />
+                          )}
+                        </div>
+                      </div>
                     </div>
-                  </div>
 
-                  <div className="w-full lg:w-2/5 space-y-8">
-                    <div className="space-y-4">
-                      <span className="text-primary font-black text-xs uppercase tracking-[0.4em] block">
-                        Case Study 0{index + 1}
-                      </span>
-                      <h4 className="text-5xl font-black tracking-tight leading-none group-hover:text-primary transition-colors">
-                        {project.title}
-                      </h4>
-                    </div>
-                    <p className="text-xl text-gray-400 leading-relaxed font-medium">
-                      {project.description}
-                    </p>
-                    <div className="flex flex-wrap gap-3 py-2">
-                      {project.tags?.map((tag) => (
-                        <span
-                          key={tag}
-                          className="text-[10px] font-black uppercase tracking-widest px-4 py-1.5 border border-white/10 rounded-full bg-white/5 hover:bg-white hover:text-black transition-all cursor-default"
-                        >
-                          {tag}
+                    <div className="w-full lg:w-1/2 space-y-8">
+                      <div className="space-y-4">
+                        <span className="text-primary font-black text-xs uppercase tracking-[0.4em] block">
+                          Case Study 0{index + 1}
                         </span>
-                      ))}
-                    </div>
-                    <div className="pt-6">
-                      {project.websiteUrl && (
-                        <Link
-                          href={project.websiteUrl}
-                          target="_blank"
-                          className="inline-block group/btn"
-                        >
-                          <button className="h-14 px-10 bg-white text-gray-900 font-black uppercase tracking-[0.2em] text-[10px] transition-all hover:bg-primary hover:text-white border-2 border-transparent hover:border-primary">
-                            View Live System
-                          </button>
-                        </Link>
-                      )}
+                        <h4 className="text-5xl font-black tracking-tight leading-none group-hover:text-primary transition-colors">
+                          {project.title}
+                        </h4>
+                      </div>
+                      <p className="text-xl text-gray-400 leading-relaxed font-medium">
+                        {project.description}
+                      </p>
+                      <div className="flex flex-wrap gap-3 py-2">
+                        {project.tags?.map((tag) => (
+                          <span
+                            key={tag}
+                            className="text-[10px] font-black uppercase tracking-widest px-4 py-1.5 border border-white/10 rounded-full bg-white/5 hover:bg-white hover:text-black transition-all cursor-default"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                      <div className="pt-6 flex flex-wrap gap-4">
+                        {project.websiteUrl && (
+                          <Link
+                            href={project.websiteUrl}
+                            target="_blank"
+                            className="inline-block group/btn"
+                          >
+                            <button className="h-14 px-10 bg-white text-gray-900 font-black uppercase tracking-[0.2em] text-[10px] transition-all hover:bg-primary hover:text-white border-2 border-transparent hover:border-primary">
+                              {project.playStoreUrl || project.appStoreUrl
+                                ? "Get the App"
+                                : "View Live System"}
+                            </button>
+                          </Link>
+                        )}
+                        {project.githubUrl && (
+                          <Link
+                            href={project.githubUrl}
+                            target="_blank"
+                            className="inline-block group/btn"
+                          >
+                            <button className="h-14 px-8 bg-gray-900 text-white font-black uppercase tracking-[0.2em] text-[10px] transition-all hover:bg-primary border-2 border-transparent hover:border-primary flex items-center gap-3">
+                              <GitHubIcon className="w-4 h-4" />
+                              View Repository
+                            </button>
+                          </Link>
+                        )}
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                ))}
             </div>
           </div>
         </section>

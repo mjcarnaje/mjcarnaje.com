@@ -42,3 +42,15 @@ export function SpotifyIcon(props: React.ComponentProps<"svg">) {
     </svg>
   );
 }
+
+export function MailIcon(props: React.ComponentProps<"svg">) {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" {...props}>
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M2 5.5V18.5C2 19.3284 2.67157 20 3.5 20H20.5C21.3284 20 22 19.3284 22 18.5V5.5C22 4.67157 21.3284 4 20.5 4H3.5C2.67157 4 2 4.67157 2 5.5ZM20.5 6L12 12L3.5 6H20.5ZM3.5 18.5V8.5L12 14.5L20.5 8.5V18.5H3.5Z"
+      />
+    </svg>
+  );
+}

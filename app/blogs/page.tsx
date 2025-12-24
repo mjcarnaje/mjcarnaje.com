@@ -95,7 +95,7 @@ export default function BlogsPage() {
                 JOURNAL<span className="text-primary">.</span>
               </h1>
               <p className="text-xl text-muted-foreground font-medium">
-                Reflections on engineering, AI integration, and the general craft of building.
+                A personal journal on things that matter.
               </p>
             </div>
             <div className="flex flex-col items-start md:items-end">

@@ -67,6 +67,10 @@ export const Projects = defineDocumentType(() => ({
       type: "string",
       required: true,
     },
+    order: {
+      type: "number",
+      default: 100,
+    },
     description: {
       type: "string",
       required: true,
@@ -76,6 +80,9 @@ export const Projects = defineDocumentType(() => ({
       required: true,
     },
     websiteUrl: {
+      type: "string",
+    },
+    githubUrl: {
       type: "string",
     },
     playStoreUrl: {

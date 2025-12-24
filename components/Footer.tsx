@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Github, Linkedin, Mail } from "lucide-react";
+import { GitHubIcon, LinkedInIcon, MailIcon } from "@/assets/icons";
 
 export function Footer() {
   return (
@@ -55,26 +55,26 @@ export function Footer() {
                 href="https://linkedin.com/in/mjcarnaje"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-primary transition-colors"
+                className="text-primary"
                 aria-label="LinkedIn"
               >
-                <Linkedin className="h-5 w-5" strokeWidth={2} fill="none" />
+                <LinkedInIcon className="h-5 w-5 fill-current" />
               </a>
               <a
                 href="https://github.com/mjcarnaje"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-primary transition-colors"
+                className="text-primary"
                 aria-label="GitHub"
               >
-                <Github className="h-5 w-5" strokeWidth={2} fill="none" />
+                <GitHubIcon className="h-5 w-5 fill-current" />
               </a>
               <a
                 href="mailto:carnaje.michaeljames@gmail.com"
-                className="text-gray-400 hover:text-primary transition-colors"
+                className="text-primary"
                 aria-label="Email"
               >
-                <Mail className="h-5 w-5" strokeWidth={2} fill="none" />
+                <MailIcon className="h-5 w-5 fill-current" />
               </a>
             </div>
           </div>
