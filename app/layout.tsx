@@ -54,7 +54,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <>
       <html lang="en" className={cn(inter.variable, firaCode.variable)} style={{ scrollBehavior: "smooth" }}>
         <AnalyticsWrapper />
-        <body className="relative min-h-screen bg-dot-black/[0.2] text-gray-800 bg-gray-100">
+        <body className="relative min-h-screen bg-background text-foreground grain font-sans bg-dot-black/[0.03]">
           {children}
           <Toaster />
         </body>
